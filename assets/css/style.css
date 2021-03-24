@@ -37,9 +37,6 @@
 }
 
 
-
-
-
 .containerOwnApp {
     box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
     padding-top: 15px;
@@ -81,7 +78,6 @@
  }
 
 
-
 .estiloFormulario{
     display: flex;
     padding: 100px 0px 0px 400px;
@@ -89,9 +85,11 @@
     align-items: center;
     border-color: black;
 }
+
 .centrar{  
     padding: 10px 0px 0px 400px;
 }
+
 .centrar2{
     padding: 10px 0px 0px 350px;
 }
@@ -100,3 +98,12 @@
     background-color: rgb(199, 23, 23);
     color: white;
 }
+
+.contenedorFooter{
+    text-align: center
+}
+
+a{
+ text-decoration: none;   
+}
+
