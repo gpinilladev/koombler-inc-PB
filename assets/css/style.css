@@ -18,7 +18,7 @@
 }
 
 .menu {
-    background-color: rgb(199, 23, 23);
+    background-color: rgb(21, 68, 84);
 }
 
 .textoColor{
@@ -99,4 +99,31 @@
 .divColmd12{
     background-color: rgb(199, 23, 23);
     color: white;
+}
+
+.contenido{
+    margin-top: 100px;
+    float: right;
+}
+
+.tituloQuienesSomos{
+    text-align: center;
+}
+
+.parrafoUno{
+    text-align: center;
+    text-align: justify;
+    padding: 30px;
+}
+
+.tituloParrafoDos{
+    text-align: center;
+}
+
+.tituloParrafoTres{
+    text-align: center;
+}
+
+.parrafoDos{
+    padding: 30px;
 }
