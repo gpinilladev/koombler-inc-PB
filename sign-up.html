@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- ********** START - Inicio documento html ********** -->
+<html lang="en">
+<!-- ********** START - Head o cabecera de el documento html ********** -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  -->
+    <title>Registro prototipo</title>
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/style.css" rel="stylesheet" />
+</head>
+<!-- *********** END - Head o cabecera de el documento html *********** -->
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./assets/img/logoTemporal1.png" alt="" width="50" height="50" class="d-inline-block align-top">
+                    <span class="textoColor">
+                        Koombler INC
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse listMenu" id="navbarCollapse">
+                    <ul class="navbar-nav mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">¿Quiénes somos?</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Servicios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Asesoría Jurídica Integral</a>
+                              <a class="dropdown-item" href="#">Asesoría en Derecho Laboral</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Asesoría en Procesos Familia</a>
+                            </div>
+                          </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Contáctenos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+      <div>
+          <h2>Koombler inc</h2>
+      </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- ********** Fin Carousel ********** -->
+        <div >
+        <form class="row g-3 needs-validation estiloFormulario" novalidate>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="validationCustom05" class="form-label">Nombre</label>
+              </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="validationCustom05" class="form-label">Apellido</label>
+              </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="validationCustom05" class="form-label">Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="validationCustom05" class="form-label">Confirme Email</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="validationCustom05" class="form-label">Contraseña</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="validationCustom05" class="form-label">Confirme Contraseña</label>
+              </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Acepto terminos y condiciones
+                </label>
+                <div class="invalid-feedback">
+                  Usted debe aceptar terminos y condiciones.
+                </div>
+              </div>
+            </div>
+            <div class="col-12 centrar">
+              <button class="btn btn-primary" type="submit">Registrase</button>
+            </div>
+            <div>
+                <a class="centrar2" href="sign-in.html">Inicie sesion si ya tiene cuenta</a>
+            </div>
+          </form>
+    </main>
+
+
+    <!-- ********** START - Scripts de la pagina ********** -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- *********** END - Scripts de la pagina *********** -->
+</body>
+</html>
+<!-- *********** END - Fin documento html *********** -->
