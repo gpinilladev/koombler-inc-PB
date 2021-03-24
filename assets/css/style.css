@@ -1,102 +1,123 @@
+/* Paleta de colores 
+rgb(255, 255, 255)
+rgb(45, 70, 84)
+rgb(36, 59, 74)
+rgb(129, 23, 27)
+rgb(0, 0, 0)
+*/
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }
 
 .menu {
-    background-color: rgb(199, 23, 23);
+  background-color: rgb(45, 70, 84);
+  padding: 0px;
 }
 
-.textoColor{
-    color: rgb(255, 255, 255);
-    font-weight: bolder;
+.textoColor {
+  color: rgb(white);
+  font-weight: bolder;
 }
-
 
 .listMenu {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .carouselStyle {
-    /* height: 800px; */
+  /* height: 800px; */
 }
-
-
-
-
 
 .containerOwnApp {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
-    padding-top: 15px;
- }
-  
- .login-page {
-   padding: 18% 0 0;
-   margin: 0 auto 100px;
-   max-width: 360px;
-   position: relative;
- }
-  
- .login-form {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
- }
-  
- .login-form-header {
-    padding-top: 16px;
- }
-  
- .login-from-row {
-    padding-top: 16px;
-    padding-bottom: 16px;
- }
-  
- .login-form-font-header {
-    font-size:30px; 
-    font-weight: bold;
- }
-  
- .login-form-font-header span {
-    color: #007C9B;
- }
-
- .btn-infoDM{
-     color: white;
-     background-color: #3483fa;
-     border-color: #3483fa;
- }
-
-
-
-.estiloFormulario{
-    display: flex;
-    padding: 100px 0px 0px 400px;
-    width: 70%;
-    align-items: center;
-    border-color: black;
-}
-.centrar{  
-    padding: 10px 0px 0px 400px;
-}
-.centrar2{
-    padding: 10px 0px 0px 350px;
+  box-shadow: 0 0 27px 0 rgb(45, 70, 84);
+  padding-top: 15px;
 }
 
-.divColmd12{
-    background-color: rgb(199, 23, 23);
+.login-page {
+  padding: 18% 0 0;
+  margin: 0 auto 100px;
+  max-width: 360px;
+  position: relative;
+}
+
+.login-form {
+  box-shadow: 0 0 27px 0 rgb(45, 70, 84);
+}
+
+.login-form-header {
+  padding-top: 16px;
+}
+
+.login-from-row {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.login-form-font-header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.login-form-font-header span {
+  color: #007c9b;
+}
+
+.btn-infoDM {
+  color: rgb(129, 23, 27);
+  background-color: white;
+  border-color: white;
+}
+
+.btn-infoDM:hover {
+  background-color: rgb(129, 23, 27);
+  color: white;
+  box-shadow: 0px 10px 10px -6px black;
+}
+
+.estiloFormulario {
+  display: flex;
+  padding: 100px 0px 0px 400px;
+  width: 70%;
+  align-items: center;
+  border-color: black;
+}
+.centrar {
+  padding: 10px 0px 0px 400px;
+}
+.centrar2 {
+  padding: 10px 0px 0px 350px;
+}
+
+.divColmd12 {
+  background-color: rgb(45, 70, 84);
+  color: white;
+}
+
+.btnCrearCuenta {
+  text-decoration: none;
+  color: white;
+}
+
+.btnCrearCuenta:hover {
+  color: white;
+}
+
+.btnColor{
+    background-color: rgb(45, 70, 84);
     color: white;
 }
