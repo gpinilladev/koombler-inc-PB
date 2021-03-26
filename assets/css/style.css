@@ -276,3 +276,41 @@ color: rgb(45, 70, 84);;
 .textoColorParrafo{
   color: rgba(84, 84, 84, 0.62);
 }
+.headerContact{
+  text-align: center;
+  margin: 0 auto;
+  width: 1280px;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.newRow {
+  /*background-color: red;*/
+  width: 100%;
+  padding: 1px;
+  display: flex;
+}
+
+.contenedorLarge {
+  /*background-color: yellow;*/
+  padding: 5px;
+  margin: 2px;
+  width: 100%;
+}
+
+.contenedorMedium {
+  /*background-color: blue;*/
+  padding: 2px;
+  margin: 2px;
+  width: 50%;
+  display: flex;
+}
+
+.contenedorSmall {
+  /*background-color: yellowgreen;*/
+  padding: 2px;
+  margin: 2px;
+  width: 50%;
+}
