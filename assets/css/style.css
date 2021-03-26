@@ -204,6 +204,7 @@ a{
     text-align: center;
     text-align: justify;
     padding: 30px;
+    font-size:25px ;
 }
 
 .tituloParrafoDos{
@@ -212,8 +213,16 @@ a{
 
 .tituloParrafoTres{
     text-align: center;
+    padding: 30px;;
 }
 
 .parrafoDos{
+  text-align: center;
+  text-align: justify;
     padding: 30px;
+    font-size:25px ;
+}
+.descripcion{
+  font-size:20px ;
+  
 }
