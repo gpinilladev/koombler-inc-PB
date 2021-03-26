@@ -206,6 +206,7 @@ a{
     text-align: justify;
     padding: 30px;
     color:rgba(84, 84, 84, 0.62);
+    font-size:25px ;
 }
 
 .tituloParrafoDos{
@@ -216,11 +217,23 @@ a{
 .tituloParrafoTres{
     text-align: center;
     color: rgb(36, 59, 74);
+    padding: 30px;;
 }
 
 .parrafoDos{
+  text-align: center;
+  text-align: justify;
     padding: 30px;
     color: rgb(84, 84, 84, 0.62);
+    font-size:25px ;
+}
+.descripcion{
+  font-size:20px ;
+  
+}
+.cargoBootCamp{
+
+  color: #2D4654;
 }
 
 .textoColorNombre{
