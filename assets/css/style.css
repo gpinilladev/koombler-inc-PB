@@ -198,22 +198,35 @@ a{
 
 .tituloQuienesSomos{
     text-align: center;
+    color: rgb(45, 70, 84);
 }
 
 .parrafoUno{
     text-align: center;
     text-align: justify;
     padding: 30px;
+    color:rgba(84, 84, 84, 0.62);
 }
 
 .tituloParrafoDos{
     text-align: center;
+    color: rgb(36, 59, 74);
 }
 
 .tituloParrafoTres{
     text-align: center;
+    color: rgb(36, 59, 74);
 }
 
 .parrafoDos{
     padding: 30px;
+    color: rgb(84, 84, 84, 0.62);
+}
+
+.textoColorNombre{
+color: rgb(45, 70, 84);;
+}
+
+.textoColorParrafo{
+  color: rgba(84, 84, 84, 0.62);
 }
