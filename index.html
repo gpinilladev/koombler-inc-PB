@@ -1,393 +1,321 @@
 <!DOCTYPE html>
 <!-- ********** START - Inicio documento html ********** -->
 <html lang="en">
-  <!-- ********** START - Head o cabecera de el documento html ********** -->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap CSS -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  -->
-    <title>NameApp Web Page</title>
-    <!-- Custom styles for this template -->
-    <link href="./assets/css/style.css" rel="stylesheet" />
-  </head>
-  <!-- *********** END - Head o cabecera de el documento html *********** -->
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top menu">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">
-            <img
-              src="./assets/img/LogoKH.jpg"
-              alt=""
-              width="200"
-              height="70"
-              class="d-inline-block align-top"
-            />
-            <!-- <span class="textoColor"> Koombler INC </span> -->
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse listMenu" id="navbarCollapse">
-            <ul class="navbar-nav mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./quienes-somos.html"
-                  >¿Quiénes somos?</a
-                >
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="./index.html"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Servicios
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#"
-                    >Asesoría Jurídica Integral</a
-                  >
-                  <a class="dropdown-item" href="#"
-                    >Asesoría en Derecho Laboral</a
-                  >
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#"
-                    >Asesoría en Procesos Familia</a
-                  >
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="./index.html">Contáctenos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="sign-in.html" target="_self"
-                  >Iniciar Sesión</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+<!-- ********** START - Head o cabecera de el documento html ********** -->
 
-    <main>
-      <!-- ********** Inicio Carousel ********** -->
-      <div
-        id="myCarousel"
-        class="carousel slide carouselStyle"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#myCarousel"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="./assets/img/bc-img-carousel-01.jpg"
-              alt="Slide 1 Mercedes Benz"
-              class="bd-placeholder-img"
-              width="100%"
-              height="100%"
-            />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  -->
+  <title>NameApp Web Page</title>
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/style.css" rel="stylesheet" />
+</head>
+<!-- *********** END - Head o cabecera de el documento html *********** -->
 
-            <div class="container">
-              <div class="carousel-caption text-start">
-                <h1>Asesoria Legal a un click.</h1>
-                <p>
-                  NameApp cuenta con una extensa red de especialistas en
-                  diversas areas del derecho y a fines, los cuales encuentras
-                  disponibles las 24 horas del dia los 7 dias de la semana.
-                </p>
-                <!-- <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p> -->
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/img/bc-img-carousel-02.jpg"
-              alt="Slide 1 Mercedes Benz"
-              class="bd-placeholder-img"
-              width="100%"
-              height="100%"
-            />
-
-            <div class="container">
-              <div class="carousel-caption text-start">
-                <h1>Orientacion Especializada desde cualquier lugar</h1>
-                <p>
-                  Accede a mas de 1.500 especialistas profesionales desde la
-                  comunidad de tu hogar o desde tu smartphone en el lugar que
-                  desees.
-                </p>
-                <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/img/bc-img-carousel-03.jpg"
-              alt="Slide 1 Mercedes Benz"
-              class="bd-placeholder-img"
-              width="100%"
-              height="100%"
-            />
-
-            <div class="container">
-              <div class="carousel-caption text-start">
-                <h1>Profesionales Certificados</h1>
-                <p>
-                  Interacciona con profesionales certificados y valorados para
-                  tu confianza y seguridad
-                </p>
-                <!-- <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p> -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top menu">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/img/LogoKH.jpg" alt="" width="200" height="70" class="d-inline-block align-top" />
+          <!-- <span class="textoColor"> Koombler INC </span> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#myCarousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <div class="collapse navbar-collapse listMenu" id="navbarCollapse">
+          <ul class="navbar-nav mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./quienes-somos.html">¿Quiénes somos?</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="./index.html" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Servicios
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Asesoría Jurídica Integral</a>
+                <a class="dropdown-item" href="#">Asesoría en Derecho Laboral</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Asesoría en Procesos Familia</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./index.html">Contáctenos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="sign-in.html" target="_self">Iniciar Sesión</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <!-- ********** Fin Carousel ********** -->
-      <div class="container marketing mt-4">
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-4 text-center">
-            <img
-              class="bd-placeholder-img rounded-circle"
-              src="./assets/img/bc-img-card-01.jpeg"
-              width="140"
-              height="140"
-              alt=""
-            />
-            <h2>Beneficios</h2>
-            <p>
-              Podras agendar asesorias, cargar documentos y llevas registro
-              completo de los procesos y que lleves. Tambien podras enterarte de
-              las actualizaciones y las nuevas normas acordes a la ley.
-            </p>
-            <p>
-              <a class="btn btn-secondary btnColor" href="#">Ver detalles &raquo;</a>
-            </p>
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4 text-center">
-            <img
-              class="bd-placeholder-img rounded-circle"
-              src="./assets/img/bc-img-card-02.jpeg"
-              width="140"
-              height="140"
-              alt=""
-            />
+    </nav>
+  </header>
 
-            <h2>Ahorra tiempo</h2>
-            <p>
-              Por medio de l agenda, ahorra tiempo buscando los profesionales
-              que necesitas y agenda consultas programadas para tus tramites.
-            </p>
-            <p>
-              <a class="btn btn-secondary btnColor" href="#">Ver detalles &raquo;</a>
-            </p>
-          </div>
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4 text-center">
-            <img
-              class="bd-placeholder-img rounded-circle"
-              src="./assets/img/bc-img-card-03.jpeg"
-              width="140"
-              height="140"
-              alt=""
-            />
+  <main>
+    <!-- ********** Inicio Carousel ********** -->
+    <div id="myCarousel" class="carousel slide carouselStyle" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+          aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/img/bc-img-carousel-01.jpg" alt="Slide 1 Mercedes Benz" class="bd-placeholder-img"
+            width="100%" height="100%" />
 
-            <h2>Agenda consultas</h2>
-            <p>
-              Agenda consultas presenciales o vistuales accediendo a tu perfil y
-              buscando de manera facil y rapida.
-            </p>
-            <p>
-              <a class="btn btn-secondary btnColor" href="#">Ver detalles &raquo;</a>
-            </p>
-          </div>
-          <!-- /.col-lg-4 -->
-        </div>
-        <!-- /.row -->
-
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider" />
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">
-              Un abogado a su alcance.
-              <span class="text-muted">Siempre a su servicio.</span>
-            </h2>
-            <p class="lead">
-              En Nuestra plataforma encontrara un abogado para lo que ud requiera dentro de una gran variedad de categorias, Penalistas , civiles, de famila y mucho mas.
-            </p>
-          </div>
-          <div class="col-md-5">
-            <img
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              src="./assets/img/bc-img-desc-01.jpeg"
-              width="500"
-              height="500"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">
-              Confianza.
-              <span class="text-muted">Honestidad.</span>
-            </h2>
-            <p class="lead">
-              Intentamos tener los mejores profesionales para ofrecer atencion oportuna y especializada, siempre comprometidos a manterner la calidad de nuestro servicio.
-            </p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img
-              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              src="./assets/img/bc-img-desc-02.jpeg"
-              width="500"
-              height="500"
-              alt=""
-            />
-          </div>
-        </div>
-
-            <hr class="featurette-divider" />
-            <div class="row contenedorFooter">
-                <div class="col-lg-4">
-                    <p>
-                        Nuestro grupo de trabajo altamente capacitado, y con la mejor disposición. Le ayudaremos a garantizar que estaremos sincronizados, motivados  para que su optimice sus procesos legales, y genere ese crecimiento continuo y acelerado, creciendo de forma organizada.
-                    </p>
-                    <button class="btn btn-lg btn-primary btn-block">Contáctenos</button>
-                </div>
-                <div class="col-lg-4">
-                    <h2>Hora de Atención</h2>
-                    <p>Lun - Vie: 7:30am - 5:30pm</p>
-                    <p>Sab : 9am - 12pm</p>
-                    <p>Cerrado el Domingo</p>
-                    <hr class="featurette-divider" />
-                    <div style="padding: 10px;">
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td><a href="#">Asesoría en Jurídica Integral</a></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><a href="#">Asesoría en Derecho Laboral</a></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><a href="#">Asesoría en Procesos Familia</a></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <h2>Te devolvemos la llamada</h2>
-                    <div>
-                        <input type="text" class="form-control" placeholder="Nombre">
-                    </div><br />
-                    <div>
-                        <input type="text" class="form-control" placeholder="telefono">
-                    </div><br />
-                    <div>
-                        <button class="btn btn-lg btn-primary btn-block">Enviar</button>
-                    </div>
-                </div>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Asesoria Legal a un click.</h1>
+              <p>
+                NameApp cuenta con una extensa red de especialistas en
+                diversas areas del derecho y a fines, los cuales encuentras
+                disponibles las 24 horas del dia los 7 dias de la semana.
+              </p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p> -->
             </div>
-            <hr class="featurette-divider" />
-            <!-- /END THE FEATURETTES -->
+          </div>
         </div>
+        <div class="carousel-item">
+          <img src="./assets/img/bc-img-carousel-02.jpg" alt="Slide 1 Mercedes Benz" class="bd-placeholder-img"
+            width="100%" height="100%" />
 
-        <hr class="featurette-divider" />
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Orientacion Especializada desde cualquier lugar</h1>
+              <p>
+                Accede a mas de 1.500 especialistas profesionales desde la
+                comunidad de tu hogar o desde tu smartphone en el lugar que
+                desees.
+              </p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/img/bc-img-carousel-03.jpg" alt="Slide 1 Mercedes Benz" class="bd-placeholder-img"
+            width="100%" height="100%" />
 
-        <!-- /END THE FEATURETTES -->
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Profesionales Certificados</h1>
+              <p>
+                Interacciona con profesionales certificados y valorados para
+                tu confianza y seguridad
+              </p>
+              <!-- <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p> -->
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- /.container -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- ********** Fin Carousel ********** -->
+    <div class="container marketing mt-4">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4 text-center">
+          <img class="bd-placeholder-img rounded-circle" src="./assets/img/bc-img-card-01.jpeg" width="140" height="140"
+            alt="" />
+          <h2>Beneficios</h2>
+          <p>
+            Podras agendar asesorias, cargar documentos y llevas registro
+            completo de los procesos y que lleves. Tambien podras enterarte de
+            las actualizaciones y las nuevas normas acordes a la ley.
+          </p>
+          <p>
+            <a class="btn btn-secondary btnColor" href="#">Ver detalles &raquo;</a>
+          </p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center">
+          <img class="bd-placeholder-img rounded-circle" src="./assets/img/bc-img-card-02.jpeg" width="140" height="140"
+            alt="" />
 
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>
-          &copy; 2021–2022 Prorotype Koombler, Inc. &middot;
-          <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-        </p>
-      </footer>
-    </main>
+          <h2>Ahorra tiempo</h2>
+          <p>
+            Por medio de l agenda, ahorra tiempo buscando los profesionales
+            que necesitas y agenda consultas programadas para tus tramites.
+          </p>
+          <p>
+            <a class="btn btn-secondary btnColor" href="#">Ver detalles &raquo;</a>
+          </p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4 text-center">
+          <img class="bd-placeholder-img rounded-circle" src="./assets/img/bc-img-card-03.jpeg" width="140" height="140"
+            alt="" />
 
-    <!-- ********** START - Scripts de la pagina ********** -->
-    <!-- Bootstrap Bundle with Popper -->
-    <!-- <script src="./assets/js/jquery-3.6.0.min.js"></script>
+          <h2>Agenda consultas</h2>
+          <p>
+            Agenda consultas presenciales o vistuales accediendo a tu perfil y
+            buscando de manera facil y rapida.
+          </p>
+          <p>
+            <a class="btn btn-secondary btnColor" href="#">Ver detalles &raquo;</a>
+          </p>
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider" />
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">
+            Un abogado a su alcance.
+            <span class="text-muted">Siempre a su servicio.</span>
+          </h2>
+          <p class="lead">
+            En Nuestra plataforma encontrara un abogado para lo que ud requiera dentro de una gran variedad de
+            categorias, Penalistas , civiles, de famila y mucho mas.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            src="./assets/img/bc-img-desc-01.jpeg" width="500" height="500" alt="" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">
+            Confianza.
+            <span class="text-muted">Honestidad.</span>
+          </h2>
+          <p class="lead">
+            Intentamos tener los mejores profesionales para ofrecer atencion oportuna y especializada, siempre
+            comprometidos a manterner la calidad de nuestro servicio.
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            src="./assets/img/bc-img-desc-02.jpeg" width="500" height="500" alt="" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">
+            Nuestro objetivo.
+            <span class="text-muted">La Conexion abogado-cliente.</span>
+          </h2>
+          <p class="lead">
+            Queremos conectar a esos clientes que tienen alguna dificultad legal ya sea desde un gran caso hasta una
+            simple duda por resolver con un abogado que este presto a dar la mejor atencion y con el mejor resultado
+            para su cliente
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            src="./assets/img/bc-img-desc-03.jpeg" width="500" height="500" alt="" />
+        </div>
+      </div>
+
+      <hr class="featurette-divider" />
+      <div class="row contenedorFooter">
+        <div class="col-lg-4">
+          
+          <p>
+            Nuestro grupo de trabajo altamente capacitado, y con la mejor disposición. Le ayudaremos a garantizar que
+            estaremos sincronizados, motivados para que su optimice sus procesos legales, y genere ese crecimiento
+            continuo y acelerado, creciendo de forma organizada.
+          </p>
+          <button class="btn btn-lg btn-primary btn-block btnColor">Contáctenos</button>
+        </div>
+        <div class="col-lg-4">
+          <h2>Hora de Atención</h2>
+          <p>Lun - Vie: 7:30am - 5:30pm</p>
+          <p>Sab : 9am - 12pm</p>
+          <p>Cerrado el Domingo</p>
+          <hr class="featurette-divider" />
+          <div class="divOpcionesFotter">
+            <table>
+              <tr>
+                <td></td>
+                <td><a class="aFooter" href="#">Asesoría en Jurídica Integral</a></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a class="aFooter" href="#">Asesoría en Derecho Laboral</a></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a class="aFooter" href="#">Asesoría en Procesos Familia</a></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h2>Te devolvemos la llamada</h2>
+          <div>
+            <input type="text" class="form-control" placeholder="Nombre">
+          </div><br />
+          <div>
+            <input type="text" class="form-control" placeholder="telefono">
+          </div><br />
+          <div>
+            <button class="btn btn-lg btn-primary btn-block btnColor">Enviar</button>
+          </div>
+        </div>
+      </div>
+      <hr class="featurette-divider" />
+      <!-- /END THE FEATURETTES -->
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <!-- /END THE FEATURETTES -->
+    </div>
+    <!-- /.container -->
+
+    <!-- FOOTER -->
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p>
+        &copy; 2021–2022 Prorotype Koombler, Inc. &middot;
+        <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+      </p>
+    </footer>
+  </main>
+
+  <!-- ********** START - Scripts de la pagina ********** -->
+  <!-- Bootstrap Bundle with Popper -->
+  <!-- <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script> -->
-    <script src="./assets/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- *********** END - Scripts de la pagina *********** -->
+  <script src="./assets/js/jquery-3.6.0.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <!-- *********** END - Scripts de la pagina *********** -->
 </body>
+
 </html>
 <!-- *********** END - Fin documento html *********** -->

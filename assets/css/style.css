@@ -88,6 +88,7 @@ rgb(0, 0, 0)
   background-color: rgb(129, 23, 27);
   color: white;
   box-shadow: 0px 10px 10px -6px black;
+  font-size: 20px;
 }
 
 .estiloFormulario {
@@ -116,104 +117,126 @@ rgb(0, 0, 0)
 
 .btnCrearCuenta:hover {
   color: white;
+  font-size: 20px;
 }
 
-.btnColor{
-    background-color: rgb(45, 70, 84);
+.btnColor {
+  background-color: rgb(45, 70, 84);
+  border-color: rgb(45, 70, 84);
 }
+
+.btnColor:hover {
+  background-color: rgb(84, 84, 84);
+  color: white;
+}
+
 .containerOwnApp {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
-    padding-top: 15px;
-}
-  
- .login-page {
-   padding: 18% 0 0;
-   margin: 0 auto 100px;
-   max-width: 360px;
-   position: relative;
- }
-  
- .login-form {
-    box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
- }
-  
- .login-form-header {
-    padding-top: 16px;
- }
-  
- .login-from-row {
-    padding-top: 16px;
-    padding-bottom: 16px;
- }
-  
- .login-form-font-header {
-    font-size:30px; 
-    font-weight: bold;
- }
-  
- .login-form-font-header span {
-    color: #007C9B;
- }
-
- .btn-infoDM{
-     color: white;
-     background-color: #3483fa;
-     border-color: #3483fa;
- }
-
-
-.estiloFormulario{
-    display: flex;
-    padding: 100px 0px 0px 400px;
-    width: 70%;
-    align-items: center;
-    border-color: black;
+  box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
+  padding-top: 15px;
 }
 
-.centrar{  
-    padding: 10px 0px 0px 400px;
+.login-page {
+  padding: 18% 0 0;
+  margin: 0 auto 100px;
+  max-width: 360px;
+  position: relative;
 }
 
-.centrar2{
-    padding: 10px 0px 0px 350px;
+.login-form {
+  box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
 }
 
-.divColmd12{
-    background-color: rgb(199, 23, 23);
-    color: white;
+.login-form-header {
+  padding-top: 16px;
 }
 
-.contenedorFooter{
-    text-align: center
+.login-from-row {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-a{
- text-decoration: none;   
+.login-form-font-header {
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.contenido{
-    margin-top: 100px;
-    float: right;
+.login-form-font-header span {
+  color: #007c9b;
 }
 
-.tituloQuienesSomos{
-    text-align: center;
+/* .btn-infoDM {
+  color: white;
+  background-color: #3483fa;
+  border-color: #3483fa;
+} */
+
+.estiloFormulario {
+  display: flex;
+  padding: 100px 0px 0px 400px;
+  width: 70%;
+  align-items: center;
+  border-color: black;
 }
 
-.parrafoUno{
-    text-align: center;
-    text-align: justify;
-    padding: 30px;
+.centrar {
+  padding: 10px 0px 0px 400px;
 }
 
-.tituloParrafoDos{
-    text-align: center;
+.centrar2 {
+  padding: 10px 0px 0px 350px;
 }
 
-.tituloParrafoTres{
-    text-align: center;
+/* .divColmd12 {
+  background-color: rgb(199, 23, 23);
+  color: white;
+} */
+
+.contenedorFooter {
+  text-align: center;
 }
 
-.parrafoDos{
-    padding: 30px;
+a {
+  text-decoration: none;
+}
+
+.contenido {
+  margin-top: 100px;
+  float: right;
+}
+
+.tituloQuienesSomos {
+  text-align: center;
+}
+
+.parrafoUno {
+  text-align: center;
+  text-align: justify;
+  padding: 30px;
+}
+
+.tituloParrafoDos {
+  text-align: center;
+}
+
+.tituloParrafoTres {
+  text-align: center;
+}
+
+.parrafoDos {
+  padding: 30px;
+}
+
+.aFooter {
+  text-align: center;
+  text-decoration: none;
+  color: rgb(129, 23, 27);
+}
+
+.aFooter:hover {
+  font-size: 20px;
+  color: #100;
+}
+
+.divOpcionesFotter {
+  padding: 0px 0px 0px 100px;
 }
