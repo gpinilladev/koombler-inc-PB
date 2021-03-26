@@ -164,12 +164,6 @@ rgb(0, 0, 0)
   color: #007c9b;
 }
 
-/* .btn-infoDM {
-  color: white;
-  background-color: #3483fa;
-  border-color: #3483fa;
-} */
-
 .estiloFormulario {
   display: flex;
   padding: 100px 0px 0px 400px;
@@ -185,11 +179,6 @@ rgb(0, 0, 0)
 .centrar2 {
   padding: 10px 0px 0px 350px;
 }
-
-/* .divColmd12 {
-  background-color: rgb(199, 23, 23);
-  color: white;
-} */
 
 .contenedorFooter {
   text-align: center;
