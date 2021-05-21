@@ -5,7 +5,6 @@ let Schema = mongoose.Schema;
 let perfilSchema = Schema({
   nombre: String,
   descripcion: String,
-
   fechaCreacion: Number,
   fechaModificacion: Number,
 });

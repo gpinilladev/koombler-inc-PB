@@ -8,7 +8,6 @@ let solicitudSchema = Schema({
     idEspecialidad:{type:Schema.ObjectId,ref:"especialidad"},
     idEstado :{type:Schema.ObjectId,ref:"estado"},
     descripcion: String,
-
     fechaCreacion: Number,
     fechaModificacion: Number,
     fechaInicio: Number,

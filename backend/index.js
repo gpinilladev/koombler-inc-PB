@@ -7,18 +7,19 @@ let port = process.env.PORT || 3001;
 let app = express();
 
 app.listen(port, () => {
-  console.log("Servidor Backend funcionando en el puerto :" + port);
+  console.log("Servidor Backend funcionando en el puerto :", port);
 });
 
-mongoose
-  .connect("mongodb://localhost:27017/bleringappdb", {
+mongoose.connect("mongodb://localhost:27017/bleringappdb", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useFindAndModify: false,
     useCreateIndex: true,
-  })
-  .then(() => console.log("Conexion con MongoDB: ON"))
-  .catch((err) => console.log("Conexion a MongoDB: OFF"));
+    useFindAndModify: false,
+  }).then(() => {
+    console.log("Conexion con MongoDB: ON");
+  }).catch((err) => { 
+    console.log("Conexion a MongoDB: OFF");
+  });
 
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
