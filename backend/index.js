@@ -6,6 +6,8 @@ let port = process.env.PORT || 3001;
 
 let app = express();
 
+let usuarioRoutes = require("./routes/usuario");
+
 app.listen(port, () => {
   console.log("Servidor Backend funcionando en el puerto :", port);
 });
@@ -24,6 +26,7 @@ mongoose.connect("mongodb://localhost:27017/bleringappdb", {
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use("/api", usuarioRoutes)
 
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");
