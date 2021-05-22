@@ -12,6 +12,7 @@ let usuarioSchema= Schema({
     numIdentificacion: String,
     email: String,
     fechaNacimiento: Number,
+    clave: String,
     fechaCreacion: { type: Date, default: Date.now },
     fechaModificacion: { type: Date, default: Date.now },
 });
