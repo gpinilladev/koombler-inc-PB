@@ -36,6 +36,10 @@ const routes: Routes = [
     pathMatch: 'full',
     component: DashboardComponent,
   },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({

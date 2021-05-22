@@ -4,15 +4,16 @@ let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let usuarioSchema= Schema({
-    idEstado:{type:Schema.ObjectId,ref:"estado"},
-    idPerfil:{type:Schema.ObjectId,ref:"perfil"},
+    idEstado: {type:Schema.ObjectId,ref:"estado"},
+    idPerfil: {type:Schema.ObjectId,ref:"perfil"},
     nombres: String,
-    telefono:String,
+    telefono: String,
     direccion: String,
-    numIdentificacion:String,
-    email:String,
-    fechaCreacion:Number,
-    fechaModificacion:Number,
+    numIdentificacion: String,
+    email: String,
+    fechaNacimiento: Number,
+    fechaCreacion: { type: Date, default: Date.now },
+    fechaModificacion: { type: Date, default: Date.now },
 });
 
 module.exports= mongoose.model("usuario",usuarioSchema);
