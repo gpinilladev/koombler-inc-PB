@@ -1,5 +1,7 @@
 let Usuario = require("../models/usuario");
 let bcrypt = require("bcrypt-nodejs");
+let jwt = require("../libs/jwt");
+
 
 const registrarUsuario = (req, res) => {
     let params = req.body;
@@ -37,6 +39,35 @@ const registrarUsuario = (req, res) => {
     }
 };
 
+const login = (req, res) =>{
+    let params = req.body;
+    Usuario.findOne({ email: params.email }, (err, datosUsuario) =>{
+        if (err) {
+            res.status(500).send({ mensaje: "Error del servidor"});
+        } else {
+            if (datosUsuario) {
+                bcrypt.compare(params.clave, datosUsuario.clave, (err, confirm) =>{
+                    if (confirm) {
+                        if (params.getToken) {
+                            res.status(200).send({
+                                jwt: jwt.createToker(datosUsuario),
+                                user: datosUsuario,
+                            });
+                        } else {
+                            res.status(200).send({ Usuario: datosUsuario, mensaje: "Sin token"});
+                        }
+                    } else {
+                        res.status(401).send({mensaje: "Correo o Clave erronea"});
+                    }
+                });
+            } else {
+                res.status(401).send({mensaje: "Correo o Clave erronea"});
+            }
+        }
+    });
+};
+
 module.exports ={
     registrarUsuario,
+    login,
 };
