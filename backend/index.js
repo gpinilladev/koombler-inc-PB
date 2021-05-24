@@ -6,24 +6,31 @@ let port = process.env.PORT || 3001;
 
 let app = express();
 
+let usuarioRoutes = require("./routes/usuario");
+
 app.listen(port, () => {
-  console.log("Servidor Backend funcionando en el puerto :" + port);
+  console.log("Servidor Backend funcionando en el puerto :", port);
 });
 
-mongoose
-  .connect("mongodb://localhost:27017/bleringappdb", {
+mongoose.connect("mongodb://localhost:27017/bleringappdb", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useFindAndModify: false,
     useCreateIndex: true,
-  })
-  .then(() => console.log("Conexion con MongoDB: ON"))
-  .catch((err) => console.log("Conexion a MongoDB: OFF"));
+    useFindAndModify: false,
+  }).then(() => {
+    console.log("Conexion con MongoDB: ON");
+  }).catch((err) => { 
+    console.log("Conexion a MongoDB: OFF");
+  });
 
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+<<<<<<< HEAD
 app.use("/api",Estado);
+=======
+app.use("/api", usuarioRoutes)
+>>>>>>> 36e82bb034cb46868b56d633a397bbecf218b8f2
 
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");
