@@ -1,7 +1,7 @@
 let express = require("express");
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
-
+let Estado = require("./routes/estado")
 let port = process.env.PORT || 3001;
 
 let app = express();
@@ -23,6 +23,7 @@ mongoose
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use("/api",Estado);
 
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");

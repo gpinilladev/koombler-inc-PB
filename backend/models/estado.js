@@ -6,8 +6,9 @@ let estadoSchema = Schema({
   nombre: String,
   descripcion: String,
 
-  fechaCreacion: Number,
-  fechaModificacion: Number,
+  fechaCreacion:{ type: Date, default: Date.now },
+  fechaModificacion:{ type: Date, default: Date.now },
 });
 
-module.exports=mongoose.model("estado",estadoSchema);
+module.exports=mongoose.model("estado", estadoSchema);
+
