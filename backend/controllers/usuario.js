@@ -67,7 +67,32 @@ const login = (req, res) =>{
     });
 };
 
+const editarUsuario = (req, res) => {
+    let id = req.params["id"];
+    let params = req.body;
+    Uusuario.findByIdAndUpdate(
+        { _id: id },
+        { telefono: params.telefono},
+        { direccion: params.direccion},
+        { email: params.email},
+        { clave: params.clave},
+
+        (err, datosUsuario) => {
+            if (err) {
+                res.status(500).send ({ mensaje: "Error en el servidor"});
+            } else {
+                if (datosUsuario) {
+                    res.status(200).send({ categoria: datosUsuario});
+                } else {
+                    res.status(403).send({ mensaje: "El usuario no se pudo actualizar"});
+                }
+            }
+        }
+    );
+};
+
 module.exports ={
     registrarUsuario,
     login,
+    editarUsuario,
 };
