@@ -51,6 +51,25 @@ const editarEstado = (req, res) => {
   );
 };
 
+const inactivarEstado = (req, res) => {
+  let params = req.body;
+  Estado.findByIdAndUpdate(
+      { _id: params.id},
+      { estadoSistema: false},
+      (err, datosEstado) => {
+          if (err) {
+              res.status(500).send({ mensaje: "Error en el servidor" });
+          } else {
+              if (datosEstado) {
+                  res.status(200).send({ estado: "Estado Inactivo" });
+              } else {
+                  res.status(403).send({ mensaje: "El estado no se pudo inactivar"});
+              }
+          }
+      }
+  );
+};
+
 
 module.exports = {
     registrarEstado,
