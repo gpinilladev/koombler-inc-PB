@@ -8,8 +8,10 @@ const registrarUsuario = (req, res) => {
     let usuario = new Usuario();
     if (
         params.nombres &&
+        params.apellidos &&
         params.telefono &&
         params.direccion &&
+        params.tipoIdentificacion &&
         params.numIdentificacion &&
         params.email &&
         params.fechaNacimiento &&
@@ -18,8 +20,10 @@ const registrarUsuario = (req, res) => {
         bcrypt.hash(params.clave, null, null, (err, hash) => {
             if (hash) {
                 usuario.nombres = params.nombres;
+                usuario.apellidos = params.apellidos;
                 usuario.telefono = params.telefono;
                 usuario.direccion = params.direccion;
+                usuario.tipoIdentificacion = params.tipoIdentificacion;
                 usuario.numIdentificacion = params.numIdentificacion;
                 usuario.email = params.email;
                 usuario.fechaNacimiento = params.fechaNacimiento;
@@ -77,9 +81,14 @@ const editarUsuario = (req, res) => {
     let params = req.body;
     Usuario.findByIdAndUpdate(
         { _id: id },
+        { nombres: params.nombres },
+        { apellidos: params.apellidos },
         { telefono: params.telefono },
         { direccion: params.direccion },
+        { tipoIdentificacion: params.tipoIdentificacion },
+        { numIdentificacion: params.numIdentificacion },
         { email: params.email },
+        { fechaNacimiento: params.fechaNacimiento },
         { clave: params.clave },
 
         (err, datosUsuario) => {
