@@ -8,12 +8,12 @@ const registrarPerfil = (req, res) => {
     perfil.nombre = params.nombre;
     perfil.descripcion = params.descripcion;
   
-    estado.save((err, savePerfil) => {
+    perfil.save((err, savePerfil) => {
       if (err) {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
         if (savePerfil) {
-          res.status(200).send({ estado: savePerfil });
+          res.status(200).send({perfil : savePerfil });
         } else {
           res.status(401).send({ mensaje: "No se pudo registrar el perfil" });
         }
@@ -42,8 +42,8 @@ const registrarPerfil = (req, res) => {
       if (err) {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
-        if (datosEstado) {
-          res.status(200).send({ estado: datosPerfil });
+        if (datosPerfil) {
+          res.status(200).send({ perfil: datosPerfil });
         } else {
           res.status(401).send({ mensaje: "El perfil no existe" });
         }
@@ -63,7 +63,7 @@ const registrarPerfil = (req, res) => {
           res.status(500).send({ mensaje: "Error al conectar al servidor" });
         } else {
           if (datosPerfil) {
-            res.status(200).send({ estado: datosEstado });
+            res.status(200).send({ perfil: datosPerfil });
           } else {
             res.status(401).send({ mensaje: "El perfil no se pudo editar" });
           }
@@ -71,12 +71,29 @@ const registrarPerfil = (req, res) => {
       }
     );
   };
-  
+  const inactivarPerfil = (req, res) => {
+    let params = req.body;
+    Perfil.findByIdAndUpdate(
+      { _id: params.id },
+      { estadoSistema: false },
+      (err, datosPerfil) => {
+        if (err) {
+          res.status(500).send({ mensaje: "Error en el servidor" });
+        } else {
+          if (datosPerfil) {
+            res.status(200).send({ perfil: "Perfil Inactivo" });
+          } else {
+            res.status(403).send({ mensaje: "El perfil no se pudo inactivar" });
+          }
+        }
+      }
+    );
+  };
   module.exports = {
     registrarPerfil,
     listarPerfil,
     buscarPerfil,
     editarPerfil,
-    
+    inactivarPerfil,
   };
   
