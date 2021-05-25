@@ -20,7 +20,25 @@ const registrarPerfil = (req, res) => {
       }
     });
   };
+
+  const listarPerfil = (req, res) => {
+    let nombre = req.params["nombre"];
+  
+    Perfil.find({ nombre: new RegExp(nombre, "i") }, (err, datosPerfil) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      } else {
+        if (datosPerfil) {
+          res.status(200).send({ perfil: datosPerfil });
+        } else {
+          res.status(401).send({ mensaje: "No hay perfil" });
+        }
+      }
+    });
+  };
   module.exports = {
     registrarPerfil,
+    listarPerfil,
+    
   };
   

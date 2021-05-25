@@ -52,9 +52,9 @@ const listarEstado = (req, res) => {
       res.status(500).send({ mensaje: "Error al conectar al servidor" });
     } else {
       if (datosEstado) {
-        res.status(200).send({ categoria: datosEstado });
+        res.status(200).send({ estado: datosEstado });
       } else {
-        res.status(401).send({ mensaje: "No hay categorias" });
+        res.status(401).send({ mensaje: "No hay estados" });
       }
     }
   });
