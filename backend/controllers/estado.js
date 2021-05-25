@@ -34,7 +34,6 @@ const editarEstado = (req, res) => {
   
   Estado.findByIdAndUpdate(
     { _id: id },
-    
     { nombre: params.nombre, descripcion: params.descripcion},
     {fechaModificacion:Date.now()},
     (err, datosEstado) => {
@@ -49,6 +48,22 @@ const editarEstado = (req, res) => {
       }
     }
   );
+};
+
+
+const buscarEstado = (req, res) => {
+  let id = req.params["id"];
+  Estado.findById({ _id: id }, (err, datosEstado) => {
+    if (err) {
+      res.status(500).send({ mensaje: "Error al conectar al servidor" });
+    } else {
+      if (datosEstado) {
+        res.status(200).send({ estado: datosEstado});
+      } else {
+        res.status(401).send({ mensaje: "El estado no existe" });
+      }
+    }
+  });
 };
 
 const inactivarEstado = (req, res) => {
@@ -71,11 +86,13 @@ const inactivarEstado = (req, res) => {
 };
 
 
+
+
 module.exports = {
     registrarEstado,
+    buscarEstado,
     editarEstado,
     inactivarEstado,
-    
   };
   
   
