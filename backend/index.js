@@ -26,11 +26,8 @@ mongoose.connect("mongodb://localhost:27017/bleringappdb", {
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-<<<<<<< HEAD
 app.use("/api",Estado);
-=======
 app.use("/api", usuarioRoutes)
->>>>>>> 36e82bb034cb46868b56d633a397bbecf218b8f2
 
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");

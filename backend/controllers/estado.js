@@ -26,10 +26,39 @@ const registrarEstado = (req, res) => {
     });
   };
   
+  
+const editarEstado = (req, res) => {
+  
+  let id = req.params["id"];
+  let params = req.body;
+  
+  Estado.findByIdAndUpdate(
+    { _id: id },
+    
+    { nombre: params.nombre, descripcion: params.descripcion},
+    {fechaModificacion:Date.now()},
+    (err, datosEstado) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      } else {
+        if (datosEstado) {
+          res.status(200).send({ estado: datosEstado });
+        } else {
+          res.status(401).send({ mensaje: "El estado no se pudo editar" });
+        }
+      }
+    }
+  );
+};
+
 
 module.exports = {
     registrarEstado,
+    editarEstado,
+    inactivarEstado,
+    
   };
+  
   
 
     
