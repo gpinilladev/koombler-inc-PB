@@ -6,3 +6,4 @@ let api = express.Router();
 api.post("/perfil/registrarPerfil", Perfil.registrarPerfil);
 api.get("/perfil/:nombre?", Perfil.listarPerfil);
 api.post("/perfil/:nombre?", Perfil.listarPerfil);
+api.get("/perfil/:id", Perfil.buscarPerfil);

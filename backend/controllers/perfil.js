@@ -36,9 +36,25 @@ const registrarPerfil = (req, res) => {
       }
     });
   };
+  const buscarPerfil = (req, res) => {
+    let id = req.params["id"];
+    Perfil.findById({ _id: id }, (err, datosPerfil) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      } else {
+        if (datosEstado) {
+          res.status(200).send({ estado: datosPerfil });
+        } else {
+          res.status(401).send({ mensaje: "El perfil no existe" });
+        }
+      }
+    });
+  };
+  
   module.exports = {
     registrarPerfil,
     listarPerfil,
+    buscarPerfil,
     
   };
   
