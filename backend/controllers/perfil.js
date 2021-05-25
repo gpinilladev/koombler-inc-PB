@@ -50,11 +50,33 @@ const registrarPerfil = (req, res) => {
       }
     });
   };
+  const editarPerfil = (req, res) => {
+    let id = req.params["id"];
+    let params = req.body;
+  
+    Perfil.findByIdAndUpdate(
+      { _id: id },
+      { nombre: params.nombre, descripcion: params.descripcion },
+      { fechaModificacion: Date.now() },
+      (err, datosPerfil) => {
+        if (err) {
+          res.status(500).send({ mensaje: "Error al conectar al servidor" });
+        } else {
+          if (datosPerfil) {
+            res.status(200).send({ estado: datosEstado });
+          } else {
+            res.status(401).send({ mensaje: "El perfil no se pudo editar" });
+          }
+        }
+      }
+    );
+  };
   
   module.exports = {
     registrarPerfil,
     listarPerfil,
     buscarPerfil,
+    editarPerfil,
     
   };
   
