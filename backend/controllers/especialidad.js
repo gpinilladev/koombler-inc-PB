@@ -1,7 +1,7 @@
 const especialidad = require("../models/especialidad");
 let Especialidad = require("../models/especialidad");
 
-const CrearEspecialidad = (req, res) => {
+const crearEspecialidad = (req, res) => {
   let params = req.body;
   let especialidad = new Especialidad();
   especialidad.nombre = params.nombre;
@@ -57,7 +57,7 @@ const listarEspecialidad = (req, res) => {
   );
 };
 
-const editarespecialidad = (req, res) => {
+const editarEspecialidad = (req, res) => {
   let id = req.params["id"];
 
   let params = req.body;
@@ -67,6 +67,31 @@ const editarespecialidad = (req, res) => {
     {
       nombre: params.nombre,
       descripcion: params.descripcion,
+      idEstado: params.idEstado,
+      fechaModificacion: Date.now,
+    },
+    (err, datosEspecialidad) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      } else {
+        if (datosEspecialidad) {
+          res.status(200).send({ especialidad: datosEspecialidad });
+        } else {
+          res.status(401).send({ mensaje: "La categoría no se pudo editar" });
+        }
+      }
+    }
+  );
+};
+
+const activarInactivarEspecialidad = (req, res) => {
+  let id = req.params["id"];
+
+  let params = req.body;
+
+  especialidad.findByIdAndUpdate(
+    { _id: id },
+    {
       idEstado: params.idEstado,
       fechaModificacion: Date.now,
     },
@@ -102,9 +127,10 @@ const editarespecialidad = (req, res) => {
 // };
 
 module.exports = {
-  CrearEspecialidad,
+  crearEspecialidad,
   buscarEspecialidad,
-  editarespecialidad,
-  listarEspecialidad, //,
+  editarEspecialidad,
+  listarEspecialidad, 
+  activarInactivarEspecialidad
   //eliminarespecialidad
 };
