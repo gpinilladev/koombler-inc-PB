@@ -6,7 +6,7 @@ let port = process.env.PORT || 3001;
 
 let app = express();
 
-let usuarioRoutes = require("./routes/usuario");
+let Usuario = require("./routes/usuario");
 let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
 app.listen(port, () => {
@@ -27,9 +27,7 @@ mongoose.connect("mongodb://localhost:27017/bleringappdb", {
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/api",Estado);
-app.use("/api", usuarioRoutes);
-app.use("/api", Perfil);
+
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");
   res.header("Access-Control-Allow-Origin", "*");
@@ -41,5 +39,9 @@ app.use((req, res, next) => {
   res.header("Allow", "GET, PUT, POST, DELETE, OPTIONS");
   next();
 });
+
+app.use("/api",Estado);
+app.use("/api", Usuario);
+app.use("/api", Perfil);
 
 module.exports = app;

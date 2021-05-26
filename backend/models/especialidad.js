@@ -3,11 +3,11 @@ let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let especialidadSchema = Schema({
+  idEstado: { type: Schema.ObjectId, ref: "estado" },
   nombre: String,
   descripcion: String,
   fechaCreacion: { type: Date, default: Date.now },
   fechaModificacion: { type: Date, default: Date.now },
-  idEstado: {type:Schema.ObjectId,ref:"estado"},
 });
 
-module.exports=mongoose.model("especialidad",especialidadSchema);
+module.exports = mongoose.model("especialidad",especialidadSchema);

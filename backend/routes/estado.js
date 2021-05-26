@@ -10,4 +10,5 @@ api.put("/estado/inactivarEstado", Estado.inactivarEstado);
 api.get("/estado/:id", Estado.buscarEstado);
 api.get("/estado/:nombre?", Estado.listarEstado);
 api.post("/estado/:nombre?", Estado.listarEstado);
+
 module.exports = api;

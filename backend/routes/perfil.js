@@ -9,4 +9,5 @@ api.post("/perfil/:nombre?", Perfil.listarPerfil);
 api.get("/perfil/:id", Perfil.buscarPerfil);
 api.put("/perfil/editarPerfil/:id", Perfil.editarPerfil);
 api.put("/perfil/inactivarPerfil", Perfil.inactivarPerfil);
+
 module.exports = api;
