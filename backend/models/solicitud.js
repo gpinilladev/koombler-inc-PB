@@ -3,9 +3,9 @@ let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let solicitudSchema = Schema({
-    idUsuario: {type:Schema.ObjectId,ref:"usuario"},
-    idEspecialidad: {type:Schema.ObjectId,ref:"especialidad"},
-    idEstado: {type:Schema.ObjectId,ref:"estado"},
+    idUsuario: { type: Schema.ObjectId, ref:"usuario" },
+    idEspecialidad: { type: Schema.ObjectId, ref:"especialidad" },
+    idEstado: { type: Schema.ObjectId, ref:"estado" },
     descripcion: String,
     fechaCreacion: Number,
     fechaModificacion: Number,
