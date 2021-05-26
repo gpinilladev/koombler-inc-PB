@@ -7,6 +7,7 @@ let especialidadSchema = Schema({
   descripcion: String,
   fechaCreacion: { type: Date, default: Date.now },
   fechaModificacion: { type: Date, default: Date.now },
+  idEstado: {type:Schema.ObjectId,ref:"estado"},
 });
 
 module.exports=mongoose.model("especialidad",especialidadSchema);

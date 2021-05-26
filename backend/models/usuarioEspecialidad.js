@@ -7,6 +7,10 @@ let usuarioEspecialidadSchema = Schemma({
   idEspecialidad: { type: Schema.ObjectId, ref: "especialidad" },
   fechaCreacion: { type: Date, default: Date.now },
   fechaModificacion: { type: Date, default: Date.now },
+  idEstado: {type:Schema.ObjectId,ref:"estado"},
 });
 
-module.exports = mongoose.model("usuarioEspecialidad", usuarioEspecialidadSchema);
+module.exports = mongoose.model(
+  "usuarioEspecialidad",
+  usuarioEspecialidadSchema
+);
