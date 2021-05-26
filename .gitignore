@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-backend/node_modules
-=======
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
@@ -15,6 +12,10 @@ backend/node_modules
 /frontend/node_modules
 /backend/package-lock.json
 /frontend/package-lock.json
+
+# Folders
+/frontendV1
+/frontendV1.zip
 
 # profiling files
 chrome-profiler-events*.json
@@ -50,4 +51,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
->>>>>>> bcac503994b9099badaca12073d079de4ee46f6c
