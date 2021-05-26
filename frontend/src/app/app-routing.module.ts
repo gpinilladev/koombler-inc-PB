@@ -1,49 +1,61 @@
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  NbAuthComponent,
+  NbLoginComponent,
+  NbLogoutComponent,
+  NbRegisterComponent,
+  NbRequestPasswordComponent,
+  NbResetPasswordComponent,
+} from '@nebular/auth';
 
-import { AppComponent } from './app.component';
-import { SignInComponent } from './pages/auth_/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/auth_/sign-up/sign-up.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { HeaderComponent } from './common/components/header/header.component';
-import { SidebarComponent } from './common/components/sidebar/sidebar.component';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-
-const routes: Routes = [
+export const routes: Routes = [
   {
-    path: '', // http://localhost:4200/
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'pages',
+    loadChildren: () => import('./pages/pages.module')
+      .then(m => m.PagesModule),
   },
   {
-    path: 'home', // http://localhost:4200/login
-    pathMatch: 'full',
-    component: LandingPageComponent,
+    path: 'auth',
+    component: NbAuthComponent,
+    children: [
+      {
+        path: '',
+        component: NbLoginComponent,
+      },
+      {
+        path: 'login',
+        component: NbLoginComponent,
+      },
+      {
+        path: 'register',
+        component: NbRegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: NbLogoutComponent,
+      },
+      {
+        path: 'request-password',
+        component: NbRequestPasswordComponent,
+      },
+      {
+        path: 'reset-password',
+        component: NbResetPasswordComponent,
+      },
+    ],
   },
-  {
-    path: 'login', // http://localhost:4200/login
-    pathMatch: 'full',
-    component: SignInComponent,
-  },
-  {
-    path: 'signup', // http://localhost:4200/signup
-    pathMatch: 'full',
-    component: SignUpComponent,
-  },
-  {
-    path: 'dashboard', // http://localhost:4200/dashboard
-    pathMatch: 'full',
-    component: DashboardComponent,
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent,
-  },
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages' },
 ];
 
+const config: ExtraOptions = {
+  useHash: false,
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, config)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
