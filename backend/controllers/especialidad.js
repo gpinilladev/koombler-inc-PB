@@ -1,9 +1,9 @@
-const especialidad = require("../models/especialidad");
 let Especialidad = require("../models/especialidad");
 
 const crearEspecialidad = (req, res) => {
   let params = req.body;
   let especialidad = new Especialidad();
+  especialidad.idEstado = params.idEstado;
   especialidad.nombre = params.nombre;
   especialidad.descripcion = params.descripcion;
 
@@ -125,11 +125,13 @@ const activarInactivarEspecialidad = (req, res) => {
 //   });
 // };
 
-module.exports = {
+const  especialidadController = {
   crearEspecialidad,
   buscarEspecialidad,
   editarEspecialidad,
   listarEspecialidad, 
   activarInactivarEspecialidad
-  //eliminarespecialidad
-};
+}
+
+module.exports = especialidadController
+

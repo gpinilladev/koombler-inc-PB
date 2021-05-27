@@ -48,10 +48,10 @@ inactivar "http://localhost:3001/api/usuario/inactivarUsuario/")*->falta paramet
 
 //usuarioEspecialidad
 
-/*Crear "http://localhost:3001/api/usuarioEspecialidad/crearEspecialidad");
+/*Crear "http://localhost:3001/api/especialidad/usuarioEspecialidad/crearUsuarioEspecialidad");
 buscar por id "http://localhost:3001/api/usuarioEspecialidad/:id");
 Obtener todos los registros:"http://localhost:3001/api/usuarioEspecialidad/");
 Obtener todos los registros por nombre"http://localhost:3001/usuarioEspecialidad/:nombre?");
-editar Registro por id de especialidad "http://localhost:3001/api/usuarioEspecialidad/editarEspecialidad/:id");
+editar Registro por id de especialidad "http://localhost:3001/api/usuarioEspecialidad/editarUsuarioEspecialidad/:id");
 */
 /*falta inactivar usuarioEspecialidad*/

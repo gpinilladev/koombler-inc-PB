@@ -2,7 +2,7 @@ let mongoose = require("mongoose");
 // metodo que permite crear esquemas desde node/express
 let Schema = mongoose.Schema;
 
-let usuarioEspecialidadSchema = Schemma({
+let usuarioEspecialidadSchema = Schema({
   idUsuario: { type: Schema.ObjectId, ref: "usuario" },
   idEspecialidad: { type: Schema.ObjectId, ref: "especialidad" },
   idEstado: { type: Schema.ObjectId, ref: "estado" },
