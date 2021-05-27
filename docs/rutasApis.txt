@@ -41,7 +41,7 @@ inactivar especialidad"http://localhost:3001/api/perfil/inactivarPerfil/:id")*/
 login "http://localhost:3001/api/usuario/login");
 ");
 editar Registro por id de especialidad "http://localhost:3001/api/usuario/editarUsuario/:id");
-inactivar "http://localhost:3001/api/usuario/inactivarUsuario/")*->falta parametro id
+inactivar "http://localhost:3001/api/usuario/inactivarUsuario/:id");
 /*falta listarusuario metodo get y mtodo post*/ 
 
 

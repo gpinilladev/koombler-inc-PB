@@ -56,7 +56,7 @@ const login = (req, res) => {
                             if (params.getToken) {
                                 res.status(200).send({
                                     jwt: jwt.createToken(datosUsuario),
-                                    user: datosUsuario,
+                                    Usuario: datosUsuario,
                                 });
                             } else {
                                 res.status(200).send({ Usuario: datosUsuario, mensaje: "Sin token" });
@@ -124,9 +124,26 @@ const inactivarUsuario = (req, res) => {
     );
 };
 
+const listarUsuario = (req, res) => {
+    let nombres = req.params["nombres"];
+    Usuario.find({ nombres: new RegExp(nombres, "i") }, (err, datosUsuario) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      } else {
+        if (datosUsuario) {
+          res.status(200).send({ usuario: datosUsuario });
+        } else {
+          res.status(401).send({ mensaje: "No hay usuarios" });
+        }
+      }
+    });
+  };
+
+
 module.exports = {
     registrarUsuario,
     login,
     editarUsuario,
     inactivarUsuario,
+    listarUsuario,
 };
