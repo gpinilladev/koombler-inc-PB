@@ -67,6 +67,32 @@ const editarUsuarioEspecialidad = (req, res) => {
     {
       idUsuario: params.idUsuario,
       idEspecialidad: params.idEspecialidad,
+      fechaModificacion: Date.now
+    },
+    (err, datosUsuarioEspecialidad) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      } else {
+        if (datosUsuarioEspecialidad) {
+          res
+            .status(200)
+            .send({ UsuarioEspecialidad: datosUsuarioEspecialidad });
+        } else {
+          res
+            .status(401)
+            .send({ mensaje: "El UsuarioEspecialidad no se pudo editar" });
+        }
+      }
+    }
+  );
+};
+
+const activarInactivarUsuarioEspecialidad = (req, res) => {
+  let id = req.params["id"];
+  let params = req.body;
+  UsuarioEspecialidad.findByIdAndUpdate(
+    { _id: id },
+    {
       idEstado: params.idEstado,
       fechaModificacion: Date.now
     },
@@ -93,4 +119,5 @@ module.exports = {
   editarUsuarioEspecialidad,
   listarUsuarioEspecialidad,
   buscarUsuarioEspecialidad,
+  activarInactivarUsuarioEspecialidad
 };

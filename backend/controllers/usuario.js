@@ -52,10 +52,10 @@ const login = (req, res) => {
             if (datosUsuario) {
                 bcrypt.compare(params.clave, datosUsuario.clave, (err, confirm) => {
                     if (confirm) {
-                        if (datosUsuario.estadoSistema) {
+                        if (datosUsuario.idEstado) {
                             if (params.getToken) {
                                 res.status(200).send({
-                                    jwt: jwt.createToker(datosUsuario),
+                                    jwt: jwt.createToken(datosUsuario),
                                     user: datosUsuario,
                                 });
                             } else {
@@ -109,7 +109,7 @@ const inactivarUsuario = (req, res) => {
     let params = req.body;
     Usuario.findByIdAndUpdate(
         { _id: params.id},
-        { estadoSistema: false},
+        { idEstado: false},
         (err, datosUsuario) => {
             if (err) {
                 res.status(500).send({ mensaje: "Error en el servidor" });

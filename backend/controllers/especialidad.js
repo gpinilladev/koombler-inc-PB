@@ -67,7 +67,6 @@ const editarEspecialidad = (req, res) => {
     {
       nombre: params.nombre,
       descripcion: params.descripcion,
-      idEstado: params.idEstado,
       fechaModificacion: Date.now,
     },
     (err, datosEspecialidad) => {
