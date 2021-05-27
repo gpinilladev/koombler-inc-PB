@@ -9,19 +9,28 @@ let app = express();
 let Usuario = require("./routes/usuario");
 let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
+<<<<<<< HEAD
 let EstadoSolicitud = require("./routes/estadoSolicitud");
+=======
+let Especialidad = require("./routes/especialidad");
+let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
+
+>>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
 app.listen(port, () => {
   console.log("Servidor Backend funcionando en el puerto :", port);
 });
 
-mongoose.connect("mongodb://localhost:27017/bleringappdb", {
+mongoose
+  .connect("mongodb://localhost:27017/bleringappdb", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-  }).then(() => {
+  })
+  .then(() => {
     console.log("Conexion con MongoDB: ON");
-  }).catch((err) => { 
+  })
+  .catch((err) => {
     console.log("Conexion a MongoDB: OFF");
   });
 
@@ -41,8 +50,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api",Estado);
+app.use("/api", Estado);
 app.use("/api", Usuario);
 app.use("/api", Perfil);
+<<<<<<< HEAD
 app.use("/api", EstadoSolicitud);
 module.exports = app;
+=======
+app.use("/api", Especialidad);
+app.use("/api", UsuarioEspecialidad);
+
+module.exports = app;
+>>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8

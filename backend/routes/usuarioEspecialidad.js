@@ -1,10 +1,9 @@
 let express = require("express");
 let UsuarioEspecialidad = require("../controllers/usuarioEspecialidad");
-const usuarioEspecialidad = require("../models/usuarioEspecialidad");
 let api = express.Router();
 
 api.post(
-  "/usuarioEspecialidad/CrearEspecialidad",
+  "/usuarioEspecialidad/crearUsuarioEspecialidad",
   UsuarioEspecialidad.crearUsuarioEspecialidad
 );
 api.get(
@@ -17,7 +16,7 @@ api.post(
   UsuarioEspecialidad.listarUsuarioEspecialidad
 );
 api.put(
-  "/usuarioEspecialidad/editarespecialidad/:id",
+  "/usuarioEspecialidad/editarUsuarioEspecialidad/:id",
   UsuarioEspecialidad.editarUsuarioEspecialidad
 );
 api.put(

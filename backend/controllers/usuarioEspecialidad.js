@@ -1,10 +1,12 @@
+
 let UsuarioEspecialidad = require("../models/usuarioEspecialidad");
 
 const crearUsuarioEspecialidad = (req, res) => {
   let params = req.body;
-  let UsuarioEspecialidad = new usuarioEspecialidad();
+  let usuarioEspecialidad = new UsuarioEspecialidad();
   usuarioEspecialidad.idUsuario = params.idUsuario;
   usuarioEspecialidad.idEspecialidad = params.idEspecialidad;
+  usuarioEspecialidad.idEstado = params.idEstado
 
   usuarioEspecialidad.save((err, guardarusuarioEspecialidad) => {
     if (err) {
