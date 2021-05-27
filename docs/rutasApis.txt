@@ -34,8 +34,10 @@ inactivar especialidad"http://localhost:3001/api/perfil/inactivarPerfil/:id")*/
 //solicitud
 /*Ya estan-falta subirlas al repo*/
 
+
+
 //tipoIdentificacion
-/* No hay rutas*/
+listar tipo Identificacion "http://localhost:3001/api/usuario/tipoIdentificacion"); ----> get
 //usuario
  /*Crear "http://localhost:3001/api/usuario/registrarUsuario");
 login "http://localhost:3001/api/usuario/login");
