@@ -9,6 +9,7 @@ let app = express();
 let Usuario = require("./routes/usuario");
 let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
+let EstadoSolicitud = require("./routes/estadoSolicitud");
 app.listen(port, () => {
   console.log("Servidor Backend funcionando en el puerto :", port);
 });
@@ -43,5 +44,5 @@ app.use((req, res, next) => {
 app.use("/api",Estado);
 app.use("/api", Usuario);
 app.use("/api", Perfil);
-
+app.use("/api", EstadoSolicitud);
 module.exports = app;
