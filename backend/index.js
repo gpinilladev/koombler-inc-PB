@@ -11,7 +11,13 @@ let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 let EstadoSolicitud = require("./routes/estadoSolicitud");
+=======
+let Especialidad = require("./routes/especialidad");
+let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
+
+>>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
 =======
 let Especialidad = require("./routes/especialidad");
 let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
@@ -61,9 +67,12 @@ app.use("/api", Usuario);
 app.use("/api", Perfil);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use("/api", EstadoSolicitud);
 module.exports = app;
 =======
+=======
+>>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
 =======
 >>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
 app.use("/api", Especialidad);
@@ -71,6 +80,9 @@ app.use("/api", UsuarioEspecialidad);
 
 module.exports = app;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
+=======
 >>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
 =======
 >>>>>>> 0c83f07a38547ceb24c85d2f16794bd6a4459fa8
