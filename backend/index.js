@@ -9,6 +9,8 @@ let app = express();
 let usuarioRoutes = require("./routes/usuario");
 let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
+let Solicitud = require("./routes/solicitud");
+let DocumentoSolicitud = require("./routes/documentoSolicitud");
 app.listen(port, () => {
   console.log("Servidor Backend funcionando en el puerto :", port);
 });
@@ -27,9 +29,11 @@ mongoose.connect("mongodb://localhost:27017/bleringappdb", {
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/api",Estado);
+app.use("/api", Estado);
 app.use("/api", usuarioRoutes);
 app.use("/api", Perfil);
+app.use("/api", Solicitud);
+app.use("/api", DocumentoSolicitud);
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");
   res.header("Access-Control-Allow-Origin", "*");
