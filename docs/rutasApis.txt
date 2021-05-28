@@ -1,0 +1,60 @@
+//ArchivoSolicitud
+/* Hay rutas-falta subirlas al repo*/
+
+
+//Especialidad
+/*Crear "http://localhost:3001/api/especialidad/CrearEspecialidad");
+buscar por id "http://localhost:3001/api/especialidad/:id");
+Obtener todos los registros:"http://localhost:3001/api/especialidad/");
+Obtener todos los registros por nombre"http://localhost:3001/especialidad/:nombre?");
+editar Registro por id de especialidad "http://localhost:3001/api/especialidad/editarespecialidad/:id");
+inactivar especialidad"http://localhost:3001/api/especialidad/activarInactivarEspecialidad/:id")*/
+
+//estado
+
+/*Crear "http://localhost:3001/api/estado/registrarEstado");
+buscar por id "http://localhost:3001/api/estado/:id");
+Obtener todos los registros:"http://localhost:3001/api/estado/");
+Obtener todos los registros por nombre"http://localhost:3001/estado/:nombre?");
+editar Registro por id de especialidad "http://localhost:3001/api/estado/editarEstado/:id");
+inactivar especialidad"http://localhost:3001/api/estado/inactivarEstado/:id")*/
+
+
+//estadoSolicitud
+/*No hay rutas */
+
+
+//perfil
+/*Crear "http://localhost:3001/api/perfil/registrarPerfil");
+buscar por id "http://localhost:3001/api/perfil/:id");
+Obtener todos los registros:"http://localhost:3001/api/perfil/");
+Obtener todos los registros por nombre"http://localhost:3001/perfil/:nombre?");
+editar Registro por id de especialidad "http://localhost:3001/api/perfil/editarPerfil/:id");
+inactivar especialidad"http://localhost:3001/api/perfil/inactivarPerfil/:id")*/
+//solicitud
+/*Ya estan-falta subirlas al repo*/
+
+
+
+//tipoIdentificacion
+listar tipo Identificacion "http://localhost:3001/api/usuario/tipoIdentificacion"); ----> get
+//usuario
+ /*Crear "http://localhost:3001/api/usuario/registrarUsuario");
+login "http://localhost:3001/api/usuario/login");
+");
+editar Registro por id de especialidad "http://localhost:3001/api/usuario/editarUsuario/:id");
+inactivar "http://localhost:3001/api/usuario/inactivarUsuario/:id");
+listar Usuario "http://localhost:3001/api/usuario/listarUsuario/:nombres?"); ----> get & post 
+listar Usuario Id "http://localhost:3001/api/usuario/listarUsuarioId/:idUsuario"); ----> get & post 
+
+
+
+//usuarioEspecialidad
+
+/*Crear "http://localhost:3001/api/especialidad/usuarioEspecialidad/crearUsuarioEspecialidad");
+buscar por id "http://localhost:3001/api/usuarioEspecialidad/:id");
+Obtener todos los registros:"http://localhost:3001/api/usuarioEspecialidad/");
+Obtener todos los registros por nombre"http://localhost:3001/usuarioEspecialidad/:nombre?");
+editar Registro por id de especialidad "http://localhost:3001/api/usuarioEspecialidad/editarUsuarioEspecialidad/:id");
+*/
+/*falta inactivar usuarioEspecialidad*/

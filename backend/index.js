@@ -6,34 +6,38 @@ let port = process.env.PORT || 3001;
 
 let app = express();
 
-let usuarioRoutes = require("./routes/usuario");
+let Usuario = require("./routes/usuario");
 let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
+let EstadoSolicitud = require("./routes/estadoSolicitud");
+let Especialidad = require("./routes/especialidad");
+let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
 let Solicitud = require("./routes/solicitud");
-let DocumentoSolicitud = require("./routes/documentoSolicitud");
+let DocumentoSolicitud = require("./routes/archivosSolicitud");
+
+
 app.listen(port, () => {
   console.log("Servidor Backend funcionando en el puerto :", port);
 });
 
-mongoose.connect("mongodb://localhost:27017/bleringappdb", {
+mongoose
+  .connect("mongodb://localhost:27017/bleringappdb", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-  }).then(() => {
+  })
+  .then(() => {
     console.log("Conexion con MongoDB: ON");
-  }).catch((err) => { 
+  })
+  .catch((err) => {
     console.log("Conexion a MongoDB: OFF");
   });
 
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/api", Estado);
-app.use("/api", usuarioRoutes);
-app.use("/api", Perfil);
-app.use("/api", Solicitud);
-app.use("/api", DocumentoSolicitud);
+
 app.use((req, res, next) => {
   res.header("Content-Type: application/json");
   res.header("Access-Control-Allow-Origin", "*");
@@ -46,4 +50,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/api", Estado);
+app.use("/api", Usuario);
+app.use("/api", Perfil);
+app.use("/api", EstadoSolicitud);
+app.use("/api", Especialidad);
+app.use("/api", UsuarioEspecialidad);
+app.use("/api", Solicitud);
+app.use("/api", DocumentoSolicitud);
+
 module.exports = app;
+

@@ -1,0 +1,141 @@
+<main class="my-form">
+	<div class="cotainer">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">Register</div>
+					<div class="card-body">
+						<form name="my-form" #formSignUp="ngForm" (ngSubmit)="fnSignUp(formSignUp);">
+							<div class="form-group row">
+
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="floatingInputFirstName" 
+                                        placeholder="Firstname" 
+                                        name="first-name" 
+                                        #firstname="ngModel"
+                                        [(ngModel)]="user.nombres"
+                                        required />
+                                    <label for="floatingInputFirstName">Nombres</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="floatingInputLastname" 
+                                        placeholder="Lastname" 
+                                        name="last-name" 
+                                        #lastname="ngModel"
+                                        [(ngModel)]="user.apellidos"
+                                        required/>
+                                    <label for="floatingInputLastname">Apellidos</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="floatingInputDocumentNumber" 
+                                        placeholder="DocumentNumber" 
+                                        name="last-name" 
+                                        #documentNumber="ngModel"
+                                        [(ngModel)]="user.numIdentificacion"
+                                        required/>
+                                    <label for="floatingInputDocumentNumber">N&uacute;mero de identificaci&oacute;n</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="floatingInputEmail" 
+                                        placeholder="Email" 
+                                        name="email" 
+                                        #email="ngModel"
+                                        [(ngModel)]="user.email"
+                                        required/>
+                                    <label for="floatingInputEmail">Correo electr&oacute;nico</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="floatingInputPhoneNumber" 
+                                        placeholder="PhoneNumber" 
+                                        name="last-name" 
+                                        #phoneNumber="ngModel"
+                                        [(ngModel)]="user.telefono"
+                                        required/>
+                                    <label for="floatingInputPhoneNumber">Tel&eacute;fono</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="floatingInputAddress" 
+                                        placeholder="Address" 
+                                        name="last-name" 
+                                        #address="ngModel"
+                                        [(ngModel)]="user.direccion"
+                                        required/>
+                                    <label for="floatingInputAddress">Direcci&oacute;n</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="floatingInputBirthDate" 
+                                        placeholder="BirthDate" 
+                                        name="last-name" 
+                                        #birthDate="ngModel"
+                                        [(ngModel)]="user.fechaNacimiento"
+                                        required/>
+                                    <label for="floatingInputBirthDate">Fecha de nacieminto</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="floatingInputPassword" 
+                                        placeholder="Password" 
+                                        name="password" 
+                                        #password="ngModel"
+                                        [(ngModel)]="user.clave"
+                                        required/>
+                                    <label for="floatingInputPassword">Password</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="form-floating">
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="floatingInputPasswordConfirm" 
+                                        placeholder="Password confirm" 
+                                        name="password-confirm" 
+                                        #passwordConfirm="ngModel"
+                                        [(ngModel)]="user.confirmarClave"
+                                        required/>
+                                    <label for="floatingInputPasswordConfirm">Password Confirm</label>
+                                </div>
+                                <div class="space-controls"></div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                </div>
+                                <div class="mt-3 text-center">
+                                    <small class="text-center">Ya tengo una cuenta! Ir a <a routerLink="/login">Login!</a></small>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

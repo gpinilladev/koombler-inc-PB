@@ -1,44 +1,46 @@
-import { NgModule } from '@angular/core';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
 import { BrowserModule } from '@angular/platform-browser';
-
-// Importamos modulo forms
-import { FormsModule } from '@angular/forms';
-
-import { Routes, RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CoreModule } from './@core/core.module';
+import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
-
-import { SignInComponent } from './pages/auth_/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/auth_/sign-up/sign-up.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { HeaderComponent } from './common/components/header/header.component';
-import { SidebarComponent } from './common/components/sidebar/sidebar.component';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import {
+  NbChatModule,
+  NbDatepickerModule,
+  NbDialogModule,
+  NbMenuModule,
+  NbSidebarModule,
+  NbToastrModule,
+  NbWindowModule,
+} from '@nebular/theme';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignInComponent,
-    SignUpComponent,
-    DashboardComponent,
-    PageNotFoundComponent,
-    HeaderComponent,
-    SidebarComponent,
-    LandingPageComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule, 
-    FormsModule,
-    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+    AppRoutingModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbWindowModule.forRoot(),
+    NbToastrModule.forRoot(),
+    NbChatModule.forRoot({
+      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+    }),
+    CoreModule.forRoot(),
+    ThemeModule.forRoot(),
   ],
-  exports: [
-    RouterModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
