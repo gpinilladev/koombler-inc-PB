@@ -6,6 +6,8 @@ const registrarUsuario = (req, res) => {
   let params = req.body;
   let usuario = new Usuario();
   if (
+    params.idEstado &&
+    params.idPerfil &&
     params.nombres &&
     params.apellidos &&
     params.telefono &&
@@ -18,6 +20,8 @@ const registrarUsuario = (req, res) => {
   ) {
     bcrypt.hash(params.clave, null, null, (err, hash) => {
       if (hash) {
+        usuario.idEstado = params.idEstado;
+        usuario.idPerfil = params.idPerfil;
         usuario.nombres = params.nombres;
         usuario.apellidos = params.apellidos;
         usuario.telefono = params.telefono;
@@ -83,16 +87,16 @@ const editarUsuario = (req, res) => {
   let params = req.body;
   Usuario.findByIdAndUpdate(
     { _id: id },
-    { nombres: params.nombres },
-    { apellidos: params.apellidos },
-    { telefono: params.telefono },
-    { direccion: params.direccion },
-    { tipoIdentificacion: params.tipoIdentificacion },
-    { numIdentificacion: params.numIdentificacion },
-    { email: params.email },
-    { fechaNacimiento: params.fechaNacimiento },
-    { clave: params.clave },
-
+    { nombres: params.nombres ,
+     apellidos: params.apellidos ,
+     telefono: params.telefono ,
+     direccion: params.direccion ,
+     tipoIdentificacion: params.tipoIdentificacion ,
+     numIdentificacion: params.numIdentificacion ,
+     email: params.email ,
+     fechaNacimiento: params.fechaNacimiento ,
+     clave: params.clave ,
+    },
     (err, datosUsuario) => {
       if (err) {
         res.status(500).send({ mensaje: "Error en el servidor" });
@@ -107,11 +111,11 @@ const editarUsuario = (req, res) => {
   );
 };
 
-const inactivarUsuario = (req, res) => {
+const cambiarEstadoUsuario = (req, res) => {
   let params = req.body;
   Usuario.findByIdAndUpdate(
     { _id: params.id },
-    { idEstado: false },
+    { idEstado: params.idEstado },
     (err, datosUsuario) => {
       if (err) {
         res.status(500).send({ mensaje: "Error en el servidor" });
@@ -160,7 +164,7 @@ module.exports = {
   registrarUsuario,
   login,
   editarUsuario,
-  inactivarUsuario,
+  cambiarEstadoUsuario,
   listarUsuario,
   listarUsuarioId,
 };

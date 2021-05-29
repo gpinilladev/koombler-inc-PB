@@ -1,4 +1,3 @@
-const estadoSolicitud = require("../models/estadoSolicitud");
 let EstadoSolicitud = require("../models/estadoSolicitud");
 
 const registrarEstadoSolicitud = (req, res) => {
@@ -7,8 +6,8 @@ const registrarEstadoSolicitud = (req, res) => {
   let estadoSolicitud = new EstadoSolicitud();
 
   estadoSolicitud.idUsuario = params.idUsuario;
-  estadoSolicitud.iEstado = params.idEstado;
-  estadoSolicitud.observaciones=observaciones.params;
+  estadoSolicitud.idEstado = params.idEstado;
+  estadoSolicitud.observaciones = params.observaciones;
 
 
 
