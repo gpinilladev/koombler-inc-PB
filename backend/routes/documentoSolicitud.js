@@ -1,4 +1,4 @@
-let DocumentoSolicitud = require("../controllers/archivosSolicitud");
+let DocumentoSolicitud = require("../controllers/documentoSolicitud");
 let express = require("express");
 let api = express.Router();
 

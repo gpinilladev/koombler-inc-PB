@@ -1,4 +1,4 @@
-let DocumentoSolicitud = require("../models/archivosSolicitud");
+let DocumentoSolicitud = require("../models/documentoSolicitud");
 let mongoose = require("mongoose");
 
 const registrarDocumentoSolicitud = (req, res) => {
