@@ -7,7 +7,6 @@ let estadoSchema = Schema({
   descripcion: String,
   fechaCreacion: { type: Date, default: Date.now },
   fechaModificacion: { type: Date, default: Date.now },
-  estadoSistema: { type: Boolean, default: true },
 });
 
 module.exports = mongoose.model("estado", estadoSchema);

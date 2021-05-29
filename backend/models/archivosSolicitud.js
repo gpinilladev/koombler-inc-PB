@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-// metodo que permite crear esquemas desde node/express
+
 let Schema = mongoose.Schema;
 
 let archivosSolicitudSchema = Schema({
