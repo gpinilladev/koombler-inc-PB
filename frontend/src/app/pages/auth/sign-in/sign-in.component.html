@@ -1,0 +1,107 @@
+<h1 id="title" class="title">Login</h1>
+<p class="sub-title">Hello! Log in with your email.</p>
+
+<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+  <p class="alert-title"><b>Oh snap!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Hooray!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
+  </ul>
+</nb-alert>
+
+<form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
+
+  <div class="form-control-group">
+    <label class="label" for="input-email">Correo electr&oacute;nico:</label>
+    <input nbInput  
+           fullWidth
+           [(ngModel)]="user.email"
+           #email="ngModel"
+           name="email"
+           id="input-email"
+           pattern=".+@.+\..+"
+           placeholder="Ingresa el correo eletrónico"
+           autofocus
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+           [required]="getConfigValue('forms.validation.email.required')"
+           [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+    <ng-container *ngIf="email.invalid && email.touched">
+      <p class="error-message text-danger" *ngIf="email.errors?.required">
+        Correo electr&oacute;nico es obligatorio!
+      </p>
+      <p class="error-message text-danger" *ngIf="email.errors?.pattern">
+        Debe ser un correo electr&oacute;nico real!
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="input-password">Contrase&ntilde;a:</label>
+    <input nbInput 
+           fullWidth
+           [(ngModel)]="user.clave"
+           #password="ngModel"
+           name="password"
+           type="password"
+           id="input-password"
+           placeholder="Ingresa la contraseña"
+           [status]="password.dirty ? (password.invalid  ? 'danger' : 'info') : ''"
+           [required]="getConfigValue('forms.validation.password.required')"
+           [minlength]="getConfigValue('forms.validation.password.minLength')"
+           [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+           [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+    <ng-container *ngIf="password.invalid && password.touched ">
+      <p class="error-message text-danger" *ngIf="password.errors?.required">
+        Contrase&ntilde;a obligatoria!
+      </p>
+      <p class="error-message text-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+        Contrase&ntilde;a deberia contener
+        de {{ getConfigValue('forms.validation.password.minLength') }}
+        a {{ getConfigValue('forms.validation.password.maxLength') }}
+        caracteres
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group accept-group" *ngIf="false">
+    <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe" *ngIf="rememberMe">Remember me</nb-checkbox>
+    <a class="forgot-password" routerLink="../request-password">Forgot Password?</a>
+  </div>
+  <br>
+
+  <button nbButton
+          fullWidth
+          status="info"
+          [disabled]="submitted || !form.valid"
+          [class.btn-pulse]="submitted">
+    Iniciar sesi&oacute;n
+  </button>
+</form>
+
+<section *ngIf="socialLinks && socialLinks.length > 0" class="links" aria-label="Social sign in">
+  ó ingresa con:
+  <div class="socials">
+    <ng-container *ngFor="let socialLink of socialLinks">
+      <a *ngIf="socialLink.link"
+         [routerLink]="socialLink.link"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+      <a *ngIf="socialLink.url"
+         [attr.href]="socialLink.url"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+    </ng-container>
+  </div>
+</section>
+
+<section class="another-action" aria-label="Register">
+  No tienes una cuenta? <a class="text-link" routerLink="../register">Registrarse</a>
+</section>

@@ -21,7 +21,12 @@ inactivar especialidad"http://localhost:3001/api/estado/inactivarEstado/:id")*/
 
 
 //estadoSolicitud
-/*No hay rutas */
+registrar estado "http://localhost:3001/api/estadoSolicitud/registrarEstado");
+editar estado "http://localhost:3001/api/estadoSolicitud/editarEstado/:id");
+invactivar estado "http://localhost:3001/api/estadoSolicitud/inactivarEstado/:id");
+buscar estado "http://localhost:3001/api/estadoSolicitud/:id");
+listar usuarios "http://localhost:3001/api/estadoSolicitud/:nombre?"); -----> get
+listar usuarios "http://localhost:3001/api/estadoSolicitud/:nombre?"); -------> post
 
 
 //perfil
@@ -36,14 +41,12 @@ inactivar especialidad"http://localhost:3001/api/perfil/inactivarPerfil/:id")*/
 
 
 
-//tipoIdentificacion
-listar tipo Identificacion "http://localhost:3001/api/usuario/tipoIdentificacion"); ----> get
 //usuario
  /*Crear "http://localhost:3001/api/usuario/registrarUsuario");
 login "http://localhost:3001/api/usuario/login");
 ");
 editar Registro por id de especialidad "http://localhost:3001/api/usuario/editarUsuario/:id");
-inactivar "http://localhost:3001/api/usuario/inactivarUsuario/:id");
+cambiar estado usuario "http://localhost:3001/api/usuario/cambiarEstadoUsuario/:id");
 listar Usuario "http://localhost:3001/api/usuario/listarUsuario/:nombres?"); ----> get & post 
 listar Usuario Id "http://localhost:3001/api/usuario/listarUsuarioId/:idUsuario"); ----> get & post 
 
