@@ -9,10 +9,7 @@ const registrarEstadoSolicitud = (req, res) => {
   estadoSolicitud.idEstado = params.idEstado;
   estadoSolicitud.observaciones = params.observaciones;
 
-
-
-
-  EstadoSolicitud.save((err, saveEstadoSolicitud) => {
+  estadoSolicitud.save((err, saveEstadoSolicitud) => {
     if (err) {
       res.status(500).send({ mensaje: "Error al conectar al servidor" });
     } else {
@@ -31,16 +28,16 @@ const editarEstadoSolicitud = (req, res) => {
   
     EstadoSolicitud.findByIdAndUpdate(
       { _id: id },
-      { observaciones: params.observaciones },
-      { fechaModificacion: Date.now() },
+      { observaciones: params.observaciones ,
+       fechaModificacion: Date.now(), },
       (err, datosEstadoSolicitud) => {
         if (err) {
-          res.status(500).send({ mensaje: "Error al conectar al servidor" });
+          res.status(500).send({ mensaje: "Error al conectar al servidor"});
         } else {
           if (datosEstadoSolicitud) {
             res.status(200).send({ estadoSolicitud: datosEstadoSolicitud});
           } else {
-            res.status(401).send({ mensaje: "No se pudo editar el estado de la solicitud" });
+            res.status(401).send({ mensaje: "No se pudo editar el estado de la solicitud" , mensaje1: err });
           }
         }
       }
@@ -51,7 +48,7 @@ const editarEstadoSolicitud = (req, res) => {
     let params = req.body;
     EstadoSolicitud.findByIdAndUpdate(
       { _id: params.id },
-      { idEstado: false },
+      { idEstado: params.idEstado },
       (err, datosEstadoSolicitud) => {
         if (err) {
           res.status(500).send({ mensaje: "Error en el servidor" });

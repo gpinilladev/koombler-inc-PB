@@ -21,7 +21,12 @@ inactivar especialidad"http://localhost:3001/api/estado/inactivarEstado/:id")*/
 
 
 //estadoSolicitud
-/*No hay rutas */
+registrar estado "http://localhost:3001/api/estadoSolicitud/registrarEstado");
+editar estado "http://localhost:3001/api/estadoSolicitud/editarEstado/:id");
+invactivar estado "http://localhost:3001/api/estadoSolicitud/inactivarEstado/:id");
+buscar estado "http://localhost:3001/api/estadoSolicitud/:id");
+listar usuarios "http://localhost:3001/api/estadoSolicitud/:nombre?"); -----> get
+listar usuarios "http://localhost:3001/api/estadoSolicitud/:nombre?"); -------> post
 
 
 //perfil
