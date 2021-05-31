@@ -23,7 +23,8 @@ import {
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'; 
-import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
+import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { AuthGuard } from '../app/guards/auth-guard.guard';
 
 export interface NbAuthSocialLink {
   link?: string,
@@ -121,26 +122,36 @@ export const defaultSettings: any = {
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: 'http://example.com/app-api/v1',
+          token: {
+            class: NbAuthJWTToken,
+            key: 'jwt', // this parameter tells where to look for the token
+          },
+          baseEndpoint: 'http://localhost:3001/api',
           login: {
-            endpoint: '/auth/sign-in',
+            // endpoint: '/auth/sign-in',
+            endpoint: '/usuario/login',
             method: 'post',
             redirect: {
-              success: '/dashboard/',
+              success: 'pages/dashboard',
               failure: null, // stay on the same page
             },
           },
           register: {
-            endpoint: '/auth/sign-up',
+            // endpoint: '/auth/sign-up',
+            endpoint: '/usuario/registrarUsuario',
             method: 'post',
             redirect: {
-              success: '/welcome/',
+              success: 'auth/login',
               failure: null, // stay on the same page
             },
           },
           logout: {
-            endpoint: '/auth/sign-out',
-            method: 'post',
+            // endpoint: '/auth/sign-out',
+            // method: 'post',
+            redirect: {
+              success: 'auth/login',
+              failure: null, // stay on the same page
+            },
           },
           requestPass: {
             endpoint: '/auth/request-pass',
@@ -212,6 +223,11 @@ export const defaultSettings: any = {
         },
       },
     }), 
+  ],
+  providers: [
+    // ...
+    AuthGuard,
+    { provide: APP_BASE_HREF, useValue: '/' },
   ],
   bootstrap: [AppComponent],
 })

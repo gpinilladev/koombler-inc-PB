@@ -48,13 +48,16 @@ const registrarUsuario = (req, res) => {
 
 const login = (req, res) => {
   let params = req.body;
+  console.log('params: ', params);
   Usuario.findOne({ email: params.email }, (err, datosUsuario) => {
+    console.log('datosUsuario: ', datosUsuario);
     if (err) {
       res.status(500).send({ mensaje: "Error del servidor" });
     } else {
       if (datosUsuario) {
-        bcrypt.compare(params.clave, datosUsuario.clave, (err, confirm) => {
-          if (confirm) {
+        bcrypt.compare(params.clave, datosUsuario.clave, (err, successDataCompare) => {
+          console.log('successDataCompare: ', successDataCompare);
+          if (successDataCompare) {
             if (datosUsuario.idEstado) {
               if (params.getToken) {
                 res.status(200).send({

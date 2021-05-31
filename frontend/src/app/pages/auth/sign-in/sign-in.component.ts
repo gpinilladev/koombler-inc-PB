@@ -51,26 +51,55 @@ export class SignInComponent extends NbLoginComponent implements OnInit {
   }
 
   login(): void {
-    this.errors = [];
-    this.messages = [];
-    this.submitted = true;
+    const self = this;
+    self.errors = [];
+    self.messages = [];
+    self.submitted = true;
+    self.user['getToken'] = true;
 
-    this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
-      this.submitted = false;
-
+    self.service.authenticate(self.strategy, self.user).subscribe((result: NbAuthResult) => {
+      console.log('result: ', result);
       if (result.isSuccess()) {
-        this.messages = result.getMessages();
+        console.log('result.isSuccess(): ', result.isSuccess());
+        console.log('result.getMessages(): ', result.getMessages());
+        console.log('result.getRedirect(): ', result.getRedirect());
+        if (result['response']['status'] == 200){
+          const redirect = result.getRedirect();
+          console.log('redirect: ', redirect);
+          self.router.navigateByUrl(redirect);
+        }
+        if (result['response']['status'] == 206) {
+          self.submitted = false;
+          // let message = result.getMessages()[0]['body']["message"];
+          // self.utilitiesService.showToast('top-right', 'warning', message);
+        }
       } else {
-        this.errors = result.getErrors();
+        if (result.getErrors()[0]['status'] == 500) {
+          self.submitted = false;
+        }
       }
+      self.cd.detectChanges();
+      // console.log('result: ', result);
+      // console.log('result.isSuccess(): ', result.isSuccess());
+      // this.submitted = false;
 
-      const redirect = result.getRedirect();
-      if (redirect) {
-        setTimeout(() => {
-          return this.router.navigateByUrl(redirect);
-        }, this.redirectDelay);
-      }
-      this.cd.detectChanges();
+      // if (result.isSuccess()) {
+      //   this.messages = result.getMessages();
+      // } else {
+      //   this.errors = result.getErrors();
+      // }
+
+      // const redirect = result.getRedirect();
+      // console.log('redirect: ', redirect);
+      // if (redirect) {
+      //   setTimeout(() => {
+      //     return this.router.navigateByUrl(redirect);
+      //   }, 
+      //   // this.redirectDelay
+      //   1000
+      //   );
+      // }
+      // this.cd.detectChanges();
     });
   }
 

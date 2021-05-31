@@ -1,5 +1,4 @@
-// Exportamos la clase
-export class Usuario {
+export class User {
     'idEstado': string;
     'idPerfil': string;
     'nombres': string;

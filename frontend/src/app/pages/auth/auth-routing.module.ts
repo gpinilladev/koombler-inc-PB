@@ -4,19 +4,6 @@ import { NbAuthComponent } from '@nebular/auth';
 
 import { SignInComponent } from './sign-in/sign-in.component';
 
-// export const routes: Routes = [
-//   {
-//     path: 'auth',
-//     loadChildren: './auth/auth.module#NgxAuthModule',
-//     children: [
-//       {
-//         path: 'login',
-//         component: SignInComponent, // <---
-//       },
-//     ],
-//   },
-// ];
-
 export const routes: Routes = [
   {
     path: '',

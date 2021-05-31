@@ -1,5 +1,169 @@
 import { NbMenuItem } from '@nebular/theme';
 
+export const MENU_USERS: NbMenuItem[] = [
+  {
+    title: 'Home / Dashboard',
+    icon: 'home-outline',
+    link: '/pages/dashboard',
+    home: true,
+  },
+  {
+    title: 'Solicitudes',
+    icon: 'inbox-outline',
+    children:[
+      {
+        title: 'Crear solicitud',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Mis solicitudes',
+        link: '/pages/layout/stepper',
+      },
+    ]
+  },
+  {
+    title: 'Especialistas',
+    icon: 'people-outline',
+    link: '/pages/iot-dashboard',
+  },
+  {
+    title: 'Especialidades',
+    icon: 'layers-outline',
+    link: '/pages/iot-dashboard',
+  },
+  {
+    title: 'Ayuda',
+    icon: 'alert-circle-outline',
+    link: '/pages/iot-dashboard',
+  },
+];
+
+export const MENU_PROFESSIONALS: NbMenuItem[] = [
+  {
+    title: 'Home / Dashboard',
+    icon: 'home-outline',
+    link: '/pages/dashboard',
+    home: true,
+  },
+  {
+    title: 'Solicitudes',
+    icon: 'inbox-outline',
+    children:[
+      {
+        title: 'Crear solicitud',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Listado solicitudes',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Mis solicitudes',
+        link: '/pages/layout/stepper',
+      },
+    ]
+  },
+  {
+    title: 'Especialistas',
+    icon: 'people-outline',
+    link: '/pages/iot-dashboard',
+  },
+  {
+    title: 'Especialidades',
+    icon: 'layers-outline',
+    link: '/pages/iot-dashboard',
+  },
+  {
+    title: 'Ayuda',
+    icon: 'alert-circle-outline',
+    link: '/pages/iot-dashboard',
+  },
+];
+
+export const MENU_ADMINS: NbMenuItem[] = [
+  {
+    title: 'Home / Dashboard',
+    icon: 'home-outline',
+    link: '/pages/dashboard',
+    home: true,
+  },
+  {
+    title: 'Usuarios',
+    icon: 'person-outline',
+    children:[
+      {
+        title: 'Crear usuario',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Listado usuarios',
+        link: '/pages/layout/stepper',
+      }
+    ]
+  },
+  {
+    title: 'Perfiles',
+    icon: 'award-outline',
+    children:[
+      {
+        title: 'Crear perfil',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Listado perfiles',
+        link: '/pages/layout/stepper',
+      }
+    ]
+  },
+  {
+    title: 'Solicitudes',
+    icon: 'inbox-outline',
+    children:[
+      {
+        title: 'Crear solicitud',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Listado solicitudes',
+        link: '/pages/layout/stepper',
+      }
+    ]
+  },
+  {
+    title: 'Especialistas',
+    icon: 'people-outline',
+    children:[
+      {
+        title: 'Crear especialistas',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Listado especialistas',
+        link: '/pages/layout/stepper',
+      }
+    ]
+  },
+  {
+    title: 'Especialidades',
+    icon: 'layers-outline',
+    children:[
+      {
+        title: 'Crear especialidad',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'Listado especialidades',
+        link: '/pages/layout/stepper',
+      }
+    ]
+  },
+  {
+    title: 'Ayuda',
+    icon: 'alert-circle-outline',
+    link: '/pages/iot-dashboard',
+  },
+];
+
 export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'E-commerce',

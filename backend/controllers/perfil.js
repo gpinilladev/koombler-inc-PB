@@ -2,6 +2,7 @@ let Perfil = require("../models/perfil");
 
 const registrarPerfil = (req, res) => {
     let params = req.body;
+    console.log('params: ', params);
   
     let perfil = new Perfil();
   
@@ -9,6 +10,7 @@ const registrarPerfil = (req, res) => {
     perfil.descripcion = params.descripcion;
   
     perfil.save((err, savePerfil) => {
+      console.log('savePerfil: ', savePerfil);
       if (err) {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
