@@ -3,6 +3,7 @@ let Schema = mongoose.Schema;
 
 let documentoSolicitudSchema = Schema({
   idEstadoSolicitud: { type: Schema.ObjectId, ref: "estadoSolicitud" },
+  idEstado: { type: Schema.ObjectId, ref:"estado" },
   nombre: String,
   descripcion: String,
   extensionArchivo: String,

@@ -11,7 +11,7 @@ let Estado = require("./routes/estado");
 let Perfil = require("./routes/perfil");
 let EstadoSolicitud = require("./routes/estadoSolicitud");
 let Especialidad = require("./routes/especialidad");
-let UsuarioEspecialidad = require("./routes/documentoEspecialidad");
+let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
 let Solicitud = require("./routes/solicitud");
 let DocumentoSolicitud = require("./routes/documentoSolicitud");
 

@@ -6,9 +6,12 @@ const registrarDocumentoSolicitud = (req, res) => {
   let documentoSolicitud = new DocumentoSolicitud();
 
   documentoSolicitud.idEstadoSolicitud = params.idEstadoSolicitud;
+  documentoSolicitud.idEstado = params.idEstado;
   documentoSolicitud.nombre= params.nombre,
   documentoSolicitud.descripcion = params.descripcion,
   documentoSolicitud.extensionArchivo = params.extensionArchivo,
+  documentoSolicitud.fechaCreacion = Date.now(),
+  documentoSolicitud.fechaCreacion = Date.now(),
   
   documentoSolicitud.save((err, saveDocumentoSolicitud) => {
     if (err) {
@@ -29,8 +32,15 @@ const editarDocumentoSolicitud = (req, res) => {
 
   DocumentoSolicitud.findByIdAndUpdate(
     { _id: id },
-    { nombre: params.nombre, descripcion: params.descripcion },
-    { fechaModificacion: Date.now() },
+    { 
+      idEstadoSolicitud: params.idEstadoSolicitud, 
+      idEstado: params.idEstado, 
+      nombre: params.nombre,
+      descripcion: params.descripcion,
+      extensionArchivo: params.extensionArchivo,
+      fechaCreacion: params.fechaCreacion,
+      fechaModificacion: Date.now(),
+    },
     (err, datosDocumentoSolicitud) => {
       if (err) {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
@@ -45,30 +55,35 @@ const editarDocumentoSolicitud = (req, res) => {
   );
 };
 
+
 const listarDocumentoSolicitud = (req, res) => {
   let nombre = req.params["nombre"];
 
-  DocumentoSolicitud.find({ nombre: new RegExp(nombre, "i") }, (err, DocumentoSolicitud) => {
-    if (err) {
-      res.status(500).send({ mensaje: "Error al conectar al servidor" });
-    } else {
-      if (DocumentoSolicitud) {
-        res.status(200).send({ documentoSolicitud: DocumentoSolicitud });
+  DocumentoSolicitud.find(
+    { nombre: new RegExp(nombre, "i") },
+    (err, datosDocumentoSolicitud) => {
+      if (err) {
+        res.status(500).send({ mensaje: "Error al conectar al servidor dd" });
       } else {
-        res.status(401).send({ mensaje: "No hay documentos" });
+        if (datosDocumentoSolicitud) {
+          res.status(200).send({ documentoSolicitud: datosDocumentoSolicitud });
+        } else {
+          res.status(401).send({ mensaje: "No hay documentos de solicitudes" });
+        }
       }
     }
-  });
+  );
 };
 
 const buscarDocumentoSolicitud = (req, res) => {
+  console.log("care nalga");
   let id = req.params["id"];
-  DocumentoSolicitud.findById({ _id: id }, (err, DocumentoSolicitud) => {
+  DocumentoSolicitud.findById({ _id: id }, (err, datosDocumentoSolicitud) => {
     if (err) {
-      res.status(500).send({ mensaje: "Error al conectar al servidor" });
+      res.status(500).send({ mensaje: "Error al conectar al servidor ds" });
     } else {
-      if (DocumentoSolicitud) {
-        res.status(200).send({ estado: DocumentoSolicitud });
+      if (datosDocumentoSolicitud) {
+        res.status(200).send({ estado: datosDocumentoSolicitud });
       } else {
         res.status(401).send({ mensaje: "El dicumento no existe" });
       }
@@ -77,18 +92,21 @@ const buscarDocumentoSolicitud = (req, res) => {
 };
 
 const inactivarDocumentoSolicitud = (req, res) => {
+  let id = req.params["id"];
   let params = req.body;
   DocumentoSolicitud.findByIdAndUpdate(
-    { _id: params.id },
-    { idEstadoSolicitud: params.idEstadoSolicitud },
+    { _id: id },
+    { 
+      idEstado: params.idEstado,
+    },
     (err, datosDocumentoSolicitud) => {
       if (err) {
         res.status(500).send({ mensaje: "Error en el servidor" });
       } else {
         if (datosDocumentoSolicitud) {
-          res.status(200).send({ estado: "documento Inactivo" });
+          res.status(200).send({ estado: "El documento de solicitud inactivo" });
         } else {
-          res.status(403).send({ mensaje: "El documento no se pudo inactivar" });
+          res.status(403).send({ mensaje: "El documento de solicitud no se pudo inactivar" });
         }
       }
     }
