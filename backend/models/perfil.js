@@ -10,4 +10,4 @@ let perfilSchema = Schema({
   fechaModificacion: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("perfil",perfilSchema);
+module.exports = mongoose.model("perfil", perfilSchema);

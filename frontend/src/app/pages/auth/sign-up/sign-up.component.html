@@ -172,7 +172,8 @@
           bindLabel="name" 
           bindValue="id" 
           [clearable]="false"
-          #typeUser="ngModel"
+          #typeUser="ngModel" 
+          (change)="fnValidTypeUser($event)"
           [(ngModel)]="user.idPerfil"
           [ngModelOptions]="{standalone: true}"
           id="input-typeuser" 
@@ -223,6 +224,25 @@
     </div>
   </div>
   <!-- ***** END - Form control group - tipo usuario y numero de telefono ***** -->
+  <!-- ***** START - Form control group - correo electronico ***** -->
+  <div class="form-control-group" *ngIf="userSpecialist">
+    <label class="label" for="input-specialities">Especialidad(es): </label>
+      <ng-select 
+           [items]="userSpecialities" 
+           bindLabel="name" 
+           bindValue="id" 
+           [clearable]="false"
+           #specialities="ngModel"
+           [(ngModel)]="user.specialities"
+           [multiple]="true" 
+           [ngModelOptions]="{standalone: true}"
+           id="input-specialities" 
+           name="specialities"
+           placeholder="Selecciona especialidad">
+         </ng-select>
+    
+  </div>
+  <!-- ***** END - Form control group - correo electronico ***** -->
   <!-- ***** START - Form control group - direccion y fecha de nacimiento ***** -->
   <div class="row">
     <div class="col-sm-6">

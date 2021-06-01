@@ -35,6 +35,8 @@ export class SignUpComponent implements OnInit {
   showMessages: any = {};
   strategy: string = '';
 
+  userSpecialist: boolean = false;
+
   submitted = false;
   errors: string[] = [];
   messages: string[] = [];
@@ -52,6 +54,16 @@ export class SignUpComponent implements OnInit {
   userProfiles = [
     { id: 1, name: 'UC - Usuario cliente' },
     { id: 2, name: 'UE - Usuario especialista' },
+  ];
+  userSpecialities = [
+    { id: 1, name: 'Derecho Tributario' },
+    { id: 2, name: 'Derecho administrativo' },
+    { id: 3, name: 'Derecho Familiar' },
+    { id: 4, name: 'Derecho Comercial' },
+    { id: 5, name: 'Derecho Ambiental y territorial' },
+    { id: 6, name: 'Derecho de Sociedades' },
+    { id: 7, name: 'Derecho del Transporte' },
+    { id: 8, name: 'Derecho de los Negocios Internacionales' },
   ];
   
   constructor(
@@ -94,6 +106,16 @@ export class SignUpComponent implements OnInit {
 
   getConfigValue(key: string): any {
     return getDeepFromObject(this.options, key, null);
+  }
+
+  fnValidTypeUser($event) {
+    console.log('$event: ', $event);
+    if ($event.id == 2) {
+      this.userSpecialist = true;
+    } else {
+      this.userSpecialist = false;
+      this.user['specialities'] = '';
+    }
   }
 
 }
