@@ -7,12 +7,10 @@ let solicitudSchema = Schema({
     idEspecialidad: { type: Schema.ObjectId, ref:"especialidad" },
     idEstado: { type: Schema.ObjectId, ref:"estado" },
     descripcion: String,
-    fechaCreacion: Number,
-    fechaModificacion: Number,
-    fechaInicio: Number,
-    fechaFin: Number,
     fechaCreacion: { type: Date, default: Date.now },
     fechaModificacion: { type: Date, default: Date.now },
+    fechaInicio: Number,
+    fechaFin: Number,
 });
 
 module.exports = mongoose.model("solicitud", solicitudSchema);

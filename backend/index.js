@@ -12,6 +12,8 @@ let Perfil = require("./routes/perfil");
 let EstadoSolicitud = require("./routes/estadoSolicitud");
 let Especialidad = require("./routes/especialidad");
 let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
+let Solicitud = require("./routes/solicitud");
+let DocumentoSolicitud = require("./routes/documentoSolicitud");
 
 
 app.listen(port, () => {
@@ -54,6 +56,8 @@ app.use("/api", Perfil);
 app.use("/api", EstadoSolicitud);
 app.use("/api", Especialidad);
 app.use("/api", UsuarioEspecialidad);
+app.use("/api", Solicitud);
+app.use("/api", DocumentoSolicitud);
 
 module.exports = app;
 
