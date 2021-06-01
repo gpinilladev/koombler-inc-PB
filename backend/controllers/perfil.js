@@ -25,7 +25,6 @@ const registrarPerfil = (req, res) => {
 
   const listarPerfil = (req, res) => {
     let nombre = req.params["nombre"];
-  
     Perfil.find({ nombre: new RegExp(nombre, "i") }, (err, datosPerfil) => {
       if (err) {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
@@ -38,9 +37,12 @@ const registrarPerfil = (req, res) => {
       }
     });
   };
+
   const buscarPerfil = (req, res) => {
     let id = req.params["id"];
+    console.log('id: ', id);
     Perfil.findById({ _id: id }, (err, datosPerfil) => {
+      console.log('datosPerfil: ', datosPerfil);
       if (err) {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {

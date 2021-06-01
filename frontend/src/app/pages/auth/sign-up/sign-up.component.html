@@ -1,0 +1,386 @@
+<h1 id="title" class="title">Registro</h1>
+
+<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+  <p class="alert-title"><b>Oh snap!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Hooray!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
+  </ul>
+</nb-alert>
+
+<form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
+  <!-- ***** START - Form control group - nombres y apellidos ***** -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="label" for="input-firstname">Nombres: </label>
+        <input nbInput
+              [(ngModel)]="user.nombres"
+              #firstName="ngModel"
+              id="input-firstname"
+              name="firstName"
+              placeholder="Ingresa tus nombres"
+              autofocus
+              fullWidth
+              [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+              [required]="getConfigValue('forms.validation.firstName.required')"
+              [minlength]="getConfigValue('forms.validation.firstName.minLength')"
+              [maxlength]="getConfigValue('forms.validation.firstName.maxLength')"
+              [attr.aria-invalid]="firstName.invalid && firstName.touched ? true : null">
+        <ng-container *ngIf="firstName.invalid && firstName.touched">
+          <p class="error-message" *ngIf="firstName.errors?.required">
+            Full name is required!
+          </p>
+          <p class="error-message" *ngIf="firstName.errors?.minlength || firstName.errors?.maxlength">
+            Full name should contains
+            from {{getConfigValue('forms.validation.firstName.minLength')}}
+            to {{getConfigValue('forms.validation.firstName.maxLength')}}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="label" for="input-lastname">Apellidos: </label>
+        <input nbInput
+              [(ngModel)]="user.apellidos"
+              #lastName="ngModel"
+              id="input-lastname"
+              name="lastName"
+              placeholder="Ingresa tus apellidos"
+              autofocus
+              fullWidth
+              [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+              [required]="getConfigValue('forms.validation.lastName.required')"
+              [minlength]="getConfigValue('forms.validation.lastName.minLength')"
+              [maxlength]="getConfigValue('forms.validation.lastName.maxLength')"
+              [attr.aria-invalid]="lastName.invalid && lastName.touched ? true : null">
+        <ng-container *ngIf="lastName.invalid && lastName.touched">
+          <p class="error-message" *ngIf="lastName.errors?.required">
+            Full name is required!
+          </p>
+          <p class="error-message" *ngIf="lastName.errors?.minlength || lastName.errors?.maxlength">
+            Full name should contains
+            from {{getConfigValue('forms.validation.lastName.minLength')}}
+            to {{getConfigValue('forms.validation.lastName.maxLength')}}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- ***** END - Form control group - nombres y apellidos ***** -->
+  <!-- ***** START - Form control group - correo electronico ***** -->
+  <div class="form-control-group">
+    <label class="label" for="input-email">Email address:</label>
+    <input nbInput
+           [(ngModel)]="user.email"
+           #email="ngModel"
+           id="input-email"
+           name="email"
+           pattern=".+@.+..+"
+           placeholder="Email address"
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+           [required]="getConfigValue('forms.validation.email.required')"
+           [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+    <ng-container *ngIf="email.invalid && email.touched">
+      <p class="error-message" *ngIf="email.errors?.required">
+        Email is required!
+      </p>
+      <p class="error-message" *ngIf="email.errors?.pattern">
+        Email should be the real one!
+      </p>
+    </ng-container>
+  </div>
+  <!-- ***** END - Form control group - correo electronico ***** -->
+  <!-- ***** START - Form control group - tipo y numero de documento ***** -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="input-documenttype" class="label">Tipo de documento: </label>
+        <ng-select 
+          [items]="documentTypes" 
+          bindLabel="name" 
+          bindValue="id" 
+          #documentType="ngModel" 
+          [clearable]="false"
+          [(ngModel)]="user.tipoIdentificacion"
+          [ngModelOptions]="{standalone: true}"
+          id="input-documenttype" 
+          name="documenttype"
+          placeholder="Selecciona tipo de documento">
+        </ng-select>
+        <ng-container *ngIf="documentType.invalid && documentType.touched">
+          <p class="error-message" *ngIf="documentType.errors?.required">
+            Full name is required!
+          </p>
+          <p class="error-message" *ngIf="documentType.errors?.minlength || documentType.errors?.maxlength">
+            Full name should contains
+            from {{getConfigValue('forms.validation.documentType.minLength')}}
+            to {{getConfigValue('forms.validation.documentType.maxLength')}}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="input-documentnumber" class="label">N&uacute;mero de documento: </label>
+        <input nbInput
+           [(ngModel)]="user.numIdentificacion"
+           #documentNumber="ngModel"
+           id="input-documentnumber"
+           name="documentNumber"
+           placeholder="Ingresa número de documento"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+           [required]="getConfigValue('forms.validation.documentNumber.required')"
+           [minlength]="getConfigValue('forms.validation.documentNumber.minLength')"
+           [maxlength]="getConfigValue('forms.validation.documentNumber.maxLength')"
+           [attr.aria-invalid]="documentNumber.invalid && documentNumber.touched ? true : null">
+    <ng-container *ngIf="documentNumber.invalid && documentNumber.touched">
+      <p class="error-message" *ngIf="documentNumber.errors?.required">
+        Full name is required!
+      </p>
+      <p class="error-message" *ngIf="documentNumber.errors?.minlength || documentNumber.errors?.maxlength">
+        Full name should contains
+        from {{getConfigValue('forms.validation.documentNumber.minLength')}}
+        to {{getConfigValue('forms.validation.documentNumber.maxLength')}}
+        characters
+      </p>
+    </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- ***** END - Form control group - tipo y numero de documento ***** -->
+  <!-- ***** START - Form control group - tipo usuario y numero de telefono ***** -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="input-typeuser" class="label">Tipo de usuario: </label>
+        <ng-select 
+          [items]="userProfiles" 
+          bindLabel="name" 
+          bindValue="id" 
+          [clearable]="false"
+          #typeUser="ngModel"
+          [(ngModel)]="user.idPerfil"
+          [ngModelOptions]="{standalone: true}"
+          id="input-typeuser" 
+          name="typeUser"
+          placeholder="Selecciona tipo de usuario">
+        </ng-select>
+        <ng-container *ngIf="typeUser.invalid && typeUser.touched">
+          <p class="error-message" *ngIf="typeUser.errors?.required">
+            Full name is required!
+          </p>
+          <p class="error-message" *ngIf="typeUser.errors?.minlength || typeUser.errors?.maxlength">
+            Full name should contains
+            from {{getConfigValue('forms.validation.typeUser.minLength')}}
+            to {{getConfigValue('forms.validation.typeUser.maxLength')}}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="input-phonenumber" class="label">N&uacute;mero de tel&eacute;fono: <small>(Opcional)</small></label>
+        <input nbInput
+           [(ngModel)]="user.telefono"
+           #phoneNumber="ngModel"
+           id="input-phonenumber"
+           name="phoneNumber"
+           placeholder="Ingresa número de tel&eacute;fono"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+           [required]="getConfigValue('forms.validation.phoneNumber.required')"
+           [minlength]="getConfigValue('forms.validation.phoneNumber.minLength')"
+           [maxlength]="getConfigValue('forms.validation.phoneNumber.maxLength')"
+           [attr.aria-invalid]="phoneNumber.invalid && phoneNumber.touched ? true : null">
+        <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
+          <p class="error-message" *ngIf="phoneNumber.errors?.required">
+            Full name is required!
+          </p>
+          <p class="error-message" *ngIf="phoneNumber.errors?.minlength || phoneNumber.errors?.maxlength">
+            Full name should contains
+            from {{getConfigValue('forms.validation.phoneNumber.minLength')}}
+            to {{getConfigValue('forms.validation.phoneNumber.maxLength')}}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- ***** END - Form control group - tipo usuario y numero de telefono ***** -->
+  <!-- ***** START - Form control group - direccion y fecha de nacimiento ***** -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="label" for="input-address">Direcci&oacute;n: <small>(Opcional)</small></label>
+        <input nbInput
+              [(ngModel)]="user.direccion"
+              #address="ngModel"
+              id="input-address"
+              name="address"
+              placeholder="Ingresa dirección"
+              fullWidth
+              [status]="address.dirty ? (address.invalid  ? 'danger' : 'info') : ''"
+              [required]="getConfigValue('forms.validation.address.required')"
+              [attr.aria-invalid]="address.invalid && address.touched ? true : null">
+        <ng-container *ngIf="address.invalid && address.touched">
+          <p class="error-message" *ngIf="address.errors?.required">
+            address is required!
+          </p>
+          <p class="error-message" *ngIf="address.errors?.pattern">
+            address should be the real one!
+          </p>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="input-birthdate" class="label">Fecha de nacimiento: </label>
+        <input nbInput 
+           bsDatepicker
+           [bsConfig]="bsConfig"
+           [(ngModel)]="user.fechaNacimiento"
+           #birthDate="ngModel"
+           id="input-birthdate"
+           name="birthDate"
+           placeholder="Selecciona fecha de nacimiento"
+           autofocus
+           fullWidth
+           [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+           [required]="getConfigValue('forms.validation.birthDate.required')"
+           [minlength]="getConfigValue('forms.validation.birthDate.minLength')"
+           [maxlength]="getConfigValue('forms.validation.birthDate.maxLength')"
+           [attr.aria-invalid]="birthDate.invalid && birthDate.touched ? true : null">
+        <ng-container *ngIf="birthDate.invalid && birthDate.touched">
+          <p class="error-message" *ngIf="birthDate.errors?.required">
+            Full name is required!
+          </p>
+          <p class="error-message" *ngIf="birthDate.errors?.minlength || birthDate.errors?.maxlength">
+            Full name should contains
+            from {{getConfigValue('forms.validation.birthDate.minLength')}}
+            to {{getConfigValue('forms.validation.birthDate.maxLength')}}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- ***** END - Form control group - direccion y fecha de nacimiento ***** -->
+  <!-- ***** START - Form control group - direccion y fecha de nacimiento ***** -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="label" for="input-password">Password:</label>
+        <input nbInput
+              [(ngModel)]="user.clave"
+              #password="ngModel"
+              type="password"
+              id="input-password"
+              name="password"
+              placeholder="Password"
+              fullWidth
+              [status]="email.dirty ? (email.invalid  ? 'danger' : 'info') : ''"
+              [required]="getConfigValue('forms.validation.password.required')"
+              [minlength]="getConfigValue('forms.validation.password.minLength')"
+              [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+              [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+        <ng-container *ngIf="password.invalid && password.touched">
+          <p class="error-message" *ngIf="password.errors?.required">
+            Password is required!
+          </p>
+          <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+            Password should contains
+            from {{ getConfigValue('forms.validation.password.minLength') }}
+            to {{ getConfigValue('forms.validation.password.maxLength') }}
+            characters
+          </p>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label class="label" for="input-re-password">Repeat password:</label>
+        <input nbInput
+              [(ngModel)]="user.confirmaClave"
+              #rePass="ngModel"
+              type="password"
+              id="input-re-password"
+              name="rePass"
+              placeholder="Confirm Password"
+              fullWidth
+              [status]="email.dirty ? (email.invalid || password.value != rePass.value  ? 'danger' : 'info') : ''"
+              [required]="getConfigValue('forms.validation.password.required')"
+              [attr.aria-invalid]="rePass.invalid && rePass.touched ? true : null">
+        <ng-container *ngIf="rePass.invalid && rePass.touched">
+          <p class="error-message" *ngIf="rePass.errors?.required">
+            Password confirmation is required!
+          </p>
+          <p class="error-message" *ngIf="password.value != rePass.value && !rePass.errors?.required">
+            Password does not match the confirm password.
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- ***** END - Form control group - direccion y fecha de nacimiento ***** -->
+
+  <div class="form-control-group accept-group" *ngIf="getConfigValue('forms.register.terms')">
+    <nb-checkbox name="terms" [(ngModel)]="user.terms" [required]="getConfigValue('forms.register.terms')">
+      Acepta los <a href="#" target="_blank"><strong>Terminos & Condiciones</strong></a>
+    </nb-checkbox>
+  </div>
+      <button nbButton
+          fullWidth
+          status="info"
+          [disabled]="
+            !user.nombres || 
+            !user.apellidos || 
+            !user.email || 
+            !user.tipoIdentificacion || 
+            !user.numIdentificacion || 
+            !user.idPerfil || 
+            !user.fechaNacimiento || 
+            !user.clave || 
+            !user.confirmaClave || 
+            !user.terms"
+          [class.btn-pulse]="submitted">
+    Crear cuenta
+  </button>
+</form>
+
+<section *ngIf="socialLinks && socialLinks.length > 0" class="links" aria-label="Social sign in">
+  Ó ingresa con:
+  <div class="socials">
+    <ng-container *ngFor="let socialLink of socialLinks">
+      <a *ngIf="socialLink.link"
+         [routerLink]="socialLink.link"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+      <a *ngIf="socialLink.url"
+         [attr.href]="socialLink.url"
+         [attr.target]="socialLink.target"
+         [attr.class]="socialLink.icon"
+         [class.with-icon]="socialLink.icon">{{ socialLink.title }}</a>
+    </ng-container>
+  </div>
+</section>
+
+<section class="another-action" aria-label="Sign in">
+  Ya tienes una cuenta? <a class="text-link" routerLink="../login">Inciar sesi&oacute;n</a>
+</section>

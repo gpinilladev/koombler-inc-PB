@@ -1,6 +1,7 @@
 // import Nebular Theme System and the default theme
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 $nb-themes: nb-register-theme((
 

@@ -10,8 +10,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -23,7 +21,12 @@ import {
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'; 
+import { NgSelectModule } from '@ng-select/ng-select';
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from '../app/guards/auth-guard.guard';
 
 export interface NbAuthSocialLink {
@@ -118,6 +121,8 @@ export const defaultSettings: any = {
     ThemeModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
+    BsDatepickerModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({

@@ -1,0 +1,13 @@
+:host {
+    .title {
+      margin-bottom: 2rem;
+    }
+}
+
+::ng-deep .ng-select.ng-select-single .ng-select-container {
+  height: 41px;
+}
+
+::ng-deep .navigation .link nb-icon {
+  display: none !important;
+}

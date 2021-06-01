@@ -18,6 +18,9 @@
 @import './layout';
 @import './overrides';
 
+// Ng-select import css
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
 // install the framework and custom global styles
 @include nb-install() {
 

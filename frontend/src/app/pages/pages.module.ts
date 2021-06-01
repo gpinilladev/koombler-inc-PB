@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { NbMenuModule } from '@nebular/theme';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -14,6 +17,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 
 @NgModule({
   imports: [
+    // BrowserAnimationsModule,
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
@@ -22,6 +26,8 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
     MiscellaneousModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
+    BsDatepickerModule.forRoot(),
   ],
   declarations: [
     PagesComponent,

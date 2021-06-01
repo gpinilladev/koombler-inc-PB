@@ -6,7 +6,7 @@ export class User {
     'telefono': string;
     'direccion': string;
     'numIdentificacion': string;
-    'tipoIdentificacion': boolean;
+    'tipoIdentificacion': string;
     'email': string;
     'clave': string;
     'fechaNacimiento': number;
@@ -19,7 +19,7 @@ export class User {
         telefono: string,
         direccion: string,
         numIdentificacion: string,
-        tipoIdentificacion: boolean,
+        tipoIdentificacion: string,
         email: string,
         clave: string,
         fechaNacimiento: number,
