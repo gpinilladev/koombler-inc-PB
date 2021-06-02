@@ -76,7 +76,6 @@ const listarDocumentoSolicitud = (req, res) => {
 };
 
 const buscarDocumentoSolicitud = (req, res) => {
-  console.log("care nalga");
   let id = req.params["id"];
   DocumentoSolicitud.findById({ _id: id }, (err, datosDocumentoSolicitud) => {
     if (err) {

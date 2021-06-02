@@ -58,14 +58,9 @@ export class SignInComponent extends NbLoginComponent implements OnInit {
     self.user['getToken'] = true;
 
     self.service.authenticate(self.strategy, self.user).subscribe((result: NbAuthResult) => {
-      console.log('result: ', result);
       if (result.isSuccess()) {
-        console.log('result.isSuccess(): ', result.isSuccess());
-        console.log('result.getMessages(): ', result.getMessages());
-        console.log('result.getRedirect(): ', result.getRedirect());
         if (result['response']['status'] == 200){
           const redirect = result.getRedirect();
-          console.log('redirect: ', redirect);
           self.router.navigateByUrl(redirect);
         }
         if (result['response']['status'] == 206) {
@@ -79,8 +74,6 @@ export class SignInComponent extends NbLoginComponent implements OnInit {
         }
       }
       self.cd.detectChanges();
-      // console.log('result: ', result);
-      // console.log('result.isSuccess(): ', result.isSuccess());
       // this.submitted = false;
 
       // if (result.isSuccess()) {
@@ -90,7 +83,6 @@ export class SignInComponent extends NbLoginComponent implements OnInit {
       // }
 
       // const redirect = result.getRedirect();
-      // console.log('redirect: ', redirect);
       // if (redirect) {
       //   setTimeout(() => {
       //     return this.router.navigateByUrl(redirect);

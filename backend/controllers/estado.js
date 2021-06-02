@@ -59,6 +59,7 @@ const listarEstado = (req, res) => {
     }
   });
 };
+
 const buscarEstado = (req, res) => {
   let id = req.params["id"];
   Estado.findById({ _id: id }, (err, datosEstado) => {

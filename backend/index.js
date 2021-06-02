@@ -14,6 +14,7 @@ let Especialidad = require("./routes/especialidad");
 let UsuarioEspecialidad = require("./routes/usuarioEspecialidad");
 let Solicitud = require("./routes/solicitud");
 let DocumentoSolicitud = require("./routes/documentoSolicitud");
+let TipoIdentificacion = require("./routes/tipoIdentificacion");
 
 
 app.listen(port, () => {
@@ -58,6 +59,7 @@ app.use("/api", Especialidad);
 app.use("/api", UsuarioEspecialidad);
 app.use("/api", Solicitud);
 app.use("/api", DocumentoSolicitud);
+app.use("/api", TipoIdentificacion);
 
 module.exports = app;
 

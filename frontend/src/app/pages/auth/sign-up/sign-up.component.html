@@ -14,7 +14,7 @@
   </ul>
 </nb-alert>
 
-<form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
+<form (ngSubmit)="register(signUpForm)" #signUpForm="ngForm" aria-labelledby="title">
   <!-- ***** START - Form control group - nombres y apellidos ***** -->
   <div class="row">
     <div class="col-sm-6">
@@ -108,8 +108,8 @@
         <label for="input-documenttype" class="label">Tipo de documento: </label>
         <ng-select 
           [items]="documentTypes" 
-          bindLabel="name" 
-          bindValue="id" 
+          bindLabel="nombre" 
+          bindValue="_id" 
           #documentType="ngModel" 
           [clearable]="false"
           [(ngModel)]="user.tipoIdentificacion"
@@ -169,8 +169,8 @@
         <label for="input-typeuser" class="label">Tipo de usuario: </label>
         <ng-select 
           [items]="userProfiles" 
-          bindLabel="name" 
-          bindValue="id" 
+          bindLabel="nombre" 
+          bindValue="_id" 
           [clearable]="false"
           #typeUser="ngModel" 
           (change)="fnValidTypeUser($event)"
@@ -229,8 +229,8 @@
     <label class="label" for="input-specialities">Especialidad(es): </label>
       <ng-select 
            [items]="userSpecialities" 
-           bindLabel="name" 
-           bindValue="id" 
+           bindLabel="nombre" 
+           bindValue="_id" 
            [clearable]="false"
            #specialities="ngModel"
            [(ngModel)]="user.specialities"

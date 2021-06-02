@@ -20,7 +20,6 @@ export class AuthService {
 
   private getToken() {
     this.userToken = localStorage.getItem('token') ? localStorage.getItem('token') : null;
-    console.log('this.userToken: ', this.userToken);
   }
 
   logout() {
@@ -35,7 +34,6 @@ export class AuthService {
       
     };
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`, authData).pipe(map(res => {
-      console.log('res: ', res);
       this.saveToken(res['idToken']);
       return res;
     }));
@@ -49,7 +47,6 @@ export class AuthService {
       
     };
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`, authData).pipe(map(res => {
-      console.log('res: ', res);
       this.saveToken(res['idToken']);
       return res;
     }));
