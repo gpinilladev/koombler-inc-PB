@@ -15,9 +15,12 @@ import { User } from '../../../models/user';
 import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
+import { UtilitiesService } from '../../../services/utilities.service';
 import { DocumentTypeService } from '../../../services/document-type.service';
 import { ProfileService } from '../../../services/profile.service';
 import { EspecialityService } from '../../../services/especiality.service';
+import { UserSpecialityService } from '../../../services/user-speciality.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'ngx-sign-up',
@@ -71,9 +74,12 @@ export class SignUpComponent implements OnInit {
   ];
   
   constructor(
+    private utilitiesService: UtilitiesService,
     private documentTypeService: DocumentTypeService,
     private profileService: ProfileService,
     private especialityService: EspecialityService,
+    private userSpecialityService: UserSpecialityService,
+    private authService: AuthService,
     protected service: NbAuthService,
     @Inject(NB_AUTH_OPTIONS) protected options = {},
     protected cd: ChangeDetectorRef,
@@ -109,23 +115,53 @@ export class SignUpComponent implements OnInit {
   register(signUpForm: any): void {
     this.errors = this.messages = [];
     this.submitted = true;
+    // this.user
+    let idState = '60b290c9084ecb101b56809e';
+    let dataObjectSend = {
+      idEstado: idState,
+      idPerfil: this.user['idPerfil'],
+      nombres: this.user['nombres'],
+      apellidos: this.user['apellidos'],
+      telefono: this.user['telefono'],
+      direccion: this.user['direccion'],
+      tipoIdentificacion: this.user['tipoIdentificacion'],
+      numIdentificacion: this.user['numIdentificacion'],
+      email: this.user['email'],
+      fechaNacimiento: 1622620432000,
+      clave: this.user['confirmaClave'],
+    };
+    
+    this.authService.fnHttpSignUpUser(dataObjectSend).subscribe((result: NbAuthResult) => {
+      if (result['status'] === 200) {
+        this.utilitiesService.showToast('top-right', 'success', 'Te has registrado satisfactoriamente!');
+        let idUser = result['body']['usuario']['_id'];
+        this.fnSaveSpecialitiesUser(idUser, idState, this.user['specialities']);
+      } else {
+        this.utilitiesService.showToast('top-right', 'warning', 'Ha ocurrido un error, intentalo nuevamente!');
+      }
+      setTimeout(() => {
+        return this.router.navigateByUrl('auth/login');
+      }, 3000);
+    }, error => {
+      this.utilitiesService.showToast('top-right', 'danger', 'Ha ocurrido un error, intentalo nuevamente!');
+    });
+    this.cd.detectChanges();
+  }
 
-    // this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
-    //   this.submitted = false;
-    //   if (result.isSuccess()) {
-    //     this.messages = result.getMessages();
-    //   } else {
-    //     this.errors = result.getErrors();
-    //   }
-
-    //   const redirect = result.getRedirect();
-    //   if (redirect) {
-    //     setTimeout(() => {
-    //       return this.router.navigateByUrl(redirect);
-    //     }, this.redirectDelay);
-    //   }
-    //   this.cd.detectChanges();
-    // });
+  fnSaveSpecialitiesUser(idUser: string, idState: string, collection: []): any {
+    if (collection.length < 1) {
+      return;
+    } else {
+      collection.forEach(element =>  {
+        let objectData = null;
+        objectData = {
+          idUsuario: idUser,
+          idEspecialidad: element,
+          idEstado: idState,
+        }
+        this.userSpecialityService.fnHttpCreateSpecialityByUser(objectData).subscribe((resp) => {});
+      });
+    }
   }
 
   getConfigValue(key: string): any {

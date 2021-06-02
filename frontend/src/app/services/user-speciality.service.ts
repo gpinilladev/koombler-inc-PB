@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UserSpecialityService {
 
   url_host: any = environment.apiUrl;
   data_headers_request: any = '';
 
   urlSignInUser: string = '';
-  urlSignUpUser: string = '';
+  urlCreateSpecialityByUser: string = '';
 
   constructor(
     public http: HttpClient, 
@@ -25,26 +25,13 @@ export class AuthService {
     return this.data_headers_request;
   }
 
-  // fnHttpSignUpUser(): Observable<any> {
-  //   // const headers = this.fnSetDefineTokenAuthorization(guid_user);
-  //   this.urlSignInUser = 'usuario/registrarUsuario';
-  //   return this.http.get(this.utility.fnGetHost() + this.urlSignInUser,
-  //     {
-  //       observe: 'response',
-  //       // headers: headers,
-  //       reportProgress: true,
-  //     });
-  // }
-
-  fnHttpSignUpUser(data_object): Observable<any> {
+  fnHttpCreateSpecialityByUser(data_object): Observable<any> {
     console.log('data_object: ', data_object);
-    // const headers = this.fnSetDefineTokenAuthorization(guid_user);
-    this.urlSignUpUser = 'usuario/registrarUsuario';
-    return this.http.post(this.utility.fnGetHost() + this.urlSignUpUser, data_object,
+    this.urlCreateSpecialityByUser = 'usuarioEspecialidad/crearUsuarioEspecialidad';
+    return this.http.post(this.utility.fnGetHost() + this.urlCreateSpecialityByUser, data_object,
       {
         observe: 'response',
         reportProgress: true,
       });
   }
-
 }
