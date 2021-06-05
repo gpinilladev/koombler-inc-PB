@@ -26,7 +26,6 @@ export class UserSpecialityService {
   }
 
   fnHttpCreateSpecialityByUser(data_object): Observable<any> {
-    console.log('data_object: ', data_object);
     this.urlCreateSpecialityByUser = 'usuarioEspecialidad/crearUsuarioEspecialidad';
     return this.http.post(this.utility.fnGetHost() + this.urlCreateSpecialityByUser, data_object,
       {

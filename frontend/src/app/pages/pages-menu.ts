@@ -2,6 +2,11 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_USERS: NbMenuItem[] = [
   {
+    title: 'Base',
+    icon: 'shopping-cart-outline',
+    link: '/pages/base',
+  },
+  {
     title: 'Home / Dashboard',
     icon: 'home-outline',
     link: '/pages/dashboard',
@@ -39,6 +44,11 @@ export const MENU_USERS: NbMenuItem[] = [
 ];
 
 export const MENU_PROFESSIONALS: NbMenuItem[] = [
+  {
+    title: 'Base',
+    icon: 'shopping-cart-outline',
+    link: '/pages/base',
+  },
   {
     title: 'Home / Dashboard',
     icon: 'home-outline',
@@ -81,6 +91,11 @@ export const MENU_PROFESSIONALS: NbMenuItem[] = [
 ];
 
 export const MENU_ADMINS: NbMenuItem[] = [
+  {
+    title: 'Base',
+    icon: 'shopping-cart-outline',
+    link: '/pages/base',
+  },
   {
     title: 'Home / Dashboard',
     icon: 'home-outline',
@@ -165,6 +180,12 @@ export const MENU_ADMINS: NbMenuItem[] = [
 ];
 
 export const MENU_ITEMS: NbMenuItem[] = [
+  {
+    title: 'Base',
+    icon: 'shopping-cart-outline',
+    link: '/pages/base',
+    home: true,
+  },
   {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',

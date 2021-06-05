@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nb-card class="font_family_roboto pgp-card_content">
+          <nb-card-header class="font_family_roboto">Agregar</nb-card-header>
+          <nb-card-body>
+            <div>
+              <div class="row ml-0 mr-0">
+                <form (ngSubmit)="fnAddData(addDataForm)" style="width: 350px;" #addDataForm="ngForm" aria-labelledby="title">
+                  <div class="col-12 pl-0 pr-0">
+                    <div class="form-group">
+                      <label for="input-dato1">Dato 1: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth
+                      name="dato1" 
+                      id="input-dato1"
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresa Dato 1"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-dato2">Dato 2: </label>                                         
+                        <input 
+                        nbInput 
+                        fullWidth
+                        name="dato2" 
+                        id="input-dato2"
+                        autofocus  
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingresa Dato 2"
+                        style="height: 45px;">
+                      </div>
+                  </div>
+                    <button 
+                        nbButton 
+                        fullWidth
+                        status="info">
+                        Guardar
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button 
+                        nbButton 
+                        fullWidth
+                        status="info" 
+                        style="background-color: gray; border-color: gray; color: white;"
+                        (click)="fnCancelAddData()">
+                        Cancelar
+                    </button>
+                </form>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>  
+      </div>  
+    </div>
+</div>

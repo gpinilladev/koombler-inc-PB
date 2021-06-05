@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nb-card class="font_family_roboto pgp-card_content">
+          <nb-card-header class="font_family_roboto">Agregar nuevo tipo de documento</nb-card-header>
+          <nb-card-body>
+            <div>
+              <div class="row ml-0 mr-0">
+                <form (ngSubmit)="fnAddData(addDocumentTypeForm)" style="width: 350px;" #addDocumentTypeForm="ngForm" aria-labelledby="title">
+                  <div class="col-12 pl-0 pr-0">
+                    <div class="form-group">
+                      <label for="input-documentTypeName">Nombre: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #documentTypeName="ngModel"
+                      [(ngModel)]="documentType.nombre"
+                      [status]="'info'"
+                      [required]="true"
+                      name="documentTypeName" 
+                      id="input-documentTypeName" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresa nombre del tipo de documento"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-documentTypeDesc">Descripci&oacute;n: </label>                                         
+                        <input 
+                        nbInput 
+                        fullWidth 
+                        #documentTypeDesc="ngModel"
+                        [(ngModel)]="documentType.descripcion"
+                        [status]="'info'"
+                        [required]="true"
+                        name="documentTypeDesc" 
+                        id="input-documentTypeDesc"
+                        autofocus  
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingresa descripcion del tipo de documento"
+                        style="height: 45px;">
+                      </div>
+                  </div>
+                    <button 
+                        nbButton 
+                        fullWidth 
+                        type="submit"
+                        status="info">
+                        Guardar
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button 
+                        nbButton 
+                        fullWidth
+                        status="info" 
+                        style="background-color: gray; border-color: gray; color: white;"
+                        (click)="fnCancelAddData()">
+                        Cancelar
+                    </button>
+                </form>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>  
+      </div>  
+    </div>
+</div>

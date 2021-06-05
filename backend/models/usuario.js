@@ -10,7 +10,7 @@ let usuarioSchema = Schema({
     apellidos: String,
     telefono: String,
     direccion: String,
-    tipoIdentificacion: String,
+    tipoIdentificacion: { type: Schema.ObjectId, ref: "tipoIdentificacion" },
     numIdentificacion: String,
     email: String,
     fechaNacimiento: String,

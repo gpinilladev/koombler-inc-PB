@@ -13,6 +13,7 @@ export class DocumentTypeService {
   data_headers_request: any = '';
 
   urlGetListDocumentTypes: string = '';
+  urlSetAddNewDocumentType: string = '';
 
   constructor(
     public http: HttpClient, 
@@ -33,6 +34,15 @@ export class DocumentTypeService {
         // headers: headers,
         reportProgress: true,
       });
+  }
+
+  fnHttpSetAddNewDocumentType(dataObject: any): Observable<any> {
+    this.urlSetAddNewDocumentType = 'tipoIdentificacion/registrarTipoIdentificacion';
+    return this.http.post(this.utility.fnGetHost() + this.urlSetAddNewDocumentType, dataObject, 
+    {
+      observe: 'response',
+      reportProgress: true,
+    });
   }
 
 }

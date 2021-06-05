@@ -21,19 +21,18 @@ app.listen(port, () => {
   console.log("Servidor Backend funcionando en el puerto :", port);
 });
 
-mongoose
-  .connect("mongodb://localhost:27017/bleringappdb", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.log("Conexion con MongoDB: ON");
-  })
-  .catch((err) => {
-    console.log("Conexion a MongoDB: OFF");
-  });
+mongoose.connect("mongodb://localhost:27017/bleringappdb", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+})
+.then(() => {
+  console.log("Conexion con MongoDB: ON");
+})
+.catch((err) => {
+  console.log("Conexion a MongoDB: OFF");
+});
 
 // Analizar la codificacion de las url
 app.use(bodyParser.urlencoded({ extended: true }));

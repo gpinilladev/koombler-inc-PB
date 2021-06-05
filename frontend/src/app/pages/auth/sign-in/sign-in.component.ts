@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
+import { UtilitiesService } from '../../../services/utilities.service';
+import { AuthService } from '../../../services/auth.service';
+
 @Component({
   selector: 'ngx-sign-in',
   templateUrl: './sign-in.component.html',
@@ -33,6 +36,8 @@ export class SignInComponent extends NbLoginComponent implements OnInit {
 
 
   constructor(
+    private utilitiesService: UtilitiesService,
+    private authService: AuthService,
     protected service: NbAuthService,
     protected cd: ChangeDetectorRef,
     protected dialogService: NbDialogService,
@@ -57,41 +62,42 @@ export class SignInComponent extends NbLoginComponent implements OnInit {
     self.submitted = true;
     self.user['getToken'] = true;
 
+    // this.authService.fnHttpSignInUser(self.user).subscribe((result: NbAuthResult) => {
+    //   if (result['status'] === 200) {
+    //     this.utilitiesService.showToast('top-right', 'success', 'Has ingresado satisfactoriamente!');
+    //     setTimeout(() => {
+    //       return this.router.navigateByUrl('pages/dashboard');
+    //     }, 100);
+    //   } else {
+    //     this.utilitiesService.showToast('top-right', 'warning', 'Ha ocurrido un error, intentalo nuevamente!');
+    //   }
+    //   setTimeout(() => {
+    //     return this.router.navigateByUrl('auth/login');
+    //   }, 3000);
+    // }, error => {
+    //   this.utilitiesService.showToast('top-right', 'danger', 'Ha ocurrido un error, intentalo nuevamente!');
+    // });
+    // this.cd.detectChanges();
+
     self.service.authenticate(self.strategy, self.user).subscribe((result: NbAuthResult) => {
+      console.log('result: ', result);
       if (result.isSuccess()) {
         if (result['response']['status'] == 200){
+          localStorage.setItem('userData', JSON.stringify(result['response']['body']['usuario']));
           const redirect = result.getRedirect();
           self.router.navigateByUrl(redirect);
         }
         if (result['response']['status'] == 206) {
           self.submitted = false;
-          // let message = result.getMessages()[0]['body']["message"];
-          // self.utilitiesService.showToast('top-right', 'warning', message);
+          this.utilitiesService.showToast('top-right', 'danger', 'Ha ocurrido un error, intentalo nuevamente!');
         }
       } else {
         if (result.getErrors()[0]['status'] == 500) {
           self.submitted = false;
+          this.utilitiesService.showToast('top-right', 'danger', 'Ha ocurrido un error, intentalo nuevamente!');
         }
       }
       self.cd.detectChanges();
-      // this.submitted = false;
-
-      // if (result.isSuccess()) {
-      //   this.messages = result.getMessages();
-      // } else {
-      //   this.errors = result.getErrors();
-      // }
-
-      // const redirect = result.getRedirect();
-      // if (redirect) {
-      //   setTimeout(() => {
-      //     return this.router.navigateByUrl(redirect);
-      //   }, 
-      //   // this.redirectDelay
-      //   1000
-      //   );
-      // }
-      // this.cd.detectChanges();
     });
   }
 

@@ -1,0 +1,66 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+
+@include nb-install-component() {
+
+  .flex-centered {
+    margin: auto;
+  }
+  
+  nb-card-body {
+    display: flex;
+    max-height: 80vh;
+    min-height: 78vh;
+  }
+
+  button:focus { outline:0; }
+
+  th span {
+    cursor: pointer;
+  }
+
+  .font_family_roboto {
+    font-family: 'Roboto';
+  }
+
+  .backgroud-layout {
+    background-color: #FFF;
+    min-height: 83vh;
+    z-index: 1
+  }
+
+  ::ng-deep .pointer {
+    cursor: pointer;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+
+  .title {
+    color: rgb(22, 22, 63);
+  }
+
+  .table-fix-head thead th { 
+    position: sticky; top: 0; 
+  }
+  .table-fix-head thead tr:nth-child(2) th {
+    top: 35px;
+  }
+
+  .table-fix-head {
+    overflow-y: auto;
+    height: calc(84vh - 307px);
+  }
+
+  .data-table {
+    color: black;
+  }
+ 
+  .data-table-actions{
+    width: 35px;
+  }
+
+}

@@ -57,9 +57,10 @@ const login = (req, res) => {
           if (successDataCompare) {
             if (datosUsuario.idEstado) {
               if (params.getToken) {
+                console.log('datosUsuario: ', datosUsuario);
                 res.status(200).send({
                   jwt: jwt.createToken(datosUsuario),
-                  Usuario: datosUsuario,
+                  usuario: datosUsuario,
                 });
               } else {
                 res
