@@ -36,52 +36,17 @@ export class UtilitiesService {
     return r.substring(0, l);
   }
 
-  fnReturnKey() {
-    if (sessionStorage.getItem('payload')) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   fnDestroySession() {
-    sessionStorage.removeItem('payload');
     localStorage.clear();
     sessionStorage.clear();
+    setTimeout(() => {
+      this.router.navigateByUrl('auth/login').then(resp => {
+      })
+    }, 500);
   }
 
   fnGetHost() {
     return environment.apiUrl;
-  }
-
-  fnValidSection(currentSection, currentView, itemSelectedDateBar) {
-
-    return new Promise((responsePromise) => {
-
-      let response = null;
-
-      if (currentSection === currentView) {
-        switch (itemSelectedDateBar) {
-          case 'Today':
-            response = 'Today';
-            break;
-          case '7Days':
-            response = '7Days';
-            break;
-          case '30Days':
-            response = '30Days';
-            break;
-          case 'Custom':
-            response = '30Days';
-            break;
-        }
-      } else {
-        response = false;
-      }
-
-      responsePromise(response);
-    });
-
   }
 
   fnSetRamdonColor() {
@@ -100,7 +65,7 @@ export class UtilitiesService {
     return colors[Math.floor(Math.random() * colors.length)];
   }
 
-  fnOnlyNumber = function (e) {
+  fnOnlyNumberKeyPress = function (e) {
     const t = e.keyCode ? e.keyCode : e.which;
     if ((t > 47 && t < 58)) {
       return true;
@@ -115,16 +80,21 @@ export class UtilitiesService {
   
   fnSearchTextInArrayObjects(collection_objects, text_criteria, field?) {
     const results = [];
-    const toSearch = text_criteria;
+    const toSearch = text_criteria.toLowerCase();
     collection_objects.forEach(function (obj, key) {
+      let valid = false;
       Object.keys(obj).forEach(function (ooo, kkk) {
-        if (field && field == ooo) {
-          if (obj[kkk].indexOf(toSearch) != -1) {
+        if (field && field == ooo && !valid) {
+          let data = (obj[ooo].toString()).toLowerCase();
+          if (data.includes(toSearch)) {
             results.push(obj);
+            valid = true;
           }
         } else {
-          if (obj[kkk].indexOf(toSearch) != -1) {
+          let data = (obj[ooo].toString()).toLowerCase();
+          if (data.includes(toSearch) && !valid) {
             results.push(obj);
+            valid = true;
           }
         }
       });
@@ -136,28 +106,15 @@ export class UtilitiesService {
     return arr.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchKey)));
   }
   
-  fnSearch(collection, data, field) {
-    const arr = JSON.parse(JSON.stringify(collection));
-    if (arr) {
-      const search = data.toLowerCase();
-      return arr.filter((obj) => {
-        const datafield = { filter: obj[field].toLowerCase() };
-        return Object.values(datafield).some((val) => {
-          return val.includes(search);
-        });
-      });
-    }
-  }
-  
-  fnGetCurrentTokenSession(returnObserver) {
+  fnGetCurrentTokenSession(callback) {
     this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
       if (token.isValid()) {
         // here we receive a payload from the token and assigne it to our `user` variable
         const current_payload = token.getValue();
         if (current_payload) {
-          returnObserver(current_payload);
+          callback(current_payload);
         } else {
-          returnObserver(false);
+          callback(false);
         }
       }
     });
@@ -250,8 +207,8 @@ export class UtilitiesService {
     return this.data_headers_request;
   }
 
-  fnHttSetUploadFile(guid_user: any, fileToUpload: File, end_point_url: any, parameter?): Observable<any> {
-    const headers = this.fnSetDefineTokenAuthorization(guid_user);
+  fnHttSetUploadFile(token: any, fileToUpload: File, end_point_url: any, parameter?): Observable<any> {
+    const headers = this.fnSetDefineTokenAuthorization(token);
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
     const urlSetUploadFile = (parameter) ? end_point_url + '?' + parameter + '=' : end_point_url;
@@ -282,18 +239,36 @@ export class UtilitiesService {
     return new_value_percentage;
   }
   
-  numberOnly(evt): boolean {
-    const charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode == 46 && evt.srcElement.value.split('.').length>1) {
-        return false;
-    }
-    if (charCode != 37 && charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-  }
-
   format_number(number) {
     return number.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
+  fnHttpSetCustomWebService(url: string, type: string, dataObjectSend?: any): Observable<any> {
+    let urlGetListDocumentTypes = url;
+    switch (type) {
+      case "GET":
+        return this.http.get(this.fnGetHost() + urlGetListDocumentTypes,
+        {
+          observe: 'response',
+          reportProgress: true,
+        });
+        break;
+      case "POST":
+        return this.http.post(this.fnGetHost() + urlGetListDocumentTypes, dataObjectSend, 
+        {
+          observe: 'response',
+          reportProgress: true,
+        });
+        break;
+      case "PUT":
+        return this.http.put(this.fnGetHost() + urlGetListDocumentTypes, dataObjectSend, 
+        {
+          observe: 'response',
+          reportProgress: true,
+        });
+        break;
+    }
+    
+  }
 
 }

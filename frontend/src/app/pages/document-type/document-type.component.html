@@ -18,10 +18,14 @@
           <input 
             type="text" 
             nbInput 
-            fullWidth
-            placeholder="Buscar">&nbsp;&nbsp;
+            fullWidth 
+            [(ngModel)]="textSearch" 
+            (input)="fnSearchData(textSearch)"
+            placeholder="Buscar">
+            &nbsp;&nbsp;
           <button 
-            nbButton
+            nbButton 
+            (input)="fnSearchData(textSearch)"
             status="info">
             Buscar
            </button>
@@ -42,7 +46,7 @@
             <thead>
               <tr>
                 <th colspan="2">Opciones</th>
-                <th scope="col" class="text-left" *ngIf="false">
+                <th scope="col" class="text-center">
                   Estado
                   <span>
                     <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
@@ -98,15 +102,19 @@
               <tr *ngFor="let itemData of collectionDocumentTypes | paginate: { itemsPerPage: numItemsPage, currentPage: currentPage }; let i = index;">
                 <td class="data-table-actions text-center">
                   <i class="fas fa-edit pointer text-warning" (click)="fnShowEdit(itemData)" nbTooltip="texto editar" nbTooltipPlacement="top"></i>
+                  <!-- <i class="fas fa-edit pointer text-disabled" *ngIf="!access" (click)="fnAlertNoAccess(itemData)" nbTooltip="texto editar" nbTooltipPlacement="top"></i> -->
                 </td>
                 <td class="data-table-actions text-center">
                   <i class="far fa-trash-alt pointer text-danger" (click)="fnShowDelete(itemData)" nbTooltip="texto eliminar" nbTooltipPlacement="top"></i>
                 </td>
-                <td *ngIf="false"> </td>
+                <!-- <td>{{ itemData?.idEstado | state }}</td> -->
+                <td class="text-center">
+                  <strong class="text-center" [ngClass]="{'text-success': (itemData?.state == 'Activo'), 'text-danger': (itemData?.state !== 'Activo')}">{{ itemData?.state }}</strong>
+                </td>
                 <td>{{ itemData?.nombre }}</td>
                 <td>{{ itemData?.descripcion }}</td>
                 <td>{{ itemData?.fechaCreacion | date: 'medium' }}</td>
-                <td>{{ itemData?.fechaModificacion | date: 'medium'  }}</td>
+                <td>{{ itemData?.fechaModificacion | date: 'medium' }}</td>
               </tr>
             </tbody>
           </table>
@@ -120,10 +128,10 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
               <div class="text-center font-paginator">
-                  <!-- <div class="text-right font_paginator">
-                    {{ DATA_LANG_GENERAL?.lbItemsShowed.text }} {{ (((currentPage * numItemsPage) - ((currentPage * numItemsPage) / currentPage)) + 1 ) }} - {{ ( (currentPage * numItemsPage) 
-                      > categories_collection.length ) ? categories_collection.length : (currentPage * numItemsPage) }} {{ DATA_LANG_GENERAL?.lbItemsOf.text }} {{ categories_collection.length }}
-                  </div> -->
+                  <div class="text-right font_paginator">
+                    Mostrando {{ (((currentPage * numItemsPage) - ((currentPage * numItemsPage) / currentPage)) + 1 ) }} - {{ ( (currentPage * numItemsPage) 
+                      > collectionDocumentTypes.length ) ? collectionDocumentTypes.length : (currentPage * numItemsPage) }} de {{ collectionDocumentTypes.length }}
+                  </div>
               </div>
             </div>
           </div>

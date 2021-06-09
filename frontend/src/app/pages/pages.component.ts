@@ -14,7 +14,7 @@ import { MENU_ITEMS, MENU_USERS, MENU_ADMINS, MENU_PROFESSIONALS } from './pages
 })
 export class PagesComponent implements OnInit {
 
-  idProfile: string = JSON.parse(localStorage.getItem('userData'))['idPerfil'] || null;
+  idProfile: any = JSON.parse(localStorage.getItem('userData'))['idPerfil'] || null;
   menu: any = [];
 
   constructor() {}

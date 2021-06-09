@@ -16,10 +16,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
-// import { AddDocumentTypeComponent } from './documentType/add-document-type/add-document-type.component';
-// import { DocumentTypeComponent } from './document-type/document-type.component';
-// import { BaseComponent } from './base/base.component';
-// import { SignInComponent } from './_auth/sign-in/sign-in.component';
+import { StatePipe } from '../pipes/state.pipe';
 
 @NgModule({
   imports: [
@@ -45,7 +42,14 @@ import { DocumentTypeModule } from './document-type/document-type.module';
     // DocumentTypeComponent,
     // BaseComponent,
     // SignInComponent,
+    // StatePipe,
   ],
+  // exports: [
+  //   StatePipe,
+  // ],
+  // entryComponents: [
+  //   StatePipe,
+  // ],
 })
 export class PagesModule {
 }
