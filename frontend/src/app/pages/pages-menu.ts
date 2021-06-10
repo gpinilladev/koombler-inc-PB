@@ -173,6 +173,20 @@ export const MENU_ADMINS: NbMenuItem[] = [
     ]
   },
   {
+    title: 'Tipos de identificación',
+    icon: 'layers-outline',
+    children:[
+      {
+        title: 'Crear tipo de documento',
+        link: '/pages/document-type',
+      },
+      {
+        title: 'Listado Tipos de identificación',
+        link: '/pages/document-type',
+      }
+    ]
+  },
+  {
     title: 'Ayuda',
     icon: 'alert-circle-outline',
     link: '/pages/iot-dashboard',

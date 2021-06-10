@@ -19,6 +19,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms'; 
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -29,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from '../app/guards/auth-guard.guard';
+import { StatePipe } from './pipes/state.pipe';
 
 export interface NbAuthSocialLink {
   link?: string,
@@ -103,7 +105,6 @@ export const defaultSettings: any = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -122,6 +123,7 @@ export const defaultSettings: any = {
     ThemeModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    CommonModule,
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     NgxPaginationModule,
@@ -231,6 +233,16 @@ export const defaultSettings: any = {
       },
     }), 
   ],
+  declarations: [
+    AppComponent, 
+    StatePipe,
+  ],
+  exports: [
+    StatePipe,
+  ],
+  // entryComponents: [
+  //   StatePipe,
+  // ],
   providers: [
     // ...
     AuthGuard,

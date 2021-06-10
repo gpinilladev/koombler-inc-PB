@@ -24,7 +24,7 @@ export class EspecialityService {
   }
 
   fnHttpGetSpecialitiesList(): Observable<any> {
-    // const headers = this.fnSetDefineTokenAuthorization(guid_user);
+    // const headers = this.fnSetDefineTokenAuthorization(token);
     this.urlGetSpecialitiesList = 'especialidad';
     return this.http.get(this.utility.fnGetHost() + this.urlGetSpecialitiesList,
       {
