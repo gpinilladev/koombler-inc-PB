@@ -7,6 +7,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { BaseComponent } from './base/base.component';
 import { DocumentTypeComponent } from './document-type/document-type.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [{
   path: '',
@@ -27,6 +28,10 @@ const routes: Routes = [{
     {
       path: 'document-type',
       component: DocumentTypeComponent,
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
     },
     // {
     //   path: 'base',

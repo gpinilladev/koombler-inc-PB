@@ -16,6 +16,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
+import { ProfileModule } from './profile/profile.module';
 import { StatePipe } from '../pipes/state.pipe';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { StatePipe } from '../pipes/state.pipe';
     // Custom modules
     BaseModule,
     DocumentTypeModule,
+    // ProfileModule,
   ],
   declarations: [
     PagesComponent,

@@ -122,11 +122,11 @@ export const MENU_ADMINS: NbMenuItem[] = [
     children:[
       {
         title: 'Crear perfil',
-        link: '/pages/layout/stepper',
+        link: '/pages/profile',
       },
       {
         title: 'Listado perfiles',
-        link: '/pages/layout/stepper',
+        link: '/pages/profile',
       }
     ]
   },

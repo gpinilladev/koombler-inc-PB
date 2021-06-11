@@ -2,26 +2,26 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService, NbDialogService } from '@nebular/theme';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 
-import { AddDocumentTypeComponent } from './add-document-type/add-document-type.component';
-import { EditDocumentTypeComponent } from './edit-document-type/edit-document-type.component';
-import { DeleteDocumentTypeComponent } from './delete-document-type/delete-document-type.component';
+import { AddProfileComponent } from './add-profile/add-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
 import { Router } from '@angular/router';
 import { UtilitiesService } from '../../services/utilities.service';
 
-import { DocumentTypeService } from '../../services/document-type.service';
+import { ProfileService } from '../../services/profile.service';
 import { StateService } from '../../services/state.service';
 import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'ngx-document-type',
-  templateUrl: './document-type.component.html',
-  styleUrls: ['./document-type.component.scss']
+  selector: 'ngx-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class DocumentTypeComponent implements OnDestroy, OnInit {
+export class ProfileComponent implements OnDestroy, OnInit {
 
-  public collectionDocumentTypes: Array<[]> = [];
-  public collectionDocumentTypesOriginal: Array<[]> = [];
+  public collectionProfiles: Array<[]> = [];
+  public collectionProfilesOriginal: Array<[]> = [];
   public collectionStates: Array<[]> = [];
   public numItemsPage: number = 10;
   public currentPage: number = 1;
@@ -36,7 +36,7 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
     private authService: NbAuthService,
     private router: Router,
     private utilitiesService: UtilitiesService,
-    private documentTypeService: DocumentTypeService,
+    private profileService: ProfileService,
     private stateService: StateService,
   ) { }
 
@@ -49,9 +49,9 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
           if (resp) {
             this.collectionStates = resp['body']['estado'];
             if (this.access) {
-              this.fnGetListDocumentTypeAdmin(this.current_payload);  
+              this.fnGetListProfileAdmin(this.current_payload);  
             } else {
-              this.fnGetListDocumentType(this.current_payload);  
+              this.fnGetListProfile(this.current_payload);  
             }
           } else {
             this.utilitiesService.fnDestroySession();
@@ -63,32 +63,33 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
     });
   }
 
-  fnGetListDocumentType(current_payload) {
-    this.collectionDocumentTypes = [];
-    this.documentTypeService.fnHttpGetListDocumentTypes().subscribe(resp => {
-      // this.collectionDocumentTypes = resp['body']['tipoIdentificacion'];
-      let collectionDocumentTypes = resp['body']['tipoIdentificacion'];
-      collectionDocumentTypes.forEach(element => {
+  fnGetListProfile(current_payload) {
+    this.collectionProfiles = [];
+    this.profileService.fnHttpGetProfiles().subscribe(resp => {
+      // this.collectionProfiles = resp['body']['perfil'];
+      let collectionProfiles = resp['body']['perfil'];
+      collectionProfiles.forEach(element => {
         let state = this.collectionStates.find(resFind => element["idEstado"] === resFind["_id"]);
-        element["state"] = state['nombre'];
-        this.collectionDocumentTypes.push(element);
-        this.collectionDocumentTypesOriginal.push(element);
+        element["state"] = state;
+        this.collectionProfiles.push(element);
+        this.collectionProfilesOriginal.push(element);
       });
     }, error => {
     });
   }
 
-  fnGetListDocumentTypeAdmin(current_payload) {
-    this.collectionDocumentTypes = [];
-    this.documentTypeService.fnHttpGetListDocumentTypesAdmin(current_payload).subscribe(resp => {
-      // this.collectionDocumentTypes = resp['body']['tipoIdentificacion'];
-      let collectionDocumentTypes = resp['body']['tipoIdentificacion'];
-      collectionDocumentTypes.forEach(element => {
+  fnGetListProfileAdmin(current_payload) {
+    this.collectionProfiles = [];
+    this.profileService.fnHttpGetProfilesAdmin(current_payload).subscribe(resp => {
+      // this.collectionProfiles = resp['body']['perfil'];
+      let collectionProfiles = resp['body']['perfil'];
+      console.log('collectionProfiles: ', collectionProfiles);
+      collectionProfiles.forEach(element => {
         let state = this.collectionStates.find(resFind => element["idEstado"] === resFind["_id"]);
         console.log('state: ', state);
         element["state"] = state['nombre'];
-        this.collectionDocumentTypes.push(element);
-        this.collectionDocumentTypesOriginal.push(element);
+        this.collectionProfiles.push(element);
+        this.collectionProfilesOriginal.push(element);
       });
     }, error => {
     });
@@ -106,12 +107,12 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
     let object_send = {};
     let dataObject = {}
     object_send['dataObject'] = dataObject;
-    this.dialogService.open(AddDocumentTypeComponent, { context: object_send }).onClose.subscribe((res) => {
+    this.dialogService.open(AddProfileComponent, { context: object_send }).onClose.subscribe((res) => {
       if(res) {
         if (this.access) {
-          this.fnGetListDocumentTypeAdmin(this.current_payload);  
+          this.fnGetListProfileAdmin(this.current_payload);  
         } else {
-          this.fnGetListDocumentType(this.current_payload);  
+          this.fnGetListProfile(this.current_payload);  
         }
       }
     });
@@ -121,12 +122,12 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
     let object_send = {};
     let dataObject = dataItem;
     object_send['dataObject'] = dataObject;
-    this.dialogService.open(EditDocumentTypeComponent, { context: object_send }).onClose.subscribe((res) => {
+    this.dialogService.open(EditProfileComponent, { context: object_send }).onClose.subscribe((res) => {
       if(res) {
         if (this.access) {
-          this.fnGetListDocumentTypeAdmin(this.current_payload);  
+          this.fnGetListProfileAdmin(this.current_payload);  
         } else {
-          this.fnGetListDocumentType(this.current_payload);  
+          this.fnGetListProfile(this.current_payload);  
         }
       }
     });
@@ -136,12 +137,12 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
     let object_send = {};
     let dataObject = dataItem;
     object_send['dataObject'] = dataObject;
-    this.dialogService.open(DeleteDocumentTypeComponent, { context: object_send }).onClose.subscribe((res) => {
+    this.dialogService.open(DeleteProfileComponent, { context: object_send }).onClose.subscribe((res) => {
       if(res) {
         if (this.access) {
-          this.fnGetListDocumentTypeAdmin(this.current_payload);  
+          this.fnGetListProfileAdmin(this.current_payload);  
         } else {
-          this.fnGetListDocumentType(this.current_payload);  
+          this.fnGetListProfile(this.current_payload);  
         }
       }
     });
@@ -149,11 +150,11 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
 
   fnSearchData(textSearch) {
     console.log('textSearch: ', textSearch);
-    let collection = JSON.parse(JSON.stringify(this.collectionDocumentTypesOriginal));
+    let collection = JSON.parse(JSON.stringify(this.collectionProfilesOriginal));
     if (textSearch.length > 1) {
-      this.collectionDocumentTypes = this.utilitiesService.fnSearchTextInArrayObjects(collection, textSearch);
+      this.collectionProfiles = this.utilitiesService.fnSearchTextInArrayObjects(collection, textSearch);
     } else {
-      this.collectionDocumentTypes = this.collectionDocumentTypesOriginal;
+      this.collectionProfiles = this.collectionProfilesOriginal;
     }
   }
 
