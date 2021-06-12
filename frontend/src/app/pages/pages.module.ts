@@ -17,6 +17,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
 import { StatePipe } from '../pipes/state.pipe';
+import {UserSpecialityModule} from './user-speciality/user-speciality.module'
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { StatePipe } from '../pipes/state.pipe';
     // Custom modules
     BaseModule,
     DocumentTypeModule,
+    UserSpecialityModule,
   ],
   declarations: [
     PagesComponent,
