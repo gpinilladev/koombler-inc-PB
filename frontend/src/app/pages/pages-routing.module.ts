@@ -8,6 +8,7 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { BaseComponent } from './base/base.component';
 import { DocumentTypeComponent } from './document-type/document-type.component';
 import { UserSpecialityComponent } from './user-speciality/user-speciality.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [{
   path: '',
@@ -32,6 +33,10 @@ const routes: Routes = [{
     {
       path:'user-speciality',
       component:UserSpecialityComponent
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
     },
     // {
     //   path: 'base',
