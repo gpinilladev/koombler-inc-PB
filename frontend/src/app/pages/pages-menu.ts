@@ -112,7 +112,7 @@ export const MENU_ADMINS: NbMenuItem[] = [
       },
       {
         title: 'Listado usuarios',
-        link: '/pages/layout/stepper',
+        link: '/pages/user',
       }
     ]
   },

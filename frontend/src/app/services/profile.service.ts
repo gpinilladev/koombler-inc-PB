@@ -26,7 +26,7 @@ export class ProfileService {
 
   fnHttpGetProfilesList(): Observable<any> {
     // const headers = this.fnSetDefineTokenAuthorization(token);
-    this.urlGetProfilesList = 'perfil/listarPerfilComun';
+    this.urlGetProfilesList = '/perfil/listaPerfiles';
     return this.http.get(this.utility.fnGetHost() + this.urlGetProfilesList,
       {
         observe: 'response',
