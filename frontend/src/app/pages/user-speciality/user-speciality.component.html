@@ -2,13 +2,13 @@
   <div class="col-12">
     <div class="row">
       <div class="col-12 m-3">
-        <h4 class="d-inline mb-3 mt-3 title">Tipos de documento</h4>
+        <h4 class="d-inline mb-3 mt-3 title">Espacialistas</h4>
         <!-- &nbsp;<i class="far fa-question-circle pgp-icon_help" (click)="fnOpenHelp( DATA_LANG?.lbTitle?.text, DATA_LANG?.lbDescForm?.text)"></i> -->
       </div>
       <div class="col-12 mb-2 ml-3 mr-3 mt-1">
         <p style="font-size: 16px !important">
-          Este modulo se encarga de listar y ejecutar acciones sobre los tipos
-          de documentos que se usan en la aplicación.
+          Este modulo se encarga de listar y ejecutar acciones sobre los
+          Especialistas registrados en la aplicación.
         </p>
       </div>
     </div>
@@ -63,7 +63,7 @@
                   </span> -->
               </th>
               <th scope="col" class="text-left">
-                Nombre
+                Usuario
                 <span>
                   <i
                     class="far fa-question-circle"
@@ -77,7 +77,7 @@
                   </span> -->
               </th>
               <th scope="col" class="text-left">
-                Descripci&oacute;n
+                Especialidad
                 <span>
                   <i
                     class="far fa-question-circle"
@@ -123,7 +123,7 @@
           <tbody>
             <tr
               *ngFor="
-                let itemData of collectionDocumentTypes
+                let itemData of collectionUserSpeciality
                   | paginate
                     : { itemsPerPage: numItemsPage, currentPage: currentPage };
                 let i = index
@@ -157,8 +157,8 @@
                   >{{ itemData?.state }}</strong
                 >
               </td>
-              <td>{{ itemData?.nombre }}</td>
-              <td>{{ itemData?.descripcion }}</td>
+              <td>{{ itemData?.user }}</td>
+              <td>{{ itemData?.speciality }}</td>
               <td>{{ itemData?.fechaCreacion | date: "medium" }}</td>
               <td>{{ itemData?.fechaModificacion | date: "medium" }}</td>
             </tr>
@@ -187,11 +187,11 @@
                 }}
                 -
                 {{
-                  currentPage * numItemsPage > collectionDocumentTypes.length
-                    ? collectionDocumentTypes.length
+                  currentPage * numItemsPage > collectionUserSpeciality.length
+                    ? collectionUserSpeciality.length
                     : currentPage * numItemsPage
                 }}
-                de {{ collectionDocumentTypes.length }}
+                de {{ collectionUserSpeciality.length }}
               </div>
             </div>
           </div>
