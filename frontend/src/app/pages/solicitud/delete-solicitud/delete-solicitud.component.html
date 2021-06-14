@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nb-card class="font_family_roboto pgp-card_content">
+          <nb-card-header class="font_family_roboto">Eliminar solicitud</nb-card-header>
+          <nb-card-body>
+            <div>
+              <div class="row ml-0 mr-0">
+                <form (ngSubmit)="fnDeleteData(deleteDocumentTypeForm)" style="width: 350px;" #deleteDocumentTypeForm="ngForm" aria-labelledby="title">
+                    <div class="col-12 pl-0 pr-0">
+                        <p><strong>¿Esta seguro de que desea eliminar la solicitud?</strong></p>
+                    </div>
+                    <button 
+                        nbButton 
+                        fullWidth 
+                        type="submit"
+                        status="info">
+                        Eliminar
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button 
+                        nbButton 
+                        fullWidth
+                        status="info" 
+                        style="background-color: gray; border-color: gray; color: white;"
+                        (click)="fnCancelDeleteData()">
+                        Cancelar
+                    </button>
+                  </form>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>  
+      </div>  
+    </div>
+</div>
