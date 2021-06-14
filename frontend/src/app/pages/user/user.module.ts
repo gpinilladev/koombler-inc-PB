@@ -22,12 +22,14 @@ import { FormsModule } from '@angular/forms';
 import { StatePipe } from '../../pipes/state.pipe';
 import { UserComponent } from './user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { InactiveUserComponent } from './inactive-user/inactive-user.component';
 
 
 @NgModule({
   declarations: [
     UserComponent,
     EditUserComponent,
+    InactiveUserComponent,
   ],
   imports: [
     CommonModule,
