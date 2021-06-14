@@ -17,7 +17,11 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
 import { SolicitudModule } from './solicitud/solicitud.module';
+import { ProfileModule } from './profile/profile.module';
 import { StatePipe } from '../pipes/state.pipe';
+import { UserModule } from "./user/user.module";
+
+import {UserSpecialityModule} from './user-speciality/user-speciality.module'
 
 @NgModule({
   imports: [
@@ -36,10 +40,14 @@ import { StatePipe } from '../pipes/state.pipe';
     // Custom modules
     BaseModule,
     DocumentTypeModule,
-    SolicitudModule
+    SolicitudModule,
+    UserModule,
+    UserSpecialityModule,
+    // ProfileModule,
   ],
   declarations: [
     PagesComponent,
+
     // AddDocumentTypeComponent,
     // DocumentTypeComponent,
     // BaseComponent,

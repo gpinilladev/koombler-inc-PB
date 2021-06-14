@@ -115,7 +115,7 @@ const editarUsuario = (req, res) => {
 const cambiarEstadoUsuario = (req, res) => {
   let params = req.body;
   Usuario.findByIdAndUpdate(
-    { _id: params.id },
+    { _id: params._id },
     { idEstado: params.idEstado },
     (err, datosUsuario) => {
       if (err) {

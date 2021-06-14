@@ -1,0 +1,152 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nb-card class="font_family_roboto pgp-card_content">
+          <nb-card-header class="font_family_roboto">Actualizar Usuario</nb-card-header>
+          <nb-card-body>
+            <div>
+              <div class="row ml-0 mr-0">
+                <form (ngSubmit)="fnEditData(editUserForm)" style="width: 350px;" #editUserForm="ngForm" aria-labelledby="title">
+                  <div class="col-12 pl-0 pr-0">
+                    <div class="form-group" *ngIf="access">
+                      <label for="input-UserName">Nombre: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #UserName="ngModel"
+                      [(ngModel)]="user.nombres"
+                      [status]="'info'"
+                      [required]="true"
+                      name="UserName" 
+                      id="input-UserName" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresar nuevo dato"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group"  *ngIf="access">
+                      <label for="input-UserName">Apellidos: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #UserName="ngModel"
+                      [(ngModel)]="user.apellidos"
+                      [status]="'info'"
+                      [required]="true"
+                      name="UserLastName" 
+                      id="input-UserLastName" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresar nuevo dato"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group"  *ngIf="access">
+                      <label for="input-UserName">Teléfono: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #UserName="ngModel"
+                      [(ngModel)]="user.telefono"
+                      [status]="'info'"
+                      [required]="true"
+                      name="UserPhone" 
+                      id="input-UserPhone" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresar nuevo dato"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group"  *ngIf="access">
+                      <label for="input-UserName">Dirección:</label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #UserName="ngModel"
+                      [(ngModel)]="user.direccion"
+                      [status]="'info'"
+                      [required]="true"
+                      name="UserAddress" 
+                      id="input-UserAddress" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresar nuevo dato"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group"  *ngIf="access">
+                      <label for="input-UserName">Identificación: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #UserName="ngModel"
+                      [(ngModel)]="user.numIdentificacion"
+                      [status]="'info'"
+                      [required]="true"
+                      name="UserId" 
+                      id="input-UserId" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresar nuevo dato"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group"  *ngIf="access">
+                      <label for="input-UserName">Correo Eléctronico: </label>                                         
+                      <input 
+                      nbInput 
+                      fullWidth 
+                      #UserName="ngModel"
+                      [(ngModel)]="user.email"
+                      [status]="'info'"
+                      [required]="true"
+                      name="UserEmail" 
+                      id="input-UserEmail" 
+                      autofocus  
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresar nuevo dato"
+                      style="height: 45px;">
+                    </div>
+                    <div class="form-group"  *ngIf="access">
+                      <label for="input-states">Estado: </label>
+                      <ng-select 
+                        [items]="collectionStates" 
+                        bindLabel="nombre" 
+                        bindValue="_id" 
+                        [clearable]="false"
+                        #states="ngModel"
+                        [(ngModel)]="user.idEstado"
+                        [ngModelOptions]="{standalone: true}"
+                        id="input-states" 
+                        placeholder="Selecciona estado">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <br>
+                  <button 
+                      nbButton 
+                      fullWidth 
+                      type="submit"
+                      status="info">
+                      Actualizar
+                  </button>
+                  &nbsp;&nbsp;&nbsp;
+                  <button 
+                      nbButton 
+                      fullWidth
+                      status="info" 
+                      style="background-color: gray; border-color: gray; color: white;"
+                      (click)="fnCancelEditData()">
+                      Cancelar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>  
+      </div>  
+    </div>
+</div>

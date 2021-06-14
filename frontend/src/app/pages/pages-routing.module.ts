@@ -8,6 +8,12 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { BaseComponent } from './base/base.component';
 import { DocumentTypeComponent } from './document-type/document-type.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
+import { UserComponent } from "./user/user.component";
+import { ProfileComponent } from './profile/profile.component';
+import { UserSpecialityComponent } from './user-speciality/user-speciality.component';
+
+
+
 
 const routes: Routes = [{
   path: '',
@@ -32,6 +38,18 @@ const routes: Routes = [{
     {
       path: 'solicitud',
       component: SolicitudComponent,
+    },
+    {
+      path: 'user',
+      component: UserComponent,
+    },
+    {
+      path:'user-speciality',
+      component:UserSpecialityComponent,
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
     },
     // {
     //   path: 'base',
