@@ -11,6 +11,7 @@ import { ProfileService } from "../../services/profile.service";
 import { SignUpComponent } from "../../pages/auth/sign-up/sign-up.component";
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { Observable } from 'rxjs';
+import { InactiveUserComponent } from './inactive-user/inactive-user.component';
 
 @Component({
   selector: 'ngx-user',
@@ -117,6 +118,21 @@ export class UserComponent implements OnInit {
          // this.fnGetListDocumentTypeAdmin(this.current_payload);  
         } else {
          // this.fnGetListDocumentType(this.current_payload);  
+        }
+      }
+    });
+  }
+
+  fnShowEditInactive(dataItem) {
+    let object_send = {};
+    let dataObject = dataItem;
+    object_send['dataObject'] = dataObject;
+    this.dialogService.open(InactiveUserComponent, { context: object_send }).onClose.subscribe((res) => {
+      if(res) {
+        if (this.access) {
+         // this.fnGetListDocumentTypeAdmin(this.current_payload);  
+        } else {
+        //  this.fnGetListDocumentType(this.current_payload);  
         }
       }
     });

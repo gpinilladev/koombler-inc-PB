@@ -13,6 +13,7 @@ export class UserService {
   data_headers_request: any = '';
   urlGetListUser:string = "";
   urlSetEditUser: string = '';
+  urlSetEditInactiveUser: string = '';
 
   constructor(
     public http: HttpClient,
@@ -54,5 +55,14 @@ export class UserService {
     });
   }
 
+  fnHttpSetEditInactivarUser(dataObject: any, id: any): Observable<any> {
+    dataObject["idEstado"] = "60b726090ad7c316b5d7a977";
+    this.urlSetEditInactiveUser = 'usuario/cambiarEstadoUsuario';
+    return this.http.put(this.utility.fnGetHost() + this.urlSetEditInactiveUser, dataObject, 
+    {
+      observe: 'response',
+      reportProgress: true,
+    });
+  }
 
 }
