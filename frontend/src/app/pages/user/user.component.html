@@ -1,143 +1,185 @@
 <div class="row backgroud-layout pr-4">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12 m-3">
-          <h4 class="d-inline mb-3 mt-3 title">Listado de usuarios</h4>
-          <!-- &nbsp;<i class="far fa-question-circle pgp-icon_help" (click)="fnOpenHelp( DATA_LANG?.lbTitle?.text, DATA_LANG?.lbDescForm?.text)"></i> -->
-        </div>
-        <div class="col-12 mb-2 ml-3 mr-3 mt-1">
-          <p style="font-size: 16px !important;">
-            Este modulo se encarga de listar los usuarios en la aplicación. 
-          </p>
-        </div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 m-3">
+        <h4 class="d-inline mb-3 mt-3 title">Listado de usuarios</h4>
+        <!-- &nbsp;<i class="far fa-question-circle pgp-icon_help" (click)="fnOpenHelp( DATA_LANG?.lbTitle?.text, DATA_LANG?.lbDescForm?.text)"></i> -->
       </div>
-      <div class="row justify-content-between">
-        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 text-left ml-3 mr-0 d-flex">
-          <input 
-            type="text" 
-            nbInput 
-            fullWidth 
-
-            placeholder="Buscar">
-            &nbsp;&nbsp;
-          <button 
-            nbButton 
-
-            status="info">
-            Buscar
-           </button>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 text-lg-right text-xl-right text-md-center text-sm-center">
-          <button 
-            nbButton
-            (click)="fnShowCreate()"
-            status="info">
-            Crear nuevo
-          </button>
-        </div>
+      <div class="col-12 mb-2 ml-3 mr-3 mt-1">
+        <p style="font-size: 16px !important">
+          Este modulo se encarga de listar los usuarios en la aplicación.
+        </p>
       </div>
-  
-      <div class="row" id="data-container">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-3">
-          <table class="table table-bordered data-table">
-            <thead>
-              <tr>
-                <th colspan="2">Opciones</th>
-                <th scope="col" class="text-center">
-                  Estado
-                  <span>
-                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                  </span>
-                </th>
-                <th scope="col" class="text-left">
-                  Perfil
-                  <span>
-                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                  </span>
-                </th>
-                <th scope="col" class="text-left">
-                    Nombre
-                    <span>
-                      <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                    </span>
-                </th>
-                <th scope="col" class="text-left">
-                    Teléfono
-                    <span>
-                      <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                    </span>
-                </th>
-                <th scope="col" class="text-left">
-                    Dirección
-                    <span>
-                      <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                    </span>
-                </th>
-                <th scope="col" class="text-left">
-                    Identificación
-                    <span>
-                      <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                    </span>
-                </th>
-                <th scope="col" class="text-left">
-                  Email
-                  <span>
-                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                  </span>
-                </th>
-                <th scope="col" class="text-left">
-                  Fecha creaci&oacute;n
-                  <span>
-                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                  </span>
-                </th>
-                <th scope="col" class="text-left">
-                  Fecha modificaci&oacute;n
-                  <span>
-                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let itemData of collectionUser let i = index;">
-                <td class="data-table-actions text-center">
-                  <i class="fas fa-edit pointer text-warning" nbTooltip="texto editar" nbTooltipPlacement="top"></i>
-                </td>
-                <td class="data-table-actions text-center">
-                  <i class="far fa-trash-alt pointer text-danger" nbTooltip="texto eliminar" nbTooltipPlacement="top"></i>
-                </td>
-                <td class="text-center">
-                  <strong class="text-center" [ngClass]="{'text-success': (itemData?.estado == 'Activo'), 'text-danger': (itemData?.estado !== 'Activo')}">{{ itemData?.estado }}</strong>
-                </td>
-                <td>{{itemData?.perfil}}</td>
-                <td>{{itemData?.nombres}}</td>
-                <td>{{itemData?.telefono}}</td>
-                <td>{{itemData?.direccion}}</td>
-                <td>{{itemData?.numIdentificacion}}</td>
-                <td>{{itemData?.email}}</td>
-                <td>{{ itemData?.fechaCreacion | date: 'medium' }}</td>
-                <td>{{ itemData?.fechaModificacion | date: 'medium' }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-12" style="margin-right: -15px; margin-left: -35px;">
-          <div class="row justify-content-end">
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
-                <div class="text-center">
-                  
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-              <div class="text-center font-paginator">
-                  <div class="text-right font_paginator">
-                    
-                  </div>
-              </div>
+    </div>
+    <div class="row justify-content-between">
+      <div
+        class="col-xl-7 col-lg-7 col-md-12 col-sm-12 text-left ml-3 mr-0 d-flex"
+      >
+        <input type="text" nbInput fullWidth placeholder="Buscar" />
+        &nbsp;&nbsp;
+        <button nbButton status="info">Buscar</button>
+      </div>
+      <div
+        class="
+          col-xl-4 col-lg-4 col-md-12 col-sm-12
+          text-lg-right text-xl-right text-md-center text-sm-center
+        "
+      >
+        <button nbButton (click)="fnShowCreate()" status="info">
+          Crear nuevo
+        </button>
+      </div>
+    </div>
+
+    <div class="row" id="data-container">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-3">
+        <table class="table table-bordered data-table">
+          <thead>
+            <tr>
+              <th colspan="2">Opciones</th>
+              <th scope="col" class="text-center">
+                Estado
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Perfil
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Nombre
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Teléfono
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Dirección
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Identificación
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Email
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Fecha creaci&oacute;n
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+              <th scope="col" class="text-left">
+                Fecha modificaci&oacute;n
+                <span>
+                  <i
+                    class="far fa-question-circle"
+                    nbTooltip="Texto"
+                    nbTooltipPlacement="top"
+                  ></i>
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let itemData of collectionUser; let i = index">
+              <td class="data-table-actions text-center">
+                <i
+                  class="fas fa-edit pointer text-warning"
+                  (click)="fnShowEdit(itemData)"
+                  nbTooltip="texto editar"
+                  nbTooltipPlacement="top"
+                ></i>
+              </td>
+              <td class="data-table-actions text-center">
+                <i
+                  class="far fa-trash-alt pointer text-danger"
+                  nbTooltip="texto eliminar"
+                  nbTooltipPlacement="top"
+                ></i>
+              </td>
+              <td class="text-center">
+                <strong
+                  class="text-center"
+                  [ngClass]="{
+                    'text-success': itemData?.estado == 'Activo',
+                    'text-danger': itemData?.estado !== 'Activo'
+                  }"
+                  >{{ itemData?.estado }}</strong
+                >
+              </td>
+              <td>{{ itemData?.perfil }}</td>
+              <td>{{ itemData?.nombres }}</td>
+              <td>{{ itemData?.telefono }}</td>
+              <td>{{ itemData?.direccion }}</td>
+              <td>{{ itemData?.numIdentificacion }}</td>
+              <td>{{ itemData?.email }}</td>
+              <td>{{ itemData?.fechaCreacion | date: "medium" }}</td>
+              <td>{{ itemData?.fechaModificacion | date: "medium" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12" style="margin-right: -15px; margin-left: -35px">
+        <div class="row justify-content-end">
+          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
+            <div class="text-center"></div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+            <div class="text-center font-paginator">
+              <div class="text-right font_paginator"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

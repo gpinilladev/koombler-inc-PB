@@ -9,6 +9,8 @@ import { UserService } from "../../services/user.service";
 import { UserModule } from './user.module';
 import { ProfileService } from "../../services/profile.service";
 import { SignUpComponent } from "../../pages/auth/sign-up/sign-up.component";
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ngx-user',
@@ -20,6 +22,7 @@ export class UserComponent implements OnInit {
   public current_payload: string = '';
   public collectionStates: Array<[]> = [];
   public collectionUser: Array<[]> = [];
+  public collectionUserOriginal: Array<[]> = [];
   public collectionProfile: Array<[]> = [];
   public idProfile: string = (localStorage.getItem('userData')) ? JSON.parse(localStorage.getItem('userData'))['idPerfil'] : null;
   public access: boolean = (this.idProfile == "60b59445f2167c0fd787310f") ? true : false;
@@ -104,5 +107,18 @@ export class UserComponent implements OnInit {
       }
     });
   }
-
+  fnShowEdit(dataItem) {
+    let object_send = {};
+    let dataObject = dataItem;
+    object_send['dataObject'] = dataObject;
+    this.dialogService.open(EditUserComponent, { context: object_send }).onClose.subscribe((res) => {
+      if(res) {
+        if (this.access) {
+         // this.fnGetListDocumentTypeAdmin(this.current_payload);  
+        } else {
+         // this.fnGetListDocumentType(this.current_payload);  
+        }
+      }
+    });
+  }
 }
