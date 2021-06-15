@@ -12,6 +12,7 @@ import { UserComponent } from "./user/user.component";
 import { ProfileComponent } from './profile/profile.component';
 import { UserSpecialityComponent } from './user-speciality/user-speciality.component';
 import { SpecialtyComponent } from './specialty/specialty.component';
+import { SolicitudComponent } from './solicitud/solicitud.component';
 
 const routes: Routes = [{
   path: '',
@@ -52,6 +53,10 @@ const routes: Routes = [{
     {
       path: 'specialty',
       component: SpecialtyComponent,
+    },
+    {
+      path: 'solicitud',
+      component: SolicitudComponent,
     },
     // {
     //   path: 'base',
