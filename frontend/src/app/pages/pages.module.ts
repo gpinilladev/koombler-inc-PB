@@ -18,6 +18,7 @@ import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
 import { ProfileModule } from './profile/profile.module';
 import { SpecialtyModule } from './specialty/specialty.module';
+import { SolicitudModule } from './solicitud/solicitud.module';
 import { StatePipe } from '../pipes/state.pipe';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { StatePipe } from '../pipes/state.pipe';
     DocumentTypeModule,
     ProfileModule,
     SpecialtyModule,
+    SolicitudModule,
   ],
   declarations: [
     PagesComponent,

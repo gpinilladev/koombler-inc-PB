@@ -140,7 +140,7 @@ export const MENU_ADMINS: NbMenuItem[] = [
       },
       {
         title: 'Listado solicitudes',
-        link: '/pages/layout/stepper',
+        link: '/pages/solicitud',
       }
     ]
   },

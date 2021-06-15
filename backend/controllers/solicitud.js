@@ -13,10 +13,6 @@ const registrarSolicitud = async (req, res) => {
       idEspecialidad: params.idEspecialidad,
       idEstado: params.idEstado,
       descripcion: params.descripcion,
-      fechaCreacion: params.fechaCreacion,
-      fechaModificacion: params.fechaModificacion,
-      fechaInicio: params.fechaInicio,
-      fechaFin: params.fechaFin,
     });
     const result = await solicitud.save();
     result
@@ -94,7 +90,7 @@ const inactivarSolicitud = (req, res) => {
   Solicitud.findByIdAndUpdate(
     { _id: id },
     { 
-      idEstado: params.idEstado
+      idEstado: "60b726090ad7c316b5d7a977"
     },
     (err, datosSolicitud) => {
       if (err) {

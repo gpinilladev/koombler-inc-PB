@@ -9,6 +9,7 @@ import { BaseComponent } from './base/base.component';
 import { DocumentTypeComponent } from './document-type/document-type.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SpecialtyComponent } from './specialty/specialty.component';
+import { SolicitudComponent } from './solicitud/solicitud.component';
 
 const routes: Routes = [{
   path: '',
@@ -37,6 +38,10 @@ const routes: Routes = [{
     {
       path: 'specialty',
       component: SpecialtyComponent,
+    },
+    {
+      path: 'solicitud',
+      component: SolicitudComponent,
     },
     // {
     //   path: 'base',

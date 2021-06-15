@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <nb-card class="font_family_roboto pgp-card_content">
+        <nb-card-header class="font_family_roboto">Editar documento de solicitud</nb-card-header
+        >
+        <nb-card-body>
+          <div>
+            <div class="row ml-0 mr-0">
+              <form
+                (ngSubmit)="fnEditData(addSolicitudForm)"
+                style="width: 350px"
+                #addSolicitudForm="ngForm"
+                aria-labelledby="title"
+              >
+                <div class="col-12 pl-0 pr-0">
+                  <div class="form-group">
+                    <label for="input-states">Especialidad: </label>
+                    <ng-select
+                      [items]="collectionEspecialidad"
+                      bindLabel="nombre"
+                      bindValue="_id"
+                      [clearable]="false"
+                      #states="ngModel"
+                      [(ngModel)]="documentType.idEspecialidad"
+                      [ngModelOptions]="{ standalone: true }"
+                      id="input-states"
+                      placeholder="Selecciona especialidad"
+                    >
+                    </ng-select>
+                  </div>
+                  <div class="form-group">
+                    <label for="input-documentTypeDesc">Descripci&oacute;n:
+                    </label>
+                    <input
+                      nbInput
+                      fullWidth
+                      #documentTypeDesc="ngModel"
+                      [(ngModel)]="documentType.descripcion"
+                      [status]="'info'"
+                      [required]="true"
+                      name="documentTypeDesc"
+                      id="input-documentTypeDesc"
+                      autofocus
+                      type="text"
+                      class="form-control"
+                      placeholder="Ingresa descripcion de la solicitud"
+                      style="height: 45px"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="input-states">Estado: </label>
+                    <ng-select
+                      [items]="collectionEstado"
+                      bindLabel="nombre"
+                      bindValue="_id"
+                      [clearable]="false"
+                      #states="ngModel"
+                      [(ngModel)]="documentType.idEstado"
+                      [ngModelOptions]="{ standalone: true }"
+                      id="input-states"
+                      placeholder="Selecciona estado"
+                    >
+                    </ng-select>
+                  </div>
+                </div>
+                <br />
+                <button nbButton fullWidth type="submit" status="info">
+                  Guardar
+                </button>
+                &nbsp;&nbsp;&nbsp;
+                <button
+                  nbButton
+                  fullWidth
+                  (click)="fnCancelAddData()"
+                  status="info"
+                  style="
+                    background-color: gray;
+                    border-color: gray;
+                    color: white;
+                  "
+                >
+                  Cancelar
+                </button>
+              </form>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>
