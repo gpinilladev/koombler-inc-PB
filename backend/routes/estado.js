@@ -5,10 +5,12 @@ let api = express.Router();
  
 // Rutas de la API
 api.post("/estado/registrarEstado", Estado.registrarEstado);
+api.get("/estado/listarEstado", Estado.listarEstado);
+api.post("/estado/:nombre?", Estado.listarEstado);
 api.put("/estado/editarEstado/:id", Estado.editarEstado);
 api.put("/estado/inactivarEstado/:id", Estado.inactivarEstado);
 api.get("/estado/:id", Estado.buscarEstado);
-api.get("/estado/:nombre?", Estado.listarEstado);
-api.post("/estado/:nombre?", Estado.listarEstado);
+
+
 
 module.exports = api;

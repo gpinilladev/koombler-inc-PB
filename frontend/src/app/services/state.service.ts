@@ -13,6 +13,9 @@ export class StateService {
   data_headers_request: any = '';
 
   urlGetStateList: string = '';
+  urlGetStateListOne: string = '';
+  urlSetAddNewState:string="";
+  urlSetEditState:string="";
 
   constructor(
     public http: HttpClient, 
@@ -33,5 +36,34 @@ export class StateService {
         headers: headers,
         reportProgress: true,
       });
+  }
+
+  fnHttpGetListState(): Observable<any> {
+    // const headers = this.fnSetDefineTokenAuthorization(guid_user);
+    this.urlGetStateListOne = 'estado/listarEstado';
+    return this.http.get(this.utility.fnGetHost() + this.urlGetStateListOne,
+      {
+        observe: 'response',
+        // headers: headers,
+        reportProgress: true,
+      });
+  }
+
+  fnHttpSetAddNewState(dataObject: any): Observable<any> {
+    this.urlSetAddNewState = 'estado/registrarEstado';
+    return this.http.post(this.utility.fnGetHost() + this.urlSetAddNewState, dataObject, 
+    {
+      observe: 'response',
+      reportProgress: true,
+    });
+  }
+
+  fnHttpSetEditState(dataObject: any): Observable<any> {
+    this.urlSetEditState = 'estado/editarEstado/' ;
+    return this.http.put(this.utility.fnGetHost() + this.urlSetEditState, dataObject, 
+    {
+      observe: 'response',
+      reportProgress: true,
+    });
   }
 }

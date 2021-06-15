@@ -32,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from '../app/guards/auth-guard.guard';
 import { StatePipe } from './pipes/state.pipe';
 
+
 export interface NbAuthSocialLink {
   link?: string,
   url?: string,
@@ -235,7 +236,7 @@ export const defaultSettings: any = {
   ],
   declarations: [
     AppComponent, 
-    StatePipe,
+    StatePipe, 
   ],
   exports: [
     StatePipe,
