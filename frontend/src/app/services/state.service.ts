@@ -29,7 +29,7 @@ export class StateService {
 
   fnHttpGetStateList(token: string): Observable<any> {
     const headers = this.fnSetDefineTokenAuthorization(token);
-    this.urlGetStateList = 'estado';
+    this.urlGetStateList = 'estado/listarEstado';
     return this.http.get(this.utility.fnGetHost() + this.urlGetStateList,
       {
         observe: 'response',
@@ -58,8 +58,8 @@ export class StateService {
     });
   }
 
-  fnHttpSetEditState(dataObject: any): Observable<any> {
-    this.urlSetEditState = 'estado/editarEstado/' ;
+  fnHttpSetEditState(dataObject: any, id:any): Observable<any> {
+    this.urlSetEditState = 'estado/editarEstado/' + id ;
     return this.http.put(this.utility.fnGetHost() + this.urlSetEditState, dataObject, 
     {
       observe: 'response',

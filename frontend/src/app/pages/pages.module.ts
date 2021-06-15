@@ -26,10 +26,13 @@ import { SolicitudModule } from './solicitud/solicitud.module';
 import { UserModule } from "./user/user.module";
 import { UserSpecialityModule } from './user-speciality/user-speciality.module'
 import { LandingModule } from './landing/landing.module';
+import { MyAccountModule } from './my-account/my-account.module';
+import { MisSolicitudesModule } from './mis-solicitudes/mis-solicitudes.module';
 
 import { StatePipe } from '../pipes/state.pipe';
-import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
+// import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+// import { ContactUsComponent } from './contact-us/contact-us.component';
+
 
 @NgModule({
   imports: [
@@ -60,11 +63,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ProfileModule,
     SpecialtyModule,
     LandingModule,
+    MyAccountModule,
+    MisSolicitudesModule,
   ],
   declarations: [
     PagesComponent,
-    QuienesSomosComponent,
-    ContactUsComponent,
+    // QuienesSomosComponent,
+    // ContactUsComponent,
   //  StateComponent,
     //RequestStateComponent,
     // AddDocumentTypeComponent,
@@ -74,7 +79,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     // StatePipe,
     
   ],
- 
   // exports: [
   //   StatePipe,
   // ],

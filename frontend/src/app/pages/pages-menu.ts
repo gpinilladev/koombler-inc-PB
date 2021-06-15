@@ -1,35 +1,36 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_USERS: NbMenuItem[] = [
-  {
-    title: 'Base',
-    icon: 'shopping-cart-outline',
-    link: '/pages/base',
-  },
-  {
-    title: 'Home / Dashboard',
-    icon: 'home-outline',
-    link: '/pages/dashboard',
-    home: true,
-  },
+  // {
+  //   title: 'Base',
+  //   icon: 'shopping-cart-outline',
+  //   link: '/pages/base',
+  // },
+  // {
+  //   title: 'Home / Dashboard',
+  //   icon: 'home-outline',
+  //   link: '/pages/dashboard',
+  //   home: true,
+  // },
   {
     title: 'Solicitudes',
     icon: 'inbox-outline',
     children:[
       {
         title: 'Crear solicitud',
-        link: '/pages/layout/stepper',
+        link: '/pages/mis-solicitudes',
       },
       {
         title: 'Mis solicitudes',
-        link: '/pages/layout/stepper',
+        link: '/pages/mis-solicitudes',
+        home: true,
       },
     ]
   },
   {
     title: 'Especialistas',
     icon: 'people-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/user-speciality',
   },
   {
     title: 'Especialidades',
@@ -44,39 +45,40 @@ export const MENU_USERS: NbMenuItem[] = [
 ];
 
 export const MENU_PROFESSIONALS: NbMenuItem[] = [
-  {
-    title: 'Base',
-    icon: 'shopping-cart-outline',
-    link: '/pages/base',
-  },
-  {
-    title: 'Home / Dashboard',
-    icon: 'home-outline',
-    link: '/pages/dashboard',
-    home: true,
-  },
+  // {
+  //   title: 'Base',
+  //   icon: 'shopping-cart-outline',
+  //   link: '/pages/base',
+  // },
+  // {
+  //   title: 'Home / Dashboard',
+  //   icon: 'home-outline',
+  //   link: '/pages/dashboard',
+  //   home: true,
+  // },
   {
     title: 'Solicitudes',
     icon: 'inbox-outline',
     children:[
       {
         title: 'Crear solicitud',
-        link: '/pages/layout/stepper',
+        link: '/pages/solicitud',
       },
       {
         title: 'Listado solicitudes',
-        link: '/pages/layout/stepper',
+        link: '/pages/solicitud',
       },
       {
         title: 'Mis solicitudes',
-        link: '/pages/layout/stepper',
+        link: '/pages/mis-solicitudes',
+        home: true,
       },
     ]
   },
   {
     title: 'Especialistas',
     icon: 'people-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/user-speciality',
   },
   {
     title: 'Especialidades',
@@ -91,24 +93,24 @@ export const MENU_PROFESSIONALS: NbMenuItem[] = [
 ];
 
 export const MENU_ADMINS: NbMenuItem[] = [
-  {
-    title: 'Base',
-    icon: 'shopping-cart-outline',
-    link: '/pages/base',
-  },
-  {
-    title: 'Home / Dashboard',
-    icon: 'home-outline',
-    link: '/pages/dashboard',
-    home: true,
-  },
+  // {
+  //   title: 'Base',
+  //   icon: 'shopping-cart-outline',
+  //   link: '/pages/base',
+  // },
+  // {
+  //   title: 'Home / Dashboard',
+  //   icon: 'home-outline',
+  //   link: '/pages/dashboard',
+  //   home: true,
+  // },
   {
     title: 'Usuarios',
     icon: 'person-outline',
     children:[
       {
         title: 'Crear usuario',
-        link: '/pages/layout/stepper',
+        link: '/pages/user',
       },
       {
         title: 'Listado usuarios',
@@ -136,7 +138,7 @@ export const MENU_ADMINS: NbMenuItem[] = [
     children:[
       {
         title: 'Crear solicitud',
-        link: '/pages/layout/stepper',
+        link: '/pages/solicitud',
       },
       {
         title: 'Listado solicitudes',

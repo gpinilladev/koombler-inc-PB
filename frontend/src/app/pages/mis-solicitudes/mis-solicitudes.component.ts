@@ -2,27 +2,25 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbThemeService, NbDialogService } from '@nebular/theme';
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 
-// import { EditSpecialtyComponent } from './edit-specialty/edit-specialty.component';
-// import { DeleteSpecialtyComponent } from './delete-specialty/delete-specialty.component';
+// import { AddDocumentTypeComponent } from './add-document-type/add-document-type.component';
+// import { EditDocumentTypeComponent } from './edit-document-type/edit-document-type.component';
+// import { DeleteDocumentTypeComponent } from './delete-document-type/delete-document-type.component';
 import { Router } from '@angular/router';
 import { UtilitiesService } from '../../services/utilities.service';
 
-import { AddSpecialtyComponent } from './add-specialty/add-specialty.component';
-
-import { SpecialtyService } from '../../services/specialty.service';
+import { DocumentTypeService } from '../../services/document-type.service';
 import { StateService } from '../../services/state.service';
 import { Observable } from 'rxjs';
 
-
 @Component({
-  selector: 'ngx-specialty',
-  templateUrl: './specialty.component.html',
-  styleUrls: ['./specialty.component.scss']
+  selector: 'ngx-mis-solicitudes',
+  templateUrl: './mis-solicitudes.component.html',
+  styleUrls: ['./mis-solicitudes.component.scss']
 })
-export class SpecialtyComponent implements OnDestroy, OnInit {
+export class MisSolicitudesComponent implements OnInit, OnDestroy {
 
-  public collectionSpecialties: Array<[]> = [];
-  public collectionSpecialtiesOriginal: Array<[]> = [];
+  public collectionDocumentTypes: Array<[]> = [];
+  public collectionDocumentTypesOriginal: Array<[]> = [];
   public collectionStates: Array<[]> = [];
   public numItemsPage: number = 10;
   public currentPage: number = 1;
@@ -37,7 +35,7 @@ export class SpecialtyComponent implements OnDestroy, OnInit {
     private authService: NbAuthService,
     private router: Router,
     private utilitiesService: UtilitiesService,
-    private specialtyService: SpecialtyService,
+    private documentTypeService: DocumentTypeService,
     private stateService: StateService,
   ) { }
 
@@ -50,9 +48,9 @@ export class SpecialtyComponent implements OnDestroy, OnInit {
           if (resp) {
             this.collectionStates = resp['body']['estado'];
             if (this.access) {
-              this.fnGetListSpecialtyAdmin(this.current_payload);  
+              this.fnGetListDocumentTypeAdmin(this.current_payload);  
             } else {
-              this.fnGetListSpecialty(this.current_payload);  
+              this.fnGetListDocumentType(this.current_payload);  
             }
           } else {
             this.utilitiesService.fnDestroySession();
@@ -64,33 +62,32 @@ export class SpecialtyComponent implements OnDestroy, OnInit {
     });
   }
 
-  fnGetListSpecialty(current_payload) {
-    this.collectionSpecialties = [];
-    this.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
-      // this.collectionProfiles = resp['body']['Especialidad'];
-      let collectionSpecialties = resp['body']['Especialidad'];
-      collectionSpecialties.forEach(element => {
+  fnGetListDocumentType(current_payload) {
+    this.collectionDocumentTypes = [];
+    this.documentTypeService.fnHttpGetListDocumentTypes().subscribe(resp => {
+      // this.collectionDocumentTypes = resp['body']['tipoIdentificacion'];
+      let collectionDocumentTypes = resp['body']['tipoIdentificacion'];
+      collectionDocumentTypes.forEach(element => {
         let state = this.collectionStates.find(resFind => element["idEstado"] === resFind["_id"]);
         element["state"] = state['nombre'];
-        this.collectionSpecialties.push(element);
-        this.collectionSpecialtiesOriginal.push(element);
+        this.collectionDocumentTypes.push(element);
+        this.collectionDocumentTypesOriginal.push(element);
       });
     }, error => {
     });
   }
 
-  fnGetListSpecialtyAdmin(current_payload) {
-    this.collectionSpecialties = [];
-    this.specialtyService.fnHttpGetSpecialtiesAdmin(current_payload).subscribe(resp => {
-      // this.collectionProfiles = resp['body']['Especialidad'];
-      let collectionSpecialties = resp['body']['Especialidad'];
-      console.log('collectionSpecialties: ', collectionSpecialties);
-      collectionSpecialties.forEach(element => {
+  fnGetListDocumentTypeAdmin(current_payload) {
+    this.collectionDocumentTypes = [];
+    this.documentTypeService.fnHttpGetListDocumentTypesAdmin(current_payload).subscribe(resp => {
+      // this.collectionDocumentTypes = resp['body']['tipoIdentificacion'];
+      let collectionDocumentTypes = resp['body']['tipoIdentificacion'];
+      collectionDocumentTypes.forEach(element => {
         let state = this.collectionStates.find(resFind => element["idEstado"] === resFind["_id"]);
         console.log('state: ', state);
         element["state"] = state['nombre'];
-        this.collectionSpecialties.push(element);
-        this.collectionSpecialtiesOriginal.push(element);
+        this.collectionDocumentTypes.push(element);
+        this.collectionDocumentTypesOriginal.push(element);
       });
     }, error => {
     });
@@ -109,27 +106,27 @@ export class SpecialtyComponent implements OnDestroy, OnInit {
     let object_send = {};
     let dataObject = {}
     object_send['dataObject'] = dataObject;
-    this.dialogService.open(AddSpecialtyComponent, { context: object_send }).onClose.subscribe((res) => {
-      if(res) {
-        if (this.access) {
-          this.fnGetListSpecialtyAdmin(this.current_payload);  
-        } else {
-          this.fnGetListSpecialty(this.current_payload);  
-        }
-      }
-    });
+    // this.dialogService.open(AddDocumentTypeComponent, { context: object_send }).onClose.subscribe((res) => {
+    //   if(res) {
+    //     if (this.access) {
+    //       this.fnGetListDocumentTypeAdmin(this.current_payload);  
+    //     } else {
+    //       this.fnGetListDocumentType(this.current_payload);  
+    //     }
+    //   }
+    // });
   }
 
   fnShowEdit(dataItem) {
     let object_send = {};
     let dataObject = dataItem;
     object_send['dataObject'] = dataObject;
-    // this.dialogService.open(EditSpecialtyComponent, { context: object_send }).onClose.subscribe((res) => {
+    // this.dialogService.open(EditDocumentTypeComponent, { context: object_send }).onClose.subscribe((res) => {
     //   if(res) {
     //     if (this.access) {
-    //       this.fnGetListSpecialtyAdmin(this.current_payload);  
+    //       this.fnGetListDocumentTypeAdmin(this.current_payload);  
     //     } else {
-    //       this.fnGetListSpecialty(this.current_payload);  
+    //       this.fnGetListDocumentType(this.current_payload);  
     //     }
     //   }
     // });
@@ -139,12 +136,12 @@ export class SpecialtyComponent implements OnDestroy, OnInit {
     let object_send = {};
     let dataObject = dataItem;
     object_send['dataObject'] = dataObject;
-    // this.dialogService.open(DeleteSpecialtyComponent, { context: object_send }).onClose.subscribe((res) => {
+    // this.dialogService.open(DeleteDocumentTypeComponent, { context: object_send }).onClose.subscribe((res) => {
     //   if(res) {
     //     if (this.access) {
-    //       this.fnGetListSpecialtyAdmin(this.current_payload);  
+    //       this.fnGetListDocumentTypeAdmin(this.current_payload);  
     //     } else {
-    //       this.fnGetListSpecialty(this.current_payload);  
+    //       this.fnGetListDocumentType(this.current_payload);  
     //     }
     //   }
     // });
@@ -152,11 +149,11 @@ export class SpecialtyComponent implements OnDestroy, OnInit {
 
   fnSearchData(textSearch) {
     console.log('textSearch: ', textSearch);
-    let collection = JSON.parse(JSON.stringify(this.collectionSpecialtiesOriginal));
+    let collection = JSON.parse(JSON.stringify(this.collectionDocumentTypesOriginal));
     if (textSearch.length > 1) {
-      this.collectionSpecialties = this.utilitiesService.fnSearchTextInArrayObjects(collection, textSearch);
+      this.collectionDocumentTypes = this.utilitiesService.fnSearchTextInArrayObjects(collection, textSearch);
     } else {
-      this.collectionSpecialties = this.collectionSpecialtiesOriginal;
+      this.collectionDocumentTypes = this.collectionDocumentTypesOriginal;
     }
   }
 

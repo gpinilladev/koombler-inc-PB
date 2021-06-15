@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {StateService } from '../../../services/state.service';
 import { FormControl } from '@angular/forms';
 import { NbDialogRef } from '@nebular/theme';
 
 /* ************+ Import module auth ************ */
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UtilitiesService } from '../../../services/utilities.service';
 
+import {StateService } from '../../../services/state.service';
+import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
   selector: 'ngx-edit-state',
@@ -18,7 +18,7 @@ export class EditStateComponent implements OnInit {
   @Input() dataObject: any;
   current_payload: string = null;
   submitted: boolean = false;
-
+  idItemData: any = null;
   state: any = {};
   constructor(
     private stateService: StateService,
@@ -32,6 +32,10 @@ export class EditStateComponent implements OnInit {
   ngOnInit(): void {
     this.authService.onTokenChange().subscribe((token: NbAuthJWTToken) => {
       console.log('token: ', token);
+      this.idItemData = this.dataObject['_id'];
+        this.state = this.dataObject;
+        console.log('this.idItemData: ', this.idItemData);
+        
       if (token.isValid()) {
         // // here we receive a payload from the token and assigne it to our `user` variable
         // this.current_payload = token.getValue();
@@ -41,14 +45,14 @@ export class EditStateComponent implements OnInit {
     });
   }
   fnEditData(editDataForm) {
-    console.log('addDataForm: ', editDataForm);
+    console.log('editDataForm: ', editDataForm);
   
     console.log('this.state: ', this.state);
     this.submitted = true;
-    this.stateService.fnHttpSetEditState(this.state).subscribe(resp => {
+    this.stateService.fnHttpSetEditState(this.state,this.idItemData).subscribe(resp => {
       console.log('resp: ', resp);
       setTimeout(() => {
-        this.utilitiesService.showToast('top-right', 'success', 'El estado ha sido registrado satisfactoriamente!');
+        this.utilitiesService.showToast('top-right', 'success', 'El estado ha sido actualizado satisfactoriamente!');
         this.submitted = false;
         this.state = {};
         this.dismiss(resp);
@@ -68,5 +72,4 @@ export class EditStateComponent implements OnInit {
     this.submitted = false;
     this.dismiss();
   }
-
 }
