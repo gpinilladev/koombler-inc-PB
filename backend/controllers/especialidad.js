@@ -49,13 +49,35 @@ const listarEspecialidad = (req, res) => {
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
         if (datosEspecialidad) {
-          res.status(200).send({ especialidad: datosEspecialidad });
+          let  collectionSpecialties = [];
+          datosEspecialidad.forEach(element => {
+              if (element['idEstado'] == "60b290c9084ecb101b56809e") {
+                  collectionSpecialties.push(element);
+              }
+          });
+          res.status(200).send({ especialidad: collectionSpecialties });
         } else {
           res.status(401).send({ mensaje: "No hay especialidads" });
         }
       }
     }
   );
+};
+
+
+const listarEspecialidadAdmin = (req, res) => {
+  let nombre = req.params["nombre"];
+  Especialidad.find({ nombre: new RegExp(nombre, "i") }, (err, datosEspecialidad) => {
+    if (err) {
+      res.status(500).send({ mensaje: "Error al conectar al servidor" });
+    } else {
+      if (datosEspecialidad) {
+        res.status(200).send({ Especialidad: datosEspecialidad });
+      } else {
+        res.status(401).send({ mensaje: "No hay especialidades" });
+      }
+    }
+  });
 };
 
 const editarEspecialidad = (req, res) => {
@@ -88,7 +110,7 @@ const editarEspecialidad = (req, res) => {
   );
 };
 
-const activarInactivarEspecialidad = (req, res) => {
+const inactivarEspecialidad = (req, res) => {
   let id = req.params["id"];
 
   let params = req.body;
@@ -135,7 +157,8 @@ const especialidadController = {
   buscarEspecialidad,
   editarEspecialidad,
   listarEspecialidad,
-  activarInactivarEspecialidad,
+  listarEspecialidadAdmin,
+  inactivarEspecialidad,
 };
 
 module.exports = especialidadController;

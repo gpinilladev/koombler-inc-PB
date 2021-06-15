@@ -16,11 +16,17 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
-import { StatePipe } from '../pipes/state.pipe';
-import { StateComponent } from './state/state.component';
-import { RequestStateComponent } from './request-state/request-state.component';
-import { StateModule } from './state/state.module';
 
+import { StateComponent } from './state/state.component';
+
+import { StateModule } from './state/state.module';
+import { ProfileModule } from './profile/profile.module';
+import { SpecialtyModule } from './specialty/specialty.module';
+import { SolicitudModule } from './solicitud/solicitud.module';
+import { UserModule } from "./user/user.module";
+import { UserSpecialityModule } from './user-speciality/user-speciality.module'
+
+import { StatePipe } from '../pipes/state.pipe';
 @NgModule({
   imports: [
     // BrowserAnimationsModule,
@@ -39,6 +45,16 @@ import { StateModule } from './state/state.module';
     BaseModule,
     DocumentTypeModule,
     StateModule,
+    SolicitudModule,
+    UserModule,
+    UserSpecialityModule,
+    ProfileModule,
+    SpecialtyModule,
+    SolicitudModule,
+    UserModule,
+    UserSpecialityModule,
+    ProfileModule,
+    SpecialtyModule,
   ],
   declarations: [
     PagesComponent,
@@ -49,7 +65,9 @@ import { StateModule } from './state/state.module';
     // BaseComponent,
     // SignInComponent,
     // StatePipe,
+    
   ],
+ 
   // exports: [
   //   StatePipe,
   // ],

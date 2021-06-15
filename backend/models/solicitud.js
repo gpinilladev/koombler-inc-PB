@@ -9,8 +9,8 @@ let solicitudSchema = Schema({
     descripcion: String,
     fechaCreacion: { type: Date, default: Date.now },
     fechaModificacion: { type: Date, default: Date.now },
-    fechaInicio: Number,
-    fechaFin: Number,
+    fechaInicio: { type: Date, default: Date.now },
+    fechaFin: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("solicitud", solicitudSchema);

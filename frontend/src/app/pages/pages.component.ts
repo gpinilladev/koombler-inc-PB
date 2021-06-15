@@ -20,7 +20,6 @@ export class PagesComponent implements OnInit {
   constructor() {}
   ngOnInit() {
     this.menu = (this.idProfile == "60b59445f2167c0fd787310f") ? MENU_ADMINS : (this.idProfile == "60b5a83d9a8b7114d5d631d9") ? MENU_PROFESSIONALS : MENU_USERS;
-    // this.menu = MENU_ITEMS;
+    //this.menu = MENU_ITEMS;
   }
-
 }

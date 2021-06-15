@@ -1,84 +1,50 @@
 <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <nb-card class="font_family_roboto pgp-card_content">
-          <nb-card-header class="font_family_roboto">Actualizar tipo de documento</nb-card-header>
-          <nb-card-body>
-            <div>
-              <div class="row ml-0 mr-0">
-                <form (ngSubmit)="fnEditData(editDocumentTypeForm)" style="width: 350px;" #editDocumentTypeForm="ngForm" aria-labelledby="title">
-                  <div class="col-12 pl-0 pr-0">
-                    <div class="form-group">
-                      <label for="input-documentTypeName">Nombre: </label>                                         
-                      <input 
-                      nbInput 
-                      fullWidth 
-                      #documentTypeName="ngModel"
-                      [(ngModel)]="documentType.nombre"
-                      [status]="'info'"
-                      [required]="true"
-                      name="documentTypeName" 
-                      id="input-documentTypeName" 
-                      autofocus  
-                      type="text"
-                      class="form-control"
-                      placeholder="Ingresa nombre del tipo de documento"
+  <div class="row">
+    <div class="col-12">
+      <nb-card class="font_family_roboto pgp-card_content">
+        <nb-card-header class="font_family_roboto">Actualizar tipo de documento</nb-card-header>
+        <nb-card-body>
+          <div>
+            <div class="row ml-0 mr-0">
+              <form (ngSubmit)="fnEditData(editDocumentTypeForm)" style="width: 350px;" #editDocumentTypeForm="ngForm"
+                aria-labelledby="title">
+                <div class="col-12 pl-0 pr-0">
+                  <div class="form-group">
+                    <label for="input-documentTypeName">Nombre: </label>
+                    <input nbInput fullWidth #documentTypeName="ngModel" [(ngModel)]="documentType.nombre"
+                      [status]="'info'" [required]="true" name="documentTypeName" id="input-documentTypeName" autofocus
+                      type="text" class="form-control" placeholder="Ingresa nombre del tipo de documento"
                       style="height: 45px;">
-                    </div>
-                    <div class="form-group"  *ngIf="access">
-                      <label for="input-states">Estado: </label>
-                      <ng-select 
-                        [items]="collectionStates" 
-                        bindLabel="nombre" 
-                        bindValue="_id" 
-                        [clearable]="false"
-                        #states="ngModel"
-                        [(ngModel)]="documentType.idEstado"
-                        [ngModelOptions]="{standalone: true}"
-                        id="input-states" 
-                        placeholder="Selecciona estado">
-                      </ng-select>
-                    </div>
-                    <div class="form-group">
-                      <label for="input-documentTypeDesc">Descripci&oacute;n: </label>                                         
-                      <input 
-                      nbInput 
-                      fullWidth 
-                      #documentTypeDesc="ngModel"
-                      [(ngModel)]="documentType.descripcion"
-                      [status]="'info'"
-                      [required]="true"
-                      name="documentTypeDesc" 
-                      id="input-documentTypeDesc"
-                      autofocus  
-                      type="text"
-                      class="form-control"
-                      placeholder="Ingresa descripcion del tipo de documento"
-                      style="height: 45px;">
-                    </div>
                   </div>
-                  <br>
-                  <button 
-                      nbButton 
-                      fullWidth 
-                      type="submit"
-                      status="info">
-                      Actualizar
-                  </button>
-                  &nbsp;&nbsp;&nbsp;
-                  <button 
-                      nbButton 
-                      fullWidth
-                      status="info" 
-                      style="background-color: gray; border-color: gray; color: white;"
-                      (click)="fnCancelEditData()">
-                      Cancelar
-                  </button>
-                </form>
-              </div>
+                  <div class="form-group" *ngIf="access">
+                    <label for="input-states">Estado: </label>
+                    <ng-select [items]="collectionStates" bindLabel="nombre" bindValue="_id" [clearable]="false"
+                      #states="ngModel" [(ngModel)]="documentType.idEstado" [ngModelOptions]="{standalone: true}"
+                      id="input-states" placeholder="Selecciona estado">
+                    </ng-select>
+                  </div>
+                  <div class="form-group">
+                    <label for="input-documentTypeDesc">Descripci&oacute;n: </label>
+                    <input nbInput fullWidth #documentTypeDesc="ngModel" [(ngModel)]="documentType.descripcion"
+                      [status]="'info'" [required]="true" name="documentTypeDesc" id="input-documentTypeDesc" autofocus
+                      type="text" class="form-control" placeholder="Ingresa descripcion del tipo de documento"
+                      style="height: 45px;">
+                  </div>
+                </div>
+                <br>
+                <button nbButton fullWidth type="submit" status="info">
+                  Actualizar
+                </button>
+                &nbsp;&nbsp;&nbsp;
+                <button nbButton fullWidth status="info"
+                  style="background-color: gray; border-color: gray; color: white;" (click)="fnCancelEditData()">
+                  Cancelar
+                </button>
+              </form>
             </div>
-          </nb-card-body>
-        </nb-card>  
-      </div>  
+          </div>
+        </nb-card-body>
+      </nb-card>
     </div>
+  </div>
 </div>

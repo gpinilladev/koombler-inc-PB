@@ -5,7 +5,8 @@ let api = express.Router();
  
 api.post("/perfil/registrarPerfil", Perfil.registrarPerfil);
 api.get("/perfil/listaPerfiles", Perfil.listarPerfil);
-api.get("/perfil/listarPerfilComun", Perfil.listarPerfilComun);
+api.get("/perfil/listarPerfilAdmin", Perfil.listarPerfilAdmin);
+api.get("/perfil/listarPerfil", Perfil.listarPerfil);
 api.post("/perfil/:nombre?", Perfil.listarPerfil);
 api.get("/perfil/:id", Perfil.buscarPerfil);
 api.put("/perfil/editarPerfil/:id", Perfil.editarPerfil);

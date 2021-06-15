@@ -7,6 +7,7 @@ const registrarPerfil = (req, res) => {
   
     perfil.nombre = params.nombre;
     perfil.descripcion = params.descripcion;
+    perfil.idEstado = params.idEstado;
   
     perfil.save((err, savePerfil) => {
       if (err) {
@@ -28,7 +29,19 @@ const listarPerfil = (req, res) => {
       res.status(500).send({ mensaje: "Error al conectar al servidor" });
     } else {
       if (datosPerfil) {
-        res.status(200).send({ perfil: datosPerfil });
+        let coleccionPerfiles = [];
+        datosPerfil.forEach(element => {
+          if (
+            element.nombre !== "Admin" && 
+            element.nombre !== "Administrador" && 
+            element.nombre !== "admin" && 
+            element.nombre !== "administrador" && 
+            element['idEstado'] == "60b290c9084ecb101b56809e"
+          ) {
+            coleccionPerfiles.push(element);
+          }
+        });
+        res.status(200).send({ perfil: coleccionPerfiles });
       } else {
         res.status(401).send({ mensaje: "No hay perfil" });
       }
@@ -57,7 +70,7 @@ const editarPerfil = (req, res) => {
 
   Perfil.findByIdAndUpdate(
     { _id: id },
-    { nombre: params.nombre, descripcion: params.descripcion },
+    { nombre: params.nombre, descripcion: params.descripcion, idEstado: params.idEstado },
     { fechaModificacion: Date.now() },
     (err, datosPerfil) => {
       if (err) {
@@ -74,43 +87,33 @@ const editarPerfil = (req, res) => {
 };
 
 const inactivarPerfil = (req, res) => {
+  let id = req.params["id"];
   let params = req.body;
   Perfil.findByIdAndUpdate(
-    { _id: params.id },
-    { estadoSistema: false },
-    (err, datosPerfil) => {
-      if (err) {
-        res.status(500).send({ mensaje: "Error en el servidor" });
-      } else {
-        if (datosPerfil) {
-          res.status(200).send({ perfil: "Perfil Inactivo" });
-        } else {
-          res.status(403).send({ mensaje: "El perfil no se pudo inactivar" });
-        }
+      { _id: id },
+      { nombre: params.nombre, descripcion: params.descripcion, idEstado: "60b726090ad7c316b5d7a977" },
+      (err, datosPerfil) => {
+          if (err) {
+              res.status(500).send({ mensaje: "Error en el servidor" });
+          } else {
+              if (datosPerfil) {
+                  res.status(200).send({ tipoIdentificacion: "Perfil Inactivo" });
+              } else {
+                  res.status(403).send({ mensaje: "El perfil no se pudo inactivar" });
+              }
+          }
       }
-    }
   );
 };
 
-const listarPerfilComun = (req, res) => {
+const listarPerfilAdmin = (req, res) => {
   let nombre = req.params["nombre"];
   Perfil.find({ nombre: new RegExp(nombre, "i") }, (err, datosPerfil) => {
     if (err) {
       res.status(500).send({ mensaje: "Error al conectar al servidor" });
     } else {
       if (datosPerfil) {
-        let coleccionPerfiles = [];
-        datosPerfil.forEach(element => {
-          if (
-            element.nombre !== "Admin" && 
-            element.nombre !== "Administrador" && 
-            element.nombre !== "admin" && 
-            element.nombre !== "administrador"
-          ) {
-            coleccionPerfiles.push(element);
-          }
-        });
-        res.status(200).send({ perfil: coleccionPerfiles });
+        res.status(200).send({ perfil: datosPerfil });
       } else {
         res.status(401).send({ mensaje: "No hay perfil" });
       }
@@ -121,7 +124,7 @@ const listarPerfilComun = (req, res) => {
 module.exports = {
   registrarPerfil,
   listarPerfil,
-  listarPerfilComun,
+  listarPerfilAdmin,
   buscarPerfil,
   editarPerfil,
   inactivarPerfil,

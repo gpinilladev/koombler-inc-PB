@@ -8,6 +8,11 @@ import { NotFoundComponent } from './miscellaneous/not-found/not-found.component
 import { BaseComponent } from './base/base.component';
 import { DocumentTypeComponent } from './document-type/document-type.component';
 import{StateComponent} from './state/state.component'
+import { SolicitudComponent } from './solicitud/solicitud.component';
+import { UserComponent } from "./user/user.component";
+import { ProfileComponent } from './profile/profile.component';
+import { UserSpecialityComponent } from './user-speciality/user-speciality.component';
+import { SpecialtyComponent } from './specialty/specialty.component';
 
 const routes: Routes = [{
   path: '',
@@ -38,6 +43,41 @@ const routes: Routes = [{
     //   loadChildren: () => import('./base/base.module')
     //     .then(m => m.BaseModule),
     // },
+      {path: 'solicitud',
+      component: SolicitudComponent,
+    },
+    {
+      path: 'user',
+      component: UserComponent,
+    },
+    {
+      path:'user-speciality',
+      component:UserSpecialityComponent,
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent,
+    },
+    {
+      path: 'specialty',
+      component: SpecialtyComponent,
+    },
+    {
+      path: 'solicitud',
+      component: SolicitudComponent,
+    },
+    {
+      path: 'user',
+      component: UserComponent,
+    },
+    {
+      path:'user-speciality',
+      component:UserSpecialityComponent
+    },
+    {
+      path: 'specialty',
+      component: SpecialtyComponent,
+    },
     {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')

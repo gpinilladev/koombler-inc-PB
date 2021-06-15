@@ -70,7 +70,7 @@ export class DocumentTypeComponent implements OnDestroy, OnInit {
       let collectionDocumentTypes = resp['body']['tipoIdentificacion'];
       collectionDocumentTypes.forEach(element => {
         let state = this.collectionStates.find(resFind => element["idEstado"] === resFind["_id"]);
-        element["state"] = state;
+        element["state"] = state['nombre'];
         this.collectionDocumentTypes.push(element);
         this.collectionDocumentTypesOriginal.push(element);
       });

@@ -34,7 +34,7 @@ export const MENU_USERS: NbMenuItem[] = [
   {
     title: 'Especialidades',
     icon: 'layers-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/specialty',
   },
   {
     title: 'Ayuda',
@@ -81,7 +81,7 @@ export const MENU_PROFESSIONALS: NbMenuItem[] = [
   {
     title: 'Especialidades',
     icon: 'layers-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/specialty',
   },
   {
     title: 'Ayuda',
@@ -112,7 +112,7 @@ export const MENU_ADMINS: NbMenuItem[] = [
       },
       {
         title: 'Listado usuarios',
-        link: '/pages/layout/stepper',
+        link: '/pages/user',
       }
     ]
   },
@@ -122,11 +122,11 @@ export const MENU_ADMINS: NbMenuItem[] = [
     children:[
       {
         title: 'Crear perfil',
-        link: '/pages/layout/stepper',
+        link: '/pages/profile',
       },
       {
         title: 'Listado perfiles',
-        link: '/pages/layout/stepper',
+        link: '/pages/profile',
       }
     ]
   },
@@ -140,7 +140,7 @@ export const MENU_ADMINS: NbMenuItem[] = [
       },
       {
         title: 'Listado solicitudes',
-        link: '/pages/layout/stepper',
+        link: '/pages/solicitud',
       }
     ]
   },
@@ -149,12 +149,8 @@ export const MENU_ADMINS: NbMenuItem[] = [
     icon: 'people-outline',
     children:[
       {
-        title: 'Crear especialistas',
-        link: '/pages/layout/stepper',
-      },
-      {
-        title: 'Listado especialistas',
-        link: '/pages/layout/stepper',
+        title: 'Lista Especialistas',
+        link: '/pages/user-speciality',
       }
     ]
   },
@@ -164,11 +160,11 @@ export const MENU_ADMINS: NbMenuItem[] = [
     children:[
       {
         title: 'Crear especialidad',
-        link: '/pages/layout/stepper',
+        link: '/pages/specialty',
       },
       {
         title: 'Listado especialidades',
-        link: '/pages/layout/stepper',
+        link: '/pages/specialty',
       }
     ]
   },

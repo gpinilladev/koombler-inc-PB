@@ -18,7 +18,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { DocumentTypeService } from '../../../services/document-type.service';
 import { ProfileService } from '../../../services/profile.service';
-import { EspecialityService } from '../../../services/especiality.service';
+import { SpecialtyService } from '../../../services/specialty.service';
 import { UserSpecialityService } from '../../../services/user-speciality.service';
 import { AuthService } from '../../../services/auth.service';
 
@@ -62,7 +62,7 @@ export class SignUpComponent implements OnInit {
     // { id: 1, name: 'UC - Usuario cliente' },
     // { id: 2, name: 'UE - Usuario especialista' },
   ];
-  userSpecialities = [
+  userSpecialties = [
     // { id: 1, name: 'Derecho Tributario' },
     // { id: 2, name: 'Derecho administrativo' },
     // { id: 3, name: 'Derecho Familiar' },
@@ -77,7 +77,7 @@ export class SignUpComponent implements OnInit {
     private utilitiesService: UtilitiesService,
     private documentTypeService: DocumentTypeService,
     private profileService: ProfileService,
-    private especialityService: EspecialityService,
+    private specialtyService: SpecialtyService,
     private userSpecialityService: UserSpecialityService,
     private authService: AuthService,
     protected service: NbAuthService,
@@ -106,8 +106,8 @@ export class SignUpComponent implements OnInit {
       self.userProfiles = userProfiles;
     });
 
-    self.especialityService.fnHttpGetSpecialitiesList().subscribe(resp => {
-      self.userSpecialities = resp.body['especialidad'];
+    self.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
+      self.userSpecialties = resp.body['especialidad'];
     });
     
   }
