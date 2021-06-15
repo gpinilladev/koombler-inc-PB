@@ -22,10 +22,10 @@ export class StateComponent implements OnDestroy, OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.fnGetListState();
+    this.fnGetListStateOne();
   }
 
-  fnGetListState() {
+  fnGetListStateOne() {
     this.stateService.fnHttpGetListState().subscribe(resp => {
       console.log('resp: ', resp);
       this.collectionState = resp['body']['estado'];
@@ -44,19 +44,17 @@ export class StateComponent implements OnDestroy, OnInit {
     this.dialogService.open(AddStateComponent, { context: object_send }).onClose.subscribe((res) => {
       if(res) {
         console.log('res: ', res);
-        this.fnGetListState();
+        this.fnGetListStateOne();
       }
     });
   }
   fnShowEdit(dataItem){
     let object_send = {};
-    let dataObject = {
-      'datoenvio': 'Algun dato',
-    }
+    let dataObject =dataItem;
     object_send['dataObject'] = dataObject;
      this.dialogService.open(EditStateComponent, { context: object_send }).onClose.subscribe((res) => {
        if(res) {
-        this.fnGetListState();  
+        this.fnGetListStateOne();  
        }
      });
 

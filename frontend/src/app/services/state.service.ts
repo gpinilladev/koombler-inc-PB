@@ -58,8 +58,8 @@ export class StateService {
     });
   }
 
-  fnHttpSetEditState(dataObject: any): Observable<any> {
-    this.urlSetEditState = 'estado/editarEstado/' ;
+  fnHttpSetEditState(dataObject: any, id:any): Observable<any> {
+    this.urlSetEditState = 'estado/editarEstado/' + id ;
     return this.http.put(this.utility.fnGetHost() + this.urlSetEditState, dataObject, 
     {
       observe: 'response',
