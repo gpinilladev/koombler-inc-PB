@@ -27,6 +27,8 @@ export class SolicitudComponent implements OnInit {
   public usuario: string='';
   public especialidad: string='';
   public estado: string='';
+  public numItemsPage: number = 10;
+  public currentPage: number = 1;
   public idProfile: string = (localStorage.getItem('userData')) ? JSON.parse(localStorage.getItem('userData'))['idPerfil'] : null;
   public access: boolean = (this.idProfile == "60b59445f2167c0fd787310f") ? true : false;
 
@@ -161,4 +163,5 @@ export class SolicitudComponent implements OnInit {
       callback(false);
     });
   }
+  
 }

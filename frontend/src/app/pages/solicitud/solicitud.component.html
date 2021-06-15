@@ -37,7 +37,7 @@
       </div>
   
       <div class="row" id="data-container">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-3 table-fix-head">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-3">
           <table class="table table-bordered data-table">
             <thead>
               <tr>
@@ -93,7 +93,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let itemData of collectionSolicitudes let i = index;">
+              <tr *ngFor="let itemData of collectionSolicitudes | paginate: { itemsPerPage: numItemsPage, currentPage: currentPage };let i = index;">
                 <td class="data-table-actions text-center">
                   <i class="fas fa-edit pointer text-warning" (click)="fnShowEdit(itemData)" nbTooltip="texto editar" nbTooltipPlacement="top"></i>
                 </td>
@@ -114,7 +114,23 @@
             </tbody>
           </table>
         </div>
+        <div class="col-12" style="margin-right: -15px; margin-left: -35px;">
+          <div class="row justify-content-end">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
+                <div class="text-center">
+                  <pagination-controls (pageChange)="currentPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              <div class="text-center font-paginator">
+                  <div class="text-right font_paginator">
+                    Mostrando {{ (((currentPage * numItemsPage) - ((currentPage * numItemsPage) / currentPage)) + 1 ) }} - {{ ( (currentPage * numItemsPage) 
+                      > collectionSolicitudes.length ) ? collectionSolicitudes.length : (currentPage * numItemsPage) }} de {{ collectionSolicitudes.length }}
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
     </div>
   </div>
