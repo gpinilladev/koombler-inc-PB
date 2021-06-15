@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserSpecialityService } from '../../../services/user-speciality.service'
 import { UtilitiesService } from '../../../services/utilities.service';
 import { StateService } from '../../../services/state.service';
-import { EspecialityService } from '../../../services/especiality.service'
+import { SpecialtyService } from '../../../services/specialty.service'
 import { UserService } from '../../../services/user.service'
 
 @Component({
@@ -35,7 +35,7 @@ export class AddUserSpecialityComponent implements OnInit {
     private utilitiesService: UtilitiesService,
     private stateService: StateService,
     private userService: UserService,
-    private specialitiesService: EspecialityService,
+    private specialtyService: SpecialtyService,
     private authService: NbAuthService,
     public router: Router,
     private route: ActivatedRoute,
@@ -67,7 +67,7 @@ export class AddUserSpecialityComponent implements OnInit {
   }
 
   fnGetListSpecialities() {
-    this.specialitiesService.fnHttpGetSpecialitiesList().subscribe(resp => {
+    this.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
       this.collectionSpecialities = resp['body']['especialidad'];
     }, error => {
       console.log('error: ', error);

@@ -41,10 +41,6 @@ export class UserService {
 
   fnHttpGetListUser(): Observable<any> {
     this.urlGetListUser = 'usuario/listarUsuario';
-<<<<<<< HEAD
-    console.log(this.utility.fnGetHost() + this.urlGetListUser)
-=======
->>>>>>> 08ccaaf (Crear componente listar usuario)
     return this.http.get(this.utility.fnGetHost() + this.urlGetListUser,
       {
         observe: 'response',

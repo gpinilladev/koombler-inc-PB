@@ -7,7 +7,7 @@ import { UtilitiesService } from '../../services/utilities.service';
 import { StateService } from '../../services/state.service';
 import { Observable } from 'rxjs';
 import { UserSpecialityService } from '../../services/user-speciality.service';
-import { EspecialityService } from '../../services/especiality.service'
+import { SpecialtyService } from '../../services/specialty.service'
 import { UserService } from '../../services/user.service'
 
 
@@ -47,7 +47,7 @@ export class UserSpecialityComponent implements OnInit {
     private userSpecialityService: UserSpecialityService,
     private stateService: StateService,
     private userService: UserService,
-    private specialitiesService: EspecialityService,
+    private specialtyService: SpecialtyService,
   ) { }
 
   ngOnInit(): void {
@@ -86,7 +86,7 @@ export class UserSpecialityComponent implements OnInit {
   }
 
   fnGetListSpecialities() {
-    this.specialitiesService.fnHttpGetSpecialitiesList().subscribe(resp => {
+    this.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
       this.collectionSpecialities = resp['body']['especialidad'];
     }, error => {
       console.log('error: ', error);

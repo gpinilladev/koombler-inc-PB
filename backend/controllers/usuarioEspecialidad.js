@@ -45,9 +45,12 @@ const listarUsuarioEspecialidad = (req, res) => {
   let nombre = req.params["id"];
   UsuarioEspecialidad.find(
     (err, datosUsuarioEspecialidad) => {
+       console.log("paso por aca 3");
       if (err) {
+         console.log(err +"paso por aca 4");
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
+         console.log("paso por aca 5");
         if (datosUsuarioEspecialidad) {
           console.log(datosUsuarioEspecialidad);
           res

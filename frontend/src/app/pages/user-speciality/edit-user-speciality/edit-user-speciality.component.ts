@@ -6,7 +6,7 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import {UserSpecialityService} from '../../../services/user-speciality.service'
-import { EspecialityService } from '../../../services/especiality.service'
+import { SpecialtyService } from '../../../services/specialty.service'
 import { UserService } from '../../../services/user.service'
 
 import { UtilitiesService } from '../../../services/utilities.service';
@@ -42,7 +42,7 @@ export class EditUserSpecialityComponent implements OnInit {
     private route: ActivatedRoute,
     protected ref: NbDialogRef<EditUserSpecialityComponent>,
     private userService: UserService,
-    private specialitiesService: EspecialityService,
+    private specialtyService: SpecialtyService,
   ) { }
 
   ngOnInit(): void {
@@ -74,7 +74,7 @@ export class EditUserSpecialityComponent implements OnInit {
   }
 
   fnGetListSpecialities() {
-    this.specialitiesService.fnHttpGetSpecialitiesList().subscribe(resp => {
+    this.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
       this.collectionSpecialities = resp['body']['especialidad'];
     }, error => {
       console.log('error: ', error);

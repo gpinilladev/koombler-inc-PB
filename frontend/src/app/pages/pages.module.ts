@@ -47,6 +47,7 @@ import { StatePipe } from '../pipes/state.pipe';
     SpecialtyModule,
     SolicitudModule,
     UserModule,
+    UserSpecialityModule,
   ],
   declarations: [
     PagesComponent,

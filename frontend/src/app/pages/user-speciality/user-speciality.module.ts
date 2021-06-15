@@ -27,17 +27,12 @@ import { AddUserSpecialityComponent } from './add-user-speciality/add-user-speci
 import { DeleteUserSpecialityComponent } from './delete-user-speciality/delete-user-speciality.component';
 import { EditUserSpecialityComponent } from './edit-user-speciality/edit-user-speciality.component';
 
-// import { DocumentTypeComponent } from './document-type.component';
-// import { AddDocumentTypeComponent } from './add-document-type/add-document-type.component';
-// import { EditDocumentTypeComponent } from './edit-document-type/edit-document-type.component';
-// import { DeleteDocumentTypeComponent } from './delete-document-type/delete-document-type.component';
-
 @NgModule({
   declarations: [
     UserSpecialityComponent,
     AddUserSpecialityComponent,
     DeleteUserSpecialityComponent,
-    EditUserSpecialityComponent
+    EditUserSpecialityComponent,
   ],
   imports: [
     FormsModule,
