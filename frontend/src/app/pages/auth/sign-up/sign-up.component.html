@@ -226,18 +226,18 @@
   <!-- ***** END - Form control group - tipo usuario y numero de telefono ***** -->
   <!-- ***** START - Form control group - correo electronico ***** -->
   <div class="form-control-group" *ngIf="userSpecialist">
-    <label class="label" for="input-specialities">Especialidad(es): </label>
+    <label class="label" for="input-specialties">Especialidad(es): </label>
       <ng-select 
-           [items]="userSpecialities" 
+           [items]="userSpecialties" 
            bindLabel="nombre" 
            bindValue="_id" 
            [clearable]="false"
-           #specialities="ngModel"
-           [(ngModel)]="user.specialities"
+           #specialties="ngModel"
+           [(ngModel)]="user.specialties"
            [multiple]="true" 
            [ngModelOptions]="{standalone: true}"
-           id="input-specialities" 
-           name="specialities"
+           id="input-specialties" 
+           name="specialties"
            placeholder="Selecciona especialidad">
          </ng-select>
     
