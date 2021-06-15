@@ -48,6 +48,8 @@ import { StatePipe } from '../pipes/state.pipe';
     SolicitudModule,
     UserModule,
     UserSpecialityModule,
+    ProfileModule,
+    SpecialtyModule,
   ],
   declarations: [
     PagesComponent,
