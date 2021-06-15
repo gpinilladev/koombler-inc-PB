@@ -123,6 +123,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   selectOptionMenu(title) {
+    console.log('title: ', title);
     switch (title) {
       case 'Cerrar sesión':
         this.ngOnDestroy();
@@ -133,6 +134,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
         //   console.log('resp: ', resp);
         //   this.ngOnDestroy();
         // })
+        break;
+      case 'Mi cuenta':
+        this.router.navigateByUrl('pages/my-account');
         break;
     }
   }

@@ -29,7 +29,7 @@ export class StateService {
 
   fnHttpGetStateList(token: string): Observable<any> {
     const headers = this.fnSetDefineTokenAuthorization(token);
-    this.urlGetStateList = 'estado';
+    this.urlGetStateList = 'estado/listarEstado';
     return this.http.get(this.utility.fnGetHost() + this.urlGetStateList,
       {
         observe: 'response',
