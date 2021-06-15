@@ -22,6 +22,7 @@ import { SolicitudModule } from './solicitud/solicitud.module';
 import { StatePipe } from '../pipes/state.pipe';
 import { UserModule } from "./user/user.module";
 
+import {UserSpecialityModule} from './user-speciality/user-speciality.module'
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { UserModule } from "./user/user.module";
     SpecialtyModule,
     SolicitudModule,
     UserModule,
+    UserSpecialityModule,
   ],
   declarations: [
     PagesComponent,

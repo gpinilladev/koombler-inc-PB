@@ -42,17 +42,22 @@ const buscarUsuarioEspecialidad = (req, res) => {
 };
 
 const listarUsuarioEspecialidad = (req, res) => {
-  let nombre = req.params["nombre"];
+  console.log('paso por aca 2');
+  let nombre = req.params["id"];
   UsuarioEspecialidad.find(
-    { nombre: new RegExp(nombre, "i") },
     (err, datosUsuarioEspecialidad) => {
+       console.log("paso por aca 3");
       if (err) {
+         console.log(err +"paso por aca 4");
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
+         console.log("paso por aca 5");
         if (datosUsuarioEspecialidad) {
+           console.log("paso por aca 6");
+          console.log(datosUsuarioEspecialidad);
           res
             .status(200)
-            .send({ UsuarioEspecialidad: datosUsuarioEspecialidad });
+            .send({ usuarioEspecialidad: datosUsuarioEspecialidad });
         } else {
           res.status(401).send({ mensaje: "No hay UsuarioEspecialidad" });
         }

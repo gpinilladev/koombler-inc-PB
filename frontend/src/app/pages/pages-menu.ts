@@ -149,12 +149,8 @@ export const MENU_ADMINS: NbMenuItem[] = [
     icon: 'people-outline',
     children:[
       {
-        title: 'Crear especialistas',
-        link: '/pages/layout/stepper',
-      },
-      {
-        title: 'Listado especialistas',
-        link: '/pages/layout/stepper',
+        title: 'Lista Especialistas',
+        link: '/pages/user-speciality',
       }
     ]
   },

@@ -14,6 +14,8 @@ export class UserSpecialityService {
 
   urlSignInUser: string = '';
   urlCreateSpecialityByUser: string = '';
+  urlGetListUserSpeciality: string = '';
+  urlSetAddNewUserSpeciality: string = '';
 
   constructor(
     public http: HttpClient, 
@@ -28,6 +30,35 @@ export class UserSpecialityService {
   fnHttpCreateSpecialityByUser(data_object): Observable<any> {
     this.urlCreateSpecialityByUser = 'usuarioEspecialidad/crearUsuarioEspecialidad';
     return this.http.post(this.utility.fnGetHost() + this.urlCreateSpecialityByUser, data_object,
+      {
+        observe: 'response',
+        reportProgress: true,
+      });
+  }
+
+  fnHttpGetListUserSpecialityAdmin(token: string): Observable<any> {
+    const headers = this.fnSetDefineTokenAuthorization(token);
+    this.urlGetListUserSpeciality = 'usuarioEspecialidad';
+    // console.log('paso por aca 20' + this.utility.fnGetHost() + this.urlGetListUserSpeciality)
+    return this.http.get(this.utility.fnGetHost() + this.urlGetListUserSpeciality,
+      {
+        observe: 'response',
+        headers: headers,
+        reportProgress: true,
+      });
+  }
+
+  fnHttpGetListUserSpeciality(): Observable<any> {
+    this.urlGetListUserSpeciality = 'usuarioEspecialidad';
+    return this.http.get(this.utility.fnGetHost() + this.urlGetListUserSpeciality,
+      {
+        observe: 'response',
+        reportProgress: true,
+      });
+  }
+  fnHttpSetAddNewuserSpecialist(dataObject: any): Observable<any> {
+    this.urlSetAddNewUserSpeciality = 'usuarioEspecialidad/crearUsuarioEspecialidad';
+    return this.http.post(this.utility.fnGetHost() + this.urlSetAddNewUserSpeciality, dataObject,
       {
         observe: 'response',
         reportProgress: true,
