@@ -46,6 +46,8 @@ import {UserSpecialityModule} from './user-speciality/user-speciality.module'
     SolicitudModule,
     UserModule,
     UserSpecialityModule,
+    ProfileModule,
+    SpecialtyModule,
   ],
   declarations: [
     PagesComponent,
