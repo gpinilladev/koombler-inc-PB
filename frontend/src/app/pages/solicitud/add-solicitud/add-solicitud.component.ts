@@ -4,7 +4,7 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { SpecialtyService } from "../../../services/specialty.service";
 import { SolicitudService } from "../../../services/solicitud.service";
-import { SolicitudModule } from '../solicitud.module';
+import { EstadoSolicitudService } from "../../../services/estado-solicitud.service";
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
@@ -31,6 +31,7 @@ export class AddSolicitudComponent implements OnInit {
     private utilitiesService: UtilitiesService,
     private specialtyService: SpecialtyService,
     private solicitudService: SolicitudService,
+    private estadoSolicitudService: EstadoSolicitudService,
     protected ref: NbDialogRef<AddSolicitudComponent>,
   ) { }
 
@@ -53,7 +54,6 @@ export class AddSolicitudComponent implements OnInit {
       }
     });
   }
-
 
   fnGetListState(current_payload, callback) {
     this.stateService.fnHttpGetStateList(current_payload).subscribe(resp => {
@@ -79,9 +79,24 @@ export class AddSolicitudComponent implements OnInit {
         this.submitted = false;
         this.documentType = {};
         this.dismiss(resp);
+        this.fnAddDataEsyadoSolicitud();
       }, 2000);
     }, error => {
       this.utilitiesService.showToast('top-right', 'danger', 'Ha ocurrido un error, intentalo nuevamente!');
+      this.submitted = false;
+      console.log('error: ', error);
+    });
+  }
+
+  fnAddDataEsyadoSolicitud(){
+    this.estadoSolicitudService.fnHttpSetAddNewEstadoSolicitud(this.documentType, this.idUser).subscribe(resp => {
+      setTimeout(() => {
+        this.submitted = false;
+        this.documentType = {};
+        this.dismiss(resp);
+      }, 1000);
+    }, error => {
+      this.utilitiesService.showToast('top-right', 'danger', 'Ha ocurrido un error intentando guardar en estado solicitud, intentalo nuevamente!');
       this.submitted = false;
       console.log('error: ', error);
     });

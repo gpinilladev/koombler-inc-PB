@@ -5,6 +5,7 @@ let Schema = mongoose.Schema;
 let estadoSolicitudSchema=Schema ({
     idUsuario: { type: Schema.ObjectId, ref: "usuario" },
     idEstado: { type: Schema.ObjectId, ref: "estado" },
+    idEspecialista: String,
     observaciones: String,
     fechaCreacion: { type: Date, default: Date.now },
     fechaModificacion: { type: Date, default: Date.now },

@@ -7,6 +7,7 @@ const registrarEstadoSolicitud = (req, res) => {
 
   estadoSolicitud.idUsuario = params.idUsuario;
   estadoSolicitud.idEstado = params.idEstado;
+  estadoSolicitud.idEspecialista = params.idEspecialista;
   estadoSolicitud.observaciones = params.observaciones;
 
   estadoSolicitud.save((err, saveEstadoSolicitud) => {
