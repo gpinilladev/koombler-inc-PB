@@ -5,7 +5,7 @@ import { SolicitudService } from "../../services/solicitud.service";
 import { StateService } from '../../services/state.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { UserService } from "../../services/user.service";
-import { EspecialityService } from "../../services/especiality.service";
+import { SpecialtyService } from "../../services/specialty.service";
 import { AddSolicitudComponent } from "./add-solicitud/add-solicitud.component";
 import { EditSolicitudComponent } from "./edit-solicitud/edit-solicitud.component";
 import { DeleteSolicitudComponent } from "./delete-solicitud/delete-solicitud.component";
@@ -36,7 +36,7 @@ export class SolicitudComponent implements OnInit {
     private solicitudService:SolicitudService,
     private stateService: StateService,
     private utilitiesService: UtilitiesService,
-    private especialityService: EspecialityService,
+    private specialtyService: SpecialtyService,
     private userService: UserService,
     private dialogService: NbDialogService,
   ) { }
@@ -147,7 +147,7 @@ export class SolicitudComponent implements OnInit {
   }
 
   fnGetListEspecialidad(current_payload, callback) {
-    this.especialityService.fnHttpGetSpecialitiesList().subscribe(resp => {
+    this.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
       callback(resp);
     }, error => {
       callback(false);

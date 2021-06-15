@@ -7,7 +7,7 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StateService } from '../../../services/state.service';
 import { UtilitiesService } from '../../../services/utilities.service';
-import { EspecialityService } from "../../../services/especiality.service";
+import { SpecialtyService } from "../../../services/specialty.service";
 import { SolicitudService } from "../../../services/solicitud.service";
 
 @Component({
@@ -33,7 +33,7 @@ export class EditSolicitudComponent implements OnInit {
     private authService: NbAuthService,
     public router: Router,
     private stateService: StateService,
-    private especialityService: EspecialityService,
+    private specialtyService: SpecialtyService,
     private utilitiesService: UtilitiesService,
     private solicitudService: SolicitudService,
     protected ref: NbDialogRef<EditSolicitudComponent>,
@@ -70,7 +70,7 @@ export class EditSolicitudComponent implements OnInit {
   }
 
   fnGetListEspecialidad(current_payload, callback) {
-    this.especialityService.fnHttpGetSpecialitiesList().subscribe(resp => {
+    this.specialtyService.fnHttpGetSpecialtiesList().subscribe(resp => {
       callback(resp);
     }, error => {
       callback(false);
