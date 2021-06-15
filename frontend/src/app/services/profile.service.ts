@@ -33,7 +33,6 @@ export class ProfileService {
 
   fnHttpGetProfilesList(): Observable<any> {
     // const headers = this.fnSetDefineTokenAuthorization(token);
-    this.urlGetProfilesList = '/perfil/listaPerfiles';
     this.urlGetProfilesList = 'perfil/listarPerfil';
     return this.http.get(this.utility.fnGetHost() + this.urlGetProfilesList,
       {

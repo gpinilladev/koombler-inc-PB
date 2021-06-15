@@ -16,15 +16,13 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
-import { SolicitudModule } from './solicitud/solicitud.module';
 import { ProfileModule } from './profile/profile.module';
 import { SpecialtyModule } from './specialty/specialty.module';
 import { SolicitudModule } from './solicitud/solicitud.module';
-import { StatePipe } from '../pipes/state.pipe';
 import { UserModule } from "./user/user.module";
+import { UserSpecialityModule } from './user-speciality/user-speciality.module'
 
-import {UserSpecialityModule} from './user-speciality/user-speciality.module'
-
+import { StatePipe } from '../pipes/state.pipe';
 @NgModule({
   imports: [
     // BrowserAnimationsModule,
@@ -48,6 +46,7 @@ import {UserSpecialityModule} from './user-speciality/user-speciality.module'
     ProfileModule,
     SpecialtyModule,
     SolicitudModule,
+    UserModule,
   ],
   declarations: [
     PagesComponent,
