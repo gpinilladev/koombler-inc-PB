@@ -18,6 +18,7 @@ import { BaseModule } from './base/base.module';
 import { DocumentTypeModule } from './document-type/document-type.module';
 import { SolicitudModule } from './solicitud/solicitud.module';
 import { ProfileModule } from './profile/profile.module';
+import { SpecialtyModule } from './specialty/specialty.module';
 import { StatePipe } from '../pipes/state.pipe';
 import { UserModule } from "./user/user.module";
 
@@ -43,16 +44,11 @@ import {UserSpecialityModule} from './user-speciality/user-speciality.module'
     SolicitudModule,
     UserModule,
     UserSpecialityModule,
-    // ProfileModule,
+    ProfileModule,
+    SpecialtyModule,
   ],
   declarations: [
     PagesComponent,
-
-    // AddDocumentTypeComponent,
-    // DocumentTypeComponent,
-    // BaseComponent,
-    // SignInComponent,
-    // StatePipe,
   ],
   // exports: [
   //   StatePipe,

@@ -35,7 +35,8 @@ const listarPerfil = (req, res) => {
             element.nombre !== "Admin" && 
             element.nombre !== "Administrador" && 
             element.nombre !== "admin" && 
-            element.nombre !== "administrador"
+            element.nombre !== "administrador" && 
+            element['idEstado'] == "60b290c9084ecb101b56809e"
           ) {
             coleccionPerfiles.push(element);
           }

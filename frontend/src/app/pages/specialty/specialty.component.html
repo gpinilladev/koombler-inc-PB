@@ -1,0 +1,144 @@
+<div class="row backgroud-layout pr-4">
+    <div class="col-12">
+  
+      <div class="row">
+        <div class="col-12 m-3">
+          <h4 class="d-inline mb-3 mt-3 title">Especialidades</h4>
+          <!-- &nbsp;<i class="far fa-question-circle pgp-icon_help" (click)="fnOpenHelp( DATA_LANG?.lbTitle?.text, DATA_LANG?.lbDescForm?.text)"></i> -->
+        </div>
+        <div class="col-12 mb-2 ml-3 mr-3 mt-1">
+          <p style="font-size: 16px !important;">
+            Este modulo se encarga de listar y ejecutar acciones sobre las especialidades que se usan en la aplicación. 
+          </p>
+        </div>
+      </div>
+  
+      <div class="row justify-content-between">
+        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 text-left ml-3 mr-0 d-flex">
+          <input 
+            type="text" 
+            nbInput 
+            fullWidth 
+            [(ngModel)]="textSearch" 
+            (input)="fnSearchData(textSearch)"
+            placeholder="Buscar">
+            &nbsp;&nbsp;
+          <button 
+            nbButton 
+            (input)="fnSearchData(textSearch)"
+            status="info">
+            Buscar
+           </button>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 text-lg-right text-xl-right text-md-center text-sm-center">
+          <button 
+            nbButton
+            status="info"
+            (click)="fnShowCreate()">
+            Crear nuevo
+          </button>
+        </div>
+      </div>
+  
+      <div class="row" id="data-container">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-3">
+          <table class="table table-bordered data-table">
+            <thead>
+              <tr>
+                <th colspan="2">Opciones</th>
+                <th scope="col" class="text-center">
+                  Estado
+                  <span>
+                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
+                  </span>
+                  <!-- <span id="pgp-icon_complementary_relation_name_column" (click)="sortColumn('tNombre')" class="float-right">
+                    <i class="fas fa-long-arrow-alt-up" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'ASC' && field_sort == 'tNombre'}"></i>
+                    <i class="fas fa-long-arrow-alt-down" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'DESC' && field_sort == 'tNombre'}"></i>
+                  </span> -->
+                </th>
+                <th scope="col" class="text-left">
+                  Nombre
+                  <span>
+                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
+                  </span>
+                  <!-- <span id="pgp-icon_complementary_relation_name_column" (click)="sortColumn('tNombre')" class="float-right">
+                    <i class="fas fa-long-arrow-alt-up" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'ASC' && field_sort == 'tNombre'}"></i>
+                    <i class="fas fa-long-arrow-alt-down" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'DESC' && field_sort == 'tNombre'}"></i>
+                  </span> -->
+                </th>
+                <th scope="col" class="text-left">
+                  Descripci&oacute;n
+                  <span>
+                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
+                  </span>
+                  <!-- <span id="pgp-icon_complementary_relation_name_column" (click)="sortColumn('tNombre')" class="float-right">
+                    <i class="fas fa-long-arrow-alt-up" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'ASC' && field_sort == 'tNombre'}"></i>
+                    <i class="fas fa-long-arrow-alt-down" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'DESC' && field_sort == 'tNombre'}"></i>
+                  </span> -->
+                </th>
+                <th scope="col" class="text-left">
+                  Fecha de creaci&oacute;n
+                  <span>
+                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
+                  </span>
+                  <!-- <span id="pgp-icon_complementary_relation_name_column" (click)="sortColumn('tNombre')" class="float-right">
+                    <i class="fas fa-long-arrow-alt-up" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'ASC' && field_sort == 'tNombre'}"></i>
+                    <i class="fas fa-long-arrow-alt-down" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'DESC' && field_sort == 'tNombre'}"></i>
+                  </span> -->
+                </th>
+                <th scope="col" class="text-left">
+                  Fecha de modificaci&oacute;n
+                  <span>
+                    <i class="far fa-question-circle" nbTooltip="Texto" nbTooltipPlacement="top"></i>
+                  </span>
+                  <!-- <span id="pgp-icon_complementary_relation_name_column" (click)="sortColumn('tNombre')" class="float-right">
+                    <i class="fas fa-long-arrow-alt-up" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'ASC' && field_sort == 'tNombre'}"></i>
+                    <i class="fas fa-long-arrow-alt-down" [ngClass]="{'pgp-arrow_active' : state_sort_data == 'DESC' && field_sort == 'tNombre'}"></i>
+                  </span> -->
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let itemData of collectionSpecialties | paginate: { itemsPerPage: numItemsPage, currentPage: currentPage }; let i = index;">
+                <td class="data-table-actions text-center">
+                  <i class="fas fa-edit pointer text-warning" (click)="fnShowEdit(itemData)" nbTooltip="texto editar" nbTooltipPlacement="top"></i>
+                  <!-- <i class="fas fa-edit pointer text-disabled" *ngIf="!access" (click)="fnAlertNoAccess(itemData)" nbTooltip="texto editar" nbTooltipPlacement="top"></i> -->
+                </td>
+                <td class="data-table-actions text-center">
+                  <i class="far fa-trash-alt pointer text-danger" (click)="fnShowDelete(itemData)" nbTooltip="texto eliminar" nbTooltipPlacement="top"></i>
+                </td>
+                <!-- <td>{{ itemData?.idEstado | state }}</td> -->
+                <td class="text-center">
+                  <strong class="text-center" [ngClass]="{'text-success': (itemData?.state == 'Activo'), 'text-danger': (itemData?.state !== 'Activo')}">{{ itemData?.state }}</strong>
+                </td>
+                <td>{{ itemData?.nombre }}</td>
+                <td>{{ itemData?.descripcion }}</td>
+                <td>{{ itemData?.fechaCreacion | date: 'medium' }}</td>
+                <td>{{ itemData?.fechaModificacion | date: 'medium' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12" style="margin-right: -15px; margin-left: -35px;">
+          <div class="row justify-content-end">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
+                <div class="text-center">
+                  <pagination-controls (pageChange)="currentPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              <div class="text-center font-paginator">
+                  <div class="text-right font_paginator">
+                    Mostrando {{ (((currentPage * numItemsPage) - ((currentPage * numItemsPage) / currentPage)) + 1 ) }} - {{ ( (currentPage * numItemsPage) 
+                      > collectionSpecialties.length ) ? collectionSpecialties.length : (currentPage * numItemsPage) }} de {{ collectionSpecialties.length }}
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+    

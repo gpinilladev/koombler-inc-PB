@@ -34,7 +34,7 @@ export const MENU_USERS: NbMenuItem[] = [
   {
     title: 'Especialidades',
     icon: 'layers-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/specialty',
   },
   {
     title: 'Ayuda',
@@ -81,7 +81,7 @@ export const MENU_PROFESSIONALS: NbMenuItem[] = [
   {
     title: 'Especialidades',
     icon: 'layers-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/specialty',
   },
   {
     title: 'Ayuda',
@@ -160,11 +160,11 @@ export const MENU_ADMINS: NbMenuItem[] = [
     children:[
       {
         title: 'Crear especialidad',
-        link: '/pages/layout/stepper',
+        link: '/pages/specialty',
       },
       {
         title: 'Listado especialidades',
-        link: '/pages/layout/stepper',
+        link: '/pages/specialty',
       }
     ]
   },
