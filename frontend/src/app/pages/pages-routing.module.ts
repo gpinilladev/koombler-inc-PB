@@ -69,11 +69,6 @@ const routes: Routes = [{
       path: 'specialty',
       component: SpecialtyComponent,
     },
-    // {
-    //   path: 'base',
-    //   loadChildren: () => import('./base/base.module')
-    //     .then(m => m.BaseModule),
-    // },
     {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
