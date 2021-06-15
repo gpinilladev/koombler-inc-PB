@@ -25,8 +25,13 @@ import { SpecialtyModule } from './specialty/specialty.module';
 import { SolicitudModule } from './solicitud/solicitud.module';
 import { UserModule } from "./user/user.module";
 import { UserSpecialityModule } from './user-speciality/user-speciality.module'
+import { LandingModule } from './landing/landing.module';
+import { MyAccountModule } from './my-account/my-account.module';
+import { MisSolicitudesModule } from './mis-solicitudes/mis-solicitudes.module';
 
 import { StatePipe } from '../pipes/state.pipe';
+
+
 @NgModule({
   imports: [
     // BrowserAnimationsModule,
@@ -55,19 +60,15 @@ import { StatePipe } from '../pipes/state.pipe';
     UserSpecialityModule,
     ProfileModule,
     SpecialtyModule,
+    LandingModule,
+    MyAccountModule,
+    MisSolicitudesModule,
   ],
   declarations: [
     PagesComponent,
-  //  StateComponent,
-    //RequestStateComponent,
-    // AddDocumentTypeComponent,
-    // DocumentTypeComponent,
-    // BaseComponent,
-    // SignInComponent,
     // StatePipe,
     
   ],
- 
   // exports: [
   //   StatePipe,
   // ],

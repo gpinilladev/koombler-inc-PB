@@ -78,7 +78,8 @@ export class UserSpecialityComponent implements OnInit {
   }
 
   fnGetListState(current_payload, callback) {
-    this.stateService.fnHttpGetStateList(current_payload).subscribe(resp => {
+    // this.stateService.fnHttpGetStateList(current_payload).subscribe(resp => {
+    this.stateService.fnHttpGetListState().subscribe(resp => {
       callback(resp);
     }, error => {
       callback(false);

@@ -4,13 +4,17 @@ import { AuthGuard } from './guards/auth-guard.guard';
 
 export const routes: Routes = [
   {
-    path: 'pages',
-    canActivate: [AuthGuard], // here we tell Angular to check the access with our AuthGuard
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
+    path: 'home',
+    loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule),
   },
   {
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then(m => m.NgxAuthModule),
+  },
+  {
+    path: 'pages',
+    canActivate: [AuthGuard], // here we tell Angular to check the access with our AuthGuard
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
   },
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },

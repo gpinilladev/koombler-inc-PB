@@ -13,6 +13,8 @@ import { UserComponent } from "./user/user.component";
 import { ProfileComponent } from './profile/profile.component';
 import { UserSpecialityComponent } from './user-speciality/user-speciality.component';
 import { SpecialtyComponent } from './specialty/specialty.component';
+import { MyAccountComponent } from './my-account/my-account.component';
+import { MisSolicitudesComponent } from './mis-solicitudes/mis-solicitudes.component';
 
 const routes: Routes = [{
   path: '',
@@ -77,6 +79,14 @@ const routes: Routes = [{
     {
       path: 'specialty',
       component: SpecialtyComponent,
+    },
+    {
+      path: 'my-account',
+      component: MyAccountComponent,
+    },
+    {
+      path: 'mis-solicitudes',
+      component: MisSolicitudesComponent,
     },
     {
       path: 'layout',
