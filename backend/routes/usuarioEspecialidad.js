@@ -7,5 +7,5 @@ api.get("/usuarioEspecialidad/:id", UsuarioEspecialidad.buscarUsuarioEspecialida
 api.get("/usuarioEspecialidad/", UsuarioEspecialidad.listarUsuarioEspecialidad);
 api.post("/usuarioEspecialidad/:id?", UsuarioEspecialidad.listarUsuarioEspecialidad);
 api.put("/usuarioEspecialidad/editarUsuarioEspecialidad/:id", UsuarioEspecialidad.editarUsuarioEspecialidad);
-api.put("/usuarioEspecialidad/activarInactivarUsuarioEspecialidad",UsuarioEspecialidad.activarInactivarUsuarioEspecialidad);
+api.put("/usuarioEspecialidad/activarInactivarUsuarioEspecialidad/:id",UsuarioEspecialidad.activarInactivarUsuarioEspecialidad);
 module.exports = api;

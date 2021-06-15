@@ -1,25 +1,29 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl} from '@angular/forms'
 import { NbDialogRef } from '@nebular/theme';
 
 import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { UserSpecialityService } from '../../../services/user-speciality.service'
-import { UtilitiesService } from '../../../services/utilities.service';
-import { StateService } from '../../../services/state.service';
+import {UserSpecialityService} from '../../../services/user-speciality.service'
 import { EspecialityService } from '../../../services/especiality.service'
 import { UserService } from '../../../services/user.service'
 
+import { UtilitiesService } from '../../../services/utilities.service';
+import { StateService } from '../../../services/state.service';
+
 @Component({
-  selector: 'ngx-add-user-speciality',
-  templateUrl: './add-user-speciality.component.html',
-  styleUrls: ['./add-user-speciality.component.scss']
+  selector: 'ngx-edit-user-speciality',
+  templateUrl: './edit-user-speciality.component.html',
+  styleUrls: ['./edit-user-speciality.component.scss']
 })
-export class AddUserSpecialityComponent implements OnInit {
+export class EditUserSpecialityComponent implements OnInit {
+
 
   @Input() dataObject: any;
   current_payload: string = null;
   submitted: boolean = false;
+  idItemData: any = null;
   collectionStates: Array<[]> = [];
   collectionUsers: Array<[]> = [];
   collectionSpecialities: Array<[]> = [];
@@ -29,17 +33,16 @@ export class AddUserSpecialityComponent implements OnInit {
 
   userSpecialist: any = {};
 
-
   constructor(
-    private userSpecialistService: UserSpecialityService,
-    private utilitiesService: UtilitiesService,
+    private userSpecialityService: UserSpecialityService,
     private stateService: StateService,
-    private userService: UserService,
-    private specialitiesService: EspecialityService,
+    private utilitiesService: UtilitiesService,
     private authService: NbAuthService,
     public router: Router,
     private route: ActivatedRoute,
-    protected ref: NbDialogRef<AddUserSpecialityComponent>
+    protected ref: NbDialogRef<EditUserSpecialityComponent>,
+    private userService: UserService,
+    private specialitiesService: EspecialityService,
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +52,10 @@ export class AddUserSpecialityComponent implements OnInit {
         // // here we receive a payload from the token and assigne it to our `user` variable
         this.current_payload = token.getValue();
         console.log('this.current_payload: ', this.current_payload);
+        console.log('this.dataObject: ', this.dataObject);
+        this.idItemData = this.dataObject['_id'];
+        this.userSpecialist = this.dataObject;
+        console.log('this.idItemData: ', this.idItemData);
         this.fnGetListState(this.current_payload);
         this.fnGetListSpecialities();
         this.fnGetListUser()
@@ -80,15 +87,15 @@ export class AddUserSpecialityComponent implements OnInit {
     }, error => { console.log('error: ', error) })
   }
 
-  fnAddData(addDataForm) {
-    console.log('addDataForm: ', addDataForm);
-    console.log('this.userSpecialist: ', this.userSpecialist);
+  fnEditData(editDataForm) {
+    console.log('editDataForm: ', editDataForm);
+    console.log('this.documentType: ', this.userSpecialist);
     this.submitted = true;
     this.userSpecialist['idEstado'] = (this.userSpecialist['idEstado']) ? this.userSpecialist['idEstado'] : "60b290c9084ecb101b56809e";
-    this.userSpecialistService.fnHttpSetAddNewuserSpecialist(this.userSpecialist).subscribe(resp => {
+    this.userSpecialityService.fnHttpSetEditUserSpeciality(this.userSpecialist, this.idItemData).subscribe(resp => {
       console.log('resp: ', resp);
       setTimeout(() => {
-        this.utilitiesService.showToast('top-right', 'success', 'El Especialista ha sido registrado satisfactoriamente!');
+        this.utilitiesService.showToast('top-right', 'success', 'El Especialista ha sido actualizado satisfactoriamente!');
         this.submitted = false;
         this.userSpecialist = {};
         this.dismiss(resp);
@@ -104,9 +111,8 @@ export class AddUserSpecialityComponent implements OnInit {
     this.ref.close(res);
   }
 
-  fnCancelAddData() {
+  fnCancelEditData() {
     this.submitted = false;
     this.dismiss();
   }
-
 }

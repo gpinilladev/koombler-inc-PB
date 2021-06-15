@@ -12,6 +12,8 @@ import { UserService } from '../../services/user.service'
 
 
 import { AddUserSpecialityComponent } from './add-user-speciality/add-user-speciality.component'
+import { DeleteUserSpecialityComponent } from './delete-user-speciality/delete-user-speciality.component';
+import { EditUserSpecialityComponent } from './edit-user-speciality/edit-user-speciality.component';
 
 
 @Component({
@@ -167,6 +169,38 @@ export class UserSpecialityComponent implements OnInit {
       }
     });
   }
+
+  fnShowDelete(dataItem) {
+    let object_send = {};
+    let dataObject = dataItem;
+    object_send['dataObject'] = dataObject;
+    this.dialogService.open(DeleteUserSpecialityComponent, { context: object_send }).onClose.subscribe((res) => {
+      if(res) {
+        if (this.access) {
+          this.fnGetListUserSpecialityAdmin(this.current_payload); 
+        } else {
+          this.fnGetListUserSpeciality(this.current_payload);
+        }
+      }
+    });
+  }
+
+  fnShowEdit(dataItem) {
+    let object_send = {};
+    let dataObject = dataItem;
+    object_send['dataObject'] = dataObject;
+    this.dialogService.open(EditUserSpecialityComponent, { context: object_send }).onClose.subscribe((res) => {
+      if(res) {
+        if (this.access) {
+          this.fnGetListUserSpecialityAdmin(this.current_payload); 
+        } else {
+          this.fnGetListUserSpeciality(this.current_payload);  
+        }
+      }
+    });
+  }
+
+
   ngOnDestroy() {
   }
 

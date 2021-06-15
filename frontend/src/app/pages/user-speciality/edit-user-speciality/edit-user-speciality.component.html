@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <nb-card class="font_family_roboto pgp-card_content">
+                <nb-card-header class="font_family_roboto">Actualizar Especialistas</nb-card-header>
+                <nb-card-body>
+                    <div>
+                        <div class="row ml-0 mr-0">
+                            <form (ngSubmit)="fnEditData(editUserSpecialityForm)" style="width: 350px;"
+                                #editUserSpecialityForm="ngForm" aria-labelledby="title">
+                                <div class="col-12 pl-0 pr-0">
+                                    <div class="form-group" *ngIf="access">
+                                        <label for="input-users">Usuario: </label>
+                                        <ng-select [items]="collectionUsers" bindLabel="nombres" bindValue="_id"
+                                            [clearable]="false" #states="ngModel" [(ngModel)]="userSpecialist.idUsuario"
+                                            [ngModelOptions]="{ standalone: true }" id="input-users"
+                                            placeholder="Selecciona Usuario">
+                                        </ng-select>
+                                    </div>
+                                    <div class="form-group" *ngIf="access">
+                                        <label for="input-specilities">Especialidad: </label>
+                                        <ng-select [items]="collectionSpecialities" bindLabel="nombre" bindValue="_id"
+                                            [clearable]="false" #states="ngModel"
+                                            [(ngModel)]="userSpecialist.idEspecialidad"
+                                            [ngModelOptions]="{ standalone: true }" id="input-specilities"
+                                            placeholder="Selecciona Especialidad">
+                                        </ng-select>
+                                    </div>
+                                    <div class="form-group" *ngIf="access">
+                                        <label for="input-states">Estado: </label>
+                                        <ng-select [items]="collectionStates" bindLabel="nombre" bindValue="_id"
+                                            [clearable]="false" #states="ngModel" [(ngModel)]="userSpecialist.idEstado"
+                                            [ngModelOptions]="{ standalone: true }" id="input-states"
+                                            placeholder="Selecciona estado">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <br>
+                                <button nbButton fullWidth type="submit" status="info">
+                                    Actualizar
+                                </button>
+                                &nbsp;&nbsp;&nbsp;
+                                <button nbButton fullWidth status="info"
+                                    style="background-color: gray; border-color: gray; color: white;"
+                                    (click)="fnCancelEditData()">
+                                    Cancelar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

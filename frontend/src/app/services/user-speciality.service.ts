@@ -1,67 +1,105 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { UtilitiesService } from '../services/utilities.service';
-import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { UtilitiesService } from "../services/utilities.service";
+import { environment } from "../../environments/environment";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserSpecialityService {
-
   url_host: any = environment.apiUrl;
-  data_headers_request: any = '';
+  data_headers_request: any = "";
 
-  urlSignInUser: string = '';
-  urlCreateSpecialityByUser: string = '';
-  urlGetListUserSpeciality: string = '';
-  urlSetAddNewUserSpeciality: string = '';
+  urlSignInUser: string = "";
+  urlCreateSpecialityByUser: string = "";
+  urlGetListUserSpeciality: string = "";
+  urlSetAddNewUserSpeciality: string = "";
+  urlDeleteUserSpeciality: string = "";
+  urlEditUserSpeciality: string = "";
 
-  constructor(
-    public http: HttpClient, 
-    private utility: UtilitiesService
-  ) { }
+  constructor(public http: HttpClient, private utility: UtilitiesService) {}
 
   fnSetDefineTokenAuthorization(payload) {
-    this.data_headers_request = new HttpHeaders().set('Authorization', payload);
+    this.data_headers_request = new HttpHeaders().set("Authorization", payload);
     return this.data_headers_request;
   }
 
   fnHttpCreateSpecialityByUser(data_object): Observable<any> {
-    this.urlCreateSpecialityByUser = 'usuarioEspecialidad/crearUsuarioEspecialidad';
-    return this.http.post(this.utility.fnGetHost() + this.urlCreateSpecialityByUser, data_object,
+    this.urlCreateSpecialityByUser =
+      "usuarioEspecialidad/crearUsuarioEspecialidad";
+    return this.http.post(
+      this.utility.fnGetHost() + this.urlCreateSpecialityByUser,
+      data_object,
       {
-        observe: 'response',
+        observe: "response",
         reportProgress: true,
-      });
+      }
+    );
   }
 
   fnHttpGetListUserSpecialityAdmin(token: string): Observable<any> {
     const headers = this.fnSetDefineTokenAuthorization(token);
-    this.urlGetListUserSpeciality = 'usuarioEspecialidad';
+    this.urlGetListUserSpeciality = "usuarioEspecialidad";
     // console.log('paso por aca 20' + this.utility.fnGetHost() + this.urlGetListUserSpeciality)
-    return this.http.get(this.utility.fnGetHost() + this.urlGetListUserSpeciality,
+    return this.http.get(
+      this.utility.fnGetHost() + this.urlGetListUserSpeciality,
       {
-        observe: 'response',
+        observe: "response",
         headers: headers,
         reportProgress: true,
-      });
+      }
+    );
   }
 
   fnHttpGetListUserSpeciality(): Observable<any> {
-    this.urlGetListUserSpeciality = 'usuarioEspecialidad';
-    return this.http.get(this.utility.fnGetHost() + this.urlGetListUserSpeciality,
+    this.urlGetListUserSpeciality = "usuarioEspecialidad";
+    return this.http.get(
+      this.utility.fnGetHost() + this.urlGetListUserSpeciality,
       {
-        observe: 'response',
+        observe: "response",
         reportProgress: true,
-      });
+      }
+    );
   }
   fnHttpSetAddNewuserSpecialist(dataObject: any): Observable<any> {
-    this.urlSetAddNewUserSpeciality = 'usuarioEspecialidad/crearUsuarioEspecialidad';
-    return this.http.post(this.utility.fnGetHost() + this.urlSetAddNewUserSpeciality, dataObject,
+    this.urlSetAddNewUserSpeciality =
+      "usuarioEspecialidad/crearUsuarioEspecialidad";
+    return this.http.post(
+      this.utility.fnGetHost() + this.urlSetAddNewUserSpeciality,
+      dataObject,
       {
-        observe: 'response',
+        observe: "response",
         reportProgress: true,
-      });
+      }
+    );
   }
+
+  fnHttpSetDeleteUserSpeciality(dataObject: any, id: any): Observable<any> {
+    this.urlDeleteUserSpeciality =
+      "usuarioEspecialidad/activarInactivarUsuarioEspecialidad/" + id;
+      console.log('paso por aca 1' , this.utility.fnGetHost() + this.urlDeleteUserSpeciality)
+    return this.http.put(
+      this.utility.fnGetHost() + this.urlDeleteUserSpeciality,
+      dataObject,
+      {
+        observe: "response",
+        reportProgress: true,
+      }
+    );
+  }
+
+  fnHttpSetEditUserSpeciality(dataObject: any, id: any) : Observable<any>{
+    this.urlEditUserSpeciality =
+    "usuarioEspecialidad/editarUsuarioEspecialidad/" + id;
+  return this.http.put(
+    this.utility.fnGetHost() + this.urlEditUserSpeciality,
+    dataObject,
+    {
+      observe: "response",
+      reportProgress: true,
+    }
+  );
+  }
+
 }

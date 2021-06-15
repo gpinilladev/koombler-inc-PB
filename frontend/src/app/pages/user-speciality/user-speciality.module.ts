@@ -24,6 +24,8 @@ import { StatePipe } from '../../pipes/state.pipe';
 import { CommonModule } from '@angular/common';
 import { UserSpecialityComponent } from './user-speciality.component';
 import { AddUserSpecialityComponent } from './add-user-speciality/add-user-speciality.component';
+import { DeleteUserSpecialityComponent } from './delete-user-speciality/delete-user-speciality.component';
+import { EditUserSpecialityComponent } from './edit-user-speciality/edit-user-speciality.component';
 
 // import { DocumentTypeComponent } from './document-type.component';
 // import { AddDocumentTypeComponent } from './add-document-type/add-document-type.component';
@@ -33,7 +35,9 @@ import { AddUserSpecialityComponent } from './add-user-speciality/add-user-speci
 @NgModule({
   declarations: [
     UserSpecialityComponent,
-    AddUserSpecialityComponent
+    AddUserSpecialityComponent,
+    DeleteUserSpecialityComponent,
+    EditUserSpecialityComponent
   ],
   imports: [
     FormsModule,

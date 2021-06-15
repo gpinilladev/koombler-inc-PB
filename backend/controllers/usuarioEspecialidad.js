@@ -42,18 +42,13 @@ const buscarUsuarioEspecialidad = (req, res) => {
 };
 
 const listarUsuarioEspecialidad = (req, res) => {
-  console.log('paso por aca 2');
   let nombre = req.params["id"];
   UsuarioEspecialidad.find(
     (err, datosUsuarioEspecialidad) => {
-       console.log("paso por aca 3");
       if (err) {
-         console.log(err +"paso por aca 4");
         res.status(500).send({ mensaje: "Error al conectar al servidor" });
       } else {
-         console.log("paso por aca 5");
         if (datosUsuarioEspecialidad) {
-           console.log("paso por aca 6");
           console.log(datosUsuarioEspecialidad);
           res
             .status(200)
@@ -74,11 +69,14 @@ const editarUsuarioEspecialidad = (req, res) => {
     {
       idUsuario: params.idUsuario,
       idEspecialidad: params.idEspecialidad,
+      idEstado: params.idEstado,
+    },
+    {
       fechaModificacion: Date.now
     },
     (err, datosUsuarioEspecialidad) => {
       if (err) {
-        res.status(500).send({ mensaje: "Error al conectar al servidor" });
+        res.status(500).send({ mensaje: "Error al conectar al servidor", err });
       } else {
         if (datosUsuarioEspecialidad) {
           res
@@ -100,7 +98,11 @@ const activarInactivarUsuarioEspecialidad = (req, res) => {
   UsuarioEspecialidad.findByIdAndUpdate(
     { _id: id },
     {
-      idEstado: params.idEstado,
+      // idUsuario: params.idUsuario,
+      // idEspecialidad: params.idEspecialidad,
+      idEstado: "60b726090ad7c316b5d7a977",
+    },
+    {
       fechaModificacion: Date.now
     },
     (err, datosUsuarioEspecialidad) => {
