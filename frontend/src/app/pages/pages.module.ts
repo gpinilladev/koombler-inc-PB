@@ -20,6 +20,8 @@ import { ProfileModule } from './profile/profile.module';
 import { SpecialtyModule } from './specialty/specialty.module';
 import { SolicitudModule } from './solicitud/solicitud.module';
 import { StatePipe } from '../pipes/state.pipe';
+import { UserModule } from "./user/user.module";
+
 
 @NgModule({
   imports: [
@@ -41,9 +43,11 @@ import { StatePipe } from '../pipes/state.pipe';
     ProfileModule,
     SpecialtyModule,
     SolicitudModule,
+    UserModule,
   ],
   declarations: [
     PagesComponent,
+
     // AddDocumentTypeComponent,
     // DocumentTypeComponent,
     // BaseComponent,

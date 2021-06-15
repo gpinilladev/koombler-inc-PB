@@ -10,6 +10,8 @@ import { DocumentTypeComponent } from './document-type/document-type.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SpecialtyComponent } from './specialty/specialty.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
+import { UserComponent } from "./user/user.component";
+
 
 const routes: Routes = [{
   path: '',
@@ -43,6 +45,11 @@ const routes: Routes = [{
       path: 'solicitud',
       component: SolicitudComponent,
     },
+    {
+      path: 'user',
+      component: UserComponent,
+    },
+
     // {
     //   path: 'base',
     //   loadChildren: () => import('./base/base.module')

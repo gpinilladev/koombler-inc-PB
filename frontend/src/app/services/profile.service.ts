@@ -33,7 +33,11 @@ export class ProfileService {
 
   fnHttpGetProfilesList(): Observable<any> {
     // const headers = this.fnSetDefineTokenAuthorization(token);
+<<<<<<< HEAD
     this.urlGetProfilesList = 'perfil/listarPerfil';
+=======
+    this.urlGetProfilesList = '/perfil/listaPerfiles';
+>>>>>>> 08ccaaf (Crear componente listar usuario)
     return this.http.get(this.utility.fnGetHost() + this.urlGetProfilesList,
       {
         observe: 'response',
