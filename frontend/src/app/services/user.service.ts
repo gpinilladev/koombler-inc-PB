@@ -12,6 +12,7 @@ export class UserService {
   url_host: any = environment.apiUrl;
   data_headers_request: any = '';
   urlGetListUser:string = "";
+  urlSetEditUser: string = '';
 
   constructor(
     public http: HttpClient,
@@ -43,4 +44,15 @@ export class UserService {
         reportProgress: true,
       });
   }
+
+  fnHttpSetEditUser(dataObject: any, id: any): Observable<any> {
+    this.urlSetEditUser = 'usuario/editarUsuario/' + id;
+    return this.http.put(this.utility.fnGetHost() + this.urlSetEditUser, dataObject, 
+    {
+      observe: 'response',
+      reportProgress: true,
+    });
+  }
+
+
 }
