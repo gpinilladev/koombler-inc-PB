@@ -11,3 +11,91 @@
 ::ng-deep .navigation .link nb-icon {
   display: none !important;
 }
+
+/* Paleta de colores 
+rgb(255, 255, 255)
+rgb(45, 70, 84)
+rgb(36, 59, 74)
+rgb(129, 23, 27)
+rgb(0, 0, 0)
+*/
+
+.bd-placeholder-img {
+  font-size: 50px;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.menu {
+  background-color: rgb(45, 70, 84);
+  padding: 0px;
+  /* background-color: rgb(21, 68, 84); */
+}
+
+.listMenu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnColor {
+  background-color: rgb(45, 70, 84);
+  border-color: rgb(45, 70, 84);
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.btnColor:hover {
+  background-color: rgb(84, 84, 84);
+  color: white;
+}
+
+.contenedorFooter {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.aFooter {
+  text-align: center;
+  text-decoration: none;
+  color: rgb(129, 23, 27);
+}
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: .75rem;
+}
+p{
+  font-size: 15px;
+}
+
+h3{
+font-size: 40px;
+}
+
+h3 ~ p  {
+  font-size: 22px;
+}
+
+.h1Corousel{
+  font-size: 50px;
+}
+.h1CorouselP{
+  font-size: 18px;
+}
+
+.fuenteNava{
+  font-size: 20px ;
+  padding-left: 20px ;
+}

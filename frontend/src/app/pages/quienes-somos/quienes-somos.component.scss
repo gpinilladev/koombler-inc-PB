@@ -1,0 +1,105 @@
+/* Paleta de colores 
+rgb(255, 255, 255)
+rgb(45, 70, 84)
+rgb(36, 59, 74)
+rgb(129, 23, 27)
+rgb(0, 0, 0)
+*/
+/* Paleta de colores 
+rgb(255, 255, 255)
+rgb(45, 70, 84)
+rgb(36, 59, 74)
+rgb(129, 23, 27)
+rgb(0, 0, 0)
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  background-color: rgb(45, 70, 84);
+  padding: 0px;
+  /* background-color: rgb(21, 68, 84); */
+}
+
+.listMenu {
+  display: flex;
+  justify-content: flex-end;
+}
+.fuenteNava {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.tituloQuienesSomos {
+  text-align: center;
+}
+
+.parrafoUno {
+  text-align: center;
+  text-align: justify;
+  padding: 30px;
+  color: rgba(84, 84, 84, 0.62);
+  font-size: 25px;
+}
+.tituloParrafoDos {
+  text-align: center;
+  color: rgb(36, 59, 74);
+}
+
+.tituloParrafoTres {
+  text-align: center;
+  color: rgb(36, 59, 74);
+}
+  
+  .tituloParrafoTres {
+    text-align: center;
+  }
+  
+  .parrafoDos {
+    text-align: center;
+    text-align: justify;
+    padding: 30px;
+    color: rgba(84, 84, 84, 0.62);
+    font-size: 25px;
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .textoColorNombre{
+    color: rgb(45, 70, 84);;
+    }
+
+    .cargoBootCamp{
+
+        color: #2D4654;
+      }
+
+      
+.textoColorParrafo{
+    color: rgba(84, 84, 84, 0.62);
+  }
+
+  .descripcion{
+    font-size:20px ;
+    
+  }
+
+ UbicacionFotos{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+  
+ }
+ UbicacionFotosHijo{
+    margin-left: auto;
+    margin-right: auto;
+  
+ }

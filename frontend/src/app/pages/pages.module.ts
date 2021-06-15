@@ -28,6 +28,8 @@ import { UserSpecialityModule } from './user-speciality/user-speciality.module'
 import { LandingModule } from './landing/landing.module';
 
 import { StatePipe } from '../pipes/state.pipe';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   imports: [
@@ -61,6 +63,8 @@ import { StatePipe } from '../pipes/state.pipe';
   ],
   declarations: [
     PagesComponent,
+    QuienesSomosComponent,
+    ContactUsComponent,
   //  StateComponent,
     //RequestStateComponent,
     // AddDocumentTypeComponent,
