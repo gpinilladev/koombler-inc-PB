@@ -16,7 +16,6 @@ export class UserService {
   urlSetEditUser: string = '';
   urlSetEditInactiveUser: string = '';
 
-
   constructor(
     public http: HttpClient,
     private utility: UtilitiesService
